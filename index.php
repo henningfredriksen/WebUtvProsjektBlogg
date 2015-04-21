@@ -1,5 +1,5 @@
 <?php
 
-print "gfgfgg";
+print("gfgfgg");
 
 ?>
