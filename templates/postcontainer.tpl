@@ -6,8 +6,8 @@
 </head>
 <body>
 	<div id="postlist">
+		{include file='shortpost.tpl'}
 		<!-- need IF sentence here to select between shortpost and expandedpost+commentlist. it needs to know the id of the post -->
-		{include file='expandedpost.tpl'}
-		{include file='commentlist.tpl'}
+
 	</div>
 </body>

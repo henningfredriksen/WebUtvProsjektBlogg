@@ -9,7 +9,7 @@
 		{if $allPosts != null}
 			<!-- includes all the posts in the array as a seperate template -->
 			{foreach key=key from=$allPosts item=post}
-				<!-- saves the post ID, so it's accessable by the child templates (post.tpl) -->
+				<!-- saves the post ID, so it's accessable by the child templates -->
 				{$postid = $post->getId()}
 	      		{include file='postcontainer.tpl'}
 	        {/foreach}
