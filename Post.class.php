@@ -7,7 +7,7 @@ class Post {
 	private $title;
 	private $text;
 	private $date;
-	private $keyword;
+	private $keywords;
 	private $author;
 	
 	private $dbaccess;
@@ -17,14 +17,14 @@ class Post {
 	public function getText()	{return $this->text;}
 	public function getAuthor()	{return $this->author;}
 	public function getPostDate()	{return $this->date;}
-	public function getKeyWord()	{return $this->keyword;}
+	public function getKeyWords()	{return $this->keywords;}
 	
 	public function setId($id) {$this->id = $id;}
 	public function setTitle($title) {$this->title = $title;}
 	public function setText($text) {$this->text = $text;}
 	public function setAuthor($author) {$this->author = $author;}
 	public function setPostDate($date) {$this->postdate = $postdate;}
-	public function setKeyWord($keyword) {$this->keyword = $keyword;}
+	public function setKeyWords($keyword) {$this->keywords = $keywords;}
 	
 	public function __construct() {
 		$this->dbaccess = new DBAccess();
@@ -45,9 +45,10 @@ class Post {
 	public function getAllPosts() {
 		
 	//	$datamodell = new Datamodell();
-		$query = 'SELECT innlegg.ID, innlegg.tittel, innlegg.tekst, innlegg.dato, innlegg.stikkord, brukere.brukernavn
-				 FROM innlegg LEFT JOIN brukere ON innlegg.forfatter = brukere.ID ORDER BY dato DESC';
-	//	$query = "SELECT * from innlegg";
+	//	$query = 'SELECT innlegg.ID, innlegg.tittel, innlegg.tekst, innlegg.dato, innlegg.stikkord, brukere.brukernavn
+	//			 FROM innlegg LEFT JOIN brukere ON innlegg.forfatter = brukere.ID ORDER BY dato DESC';
+		$query = 'SELECT posts.id, posts.title, posts.text, users.username, posts.date, posts.keywords from posts
+					LEFT JOIN users ON post.author = users.id ORDER BY DESC';
 		$posts = $this->dbaccess->run_query($query);
 		return $posts;
 	}
