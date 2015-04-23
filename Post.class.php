@@ -1,7 +1,8 @@
 <?php
 require_once 'config.php';
 
-class innlegg {
+class Post {
+	private $id;
 	private $title;
 	private $text;
 	private $date;
@@ -13,17 +14,19 @@ class innlegg {
 		$this->dbaccess = new DBAccess();
 	}
 	
-	public function setTitle($title) {
-		$this->title = $title;
-	}
+	public function getId()	{return $this->id;}
+	public function getTitle()	{return $this->title;}
+	public function getText()	{return $this->text;}
+	public function getAuthorId()	{return $this->author;}
+	public function getPostDate()	{return $this->date;}
 	
-	public function setText($text) {
-		$this->text = $text;
-	}
+	public function setId($id) {$this->id = $id;}
+	public function setTitle($title) {$this->title = $title;}	
+	public function setText($text) {$this->text = $text;}	
+	public function setAuthor($author) {$this->author = $author;}
+	public function setPostDate($date) {$this->postdate = $postdate;}
 	
-	public function setAuthor($author) {
-		$this->author = $author;
-	}
+	
 	
 /*	public function get_post_by_id($Id) {
 		$query = 'SELECT innlegg.tittel, innlegg.tekst, innlegg.dato, innlegg.stikkord, brukere.brukernavn
@@ -33,7 +36,7 @@ class innlegg {
 		return $innlegg;
 	} */
 	
-	public function get_all_innleggs() {
+	public function getAllPosts() {
 	//	$datamodell = new Datamodell();
 		$query = 'SELECT innlegg.ID, innlegg.tittel, innlegg.tekst, innlegg.dato, innlegg.stikkord, brukere.brukernavn
 				 FROM innlegg LEFT JOIN brukere ON innlegg.forfatter = brukere.ID ORDER BY dato DESC';

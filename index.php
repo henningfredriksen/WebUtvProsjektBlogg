@@ -2,6 +2,10 @@
 require_once 'config.php';
 
 $post = new post();
-$allPosts = $post->get_all_posts();
+$allPosts = $post->getAllPosts();
+
+$smarty->assign('allPosts', $allPosts);
+
+$smarty->display('index.tpl');
 
 ?>
