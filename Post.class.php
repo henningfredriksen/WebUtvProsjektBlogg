@@ -16,23 +16,19 @@ class Post {
 	public function getTitle()	{return $this->title;}
 	public function getText()	{return $this->text;}
 	public function getAuthor()	{return $this->author;}
-	public function getPostDate()	{return $this->date;}
+	public function getDate()	{return $this->date;}
 	public function getKeyWords()	{return $this->keywords;}
 	
 	public function setId($id) {$this->id = $id;}
 	public function setTitle($title) {$this->title = $title;}
 	public function setText($text) {$this->text = $text;}
 	public function setAuthor($author) {$this->author = $author;}
-	public function setPostDate($date) {$this->postdate = $postdate;}
-	public function setKeyWords($keyword) {$this->keywords = $keywords;}
+	public function setDate($date) {$this->date = $postdate;}
+	public function setKeyWords($keywords) {$this->keywords = $keywords;}
 	
 	public function __construct() {
 		$this->dbaccess = new DBAccess();
 	}
-	
-
-	
-	
 	
 /*	public function get_post_by_id($Id) {
 		$query = 'SELECT innlegg.tittel, innlegg.tekst, innlegg.dato, innlegg.stikkord, brukere.brukernavn
@@ -48,7 +44,7 @@ class Post {
 	//	$query = 'SELECT innlegg.ID, innlegg.tittel, innlegg.tekst, innlegg.dato, innlegg.stikkord, brukere.brukernavn
 	//			 FROM innlegg LEFT JOIN brukere ON innlegg.forfatter = brukere.ID ORDER BY dato DESC';
 		$query = 'SELECT posts.id, posts.title, posts.text, users.username, posts.date, posts.keywords from posts
-					LEFT JOIN users ON post.author = users.id ORDER BY DESC';
+					LEFT JOIN users ON posts.author_id = users.id ORDER BY date DESC';
 		$posts = $this->dbaccess->run_query($query);
 		return $posts;
 	}
