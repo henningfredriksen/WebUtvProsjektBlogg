@@ -11,15 +11,9 @@
 		{include file='login.tpl'}
 		{include file='search.tpl'}
 		{include file='archive.tpl'}
+		{include file='postlist.tpl'}
 		{include file='footer.tpl'}
-		
-		{foreach key=key from=$allPosts item=post}
-				
-				{$post->getId()}
-				{$post->getTitle()}
-				blargh
-	      		
-	        {/foreach}
+
 						
 	</div>
 </body>
