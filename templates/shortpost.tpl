@@ -10,4 +10,5 @@
 			<span id="posttitle">{$post->getTitle()}</span><br>
 			<div id="postcontent">{$post->getText()}</div><br>						
 		{/if}
+	{/foreach}
 </body>
