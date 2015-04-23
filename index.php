@@ -1,5 +1,7 @@
 <?php
+require_once 'config.php';
 
-print("commit fra laptop funket");
+$post = new post();
+$allPosts = $post->get_all_posts();
 
 ?>
