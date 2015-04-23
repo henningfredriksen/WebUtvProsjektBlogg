@@ -28,13 +28,7 @@ class DBAccess {
 	
 	public function run_query($query) {
 		$data = $this->db->query($query);
-		$postArray = Array();
-		
-		while ($post = $data->fetchObject('Post'))
-		{
-			$postArray[] = $post;
-		}
-		return $postArray;
+		return $data;
 	}
 	
 	public function run_prepared_query($query, $params) {

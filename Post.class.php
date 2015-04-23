@@ -45,8 +45,15 @@ class Post {
 	//			 FROM innlegg LEFT JOIN brukere ON innlegg.forfatter = brukere.ID ORDER BY dato DESC';
 		$query = 'SELECT posts.id, posts.title, posts.text, users.username, posts.date, posts.keywords from posts
 					LEFT JOIN users ON posts.author_id = users.id ORDER BY date DESC';
-		$posts = $this->dbaccess->run_query($query);
-		return $posts;
+		$result = $this->dbaccess->run_query($query);
+		
+		$postArray = Array();
+		while ($post = $result->fetchObject('Post'))
+		{
+			$postArray[] = $post;
+		}
+		
+		return $postArray;
 	}
 	
 /*	public function lagre_innlegg() {

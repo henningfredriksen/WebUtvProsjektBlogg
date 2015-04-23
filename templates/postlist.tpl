@@ -11,7 +11,6 @@
 			{foreach key=key from=$allPosts item=post}
 				<!-- saves the post ID, so it's accessable by the child templates -->
 				{$postid = $post->getId()}
-				{$post->getTitle()}
 	      		{include file='postcontainer.tpl'}
 	        {/foreach}
 	    {else}
