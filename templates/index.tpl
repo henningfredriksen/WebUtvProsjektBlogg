@@ -12,8 +12,6 @@
 		{include file='search.tpl'}
 		{include file='archive.tpl'}
 		{include file='postlist.tpl'}
-		{include file='footer.tpl'}
-
-						
+		{include file='footer.tpl'}						
 	</div>
 </body>

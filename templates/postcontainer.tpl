@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="css/blogstyle.css">
 </head>
 <body>
-	<div id="postlist">
+	<div id="postcontainer">
 		{include file='shortpost.tpl'}
 		<!-- need IF sentence here to select between shortpost and expandedpost+commentlist. it needs to know the id of the post -->
 
