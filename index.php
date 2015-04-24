@@ -8,7 +8,10 @@ $allPosts = $post->getAllPosts();
 
 $smarty->assign('allPosts', $allPosts);
 
+$comment = new Comment();
+$allComments = $comment->getAllComments();
 
+$smarty->assign('allComments', $allComments);
 
 
 

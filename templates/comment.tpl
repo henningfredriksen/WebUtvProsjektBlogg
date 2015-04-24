@@ -6,6 +6,11 @@
 </head>
 <body>
 	<div id="comment">
-	
+		{foreach key=key from=$allComments item=comment}
+		{if $comment->getId() == $commentid}
+			{$comment->getId()}<br>
+			{$comment->getComment()}<br>								
+		{/if}
+	{/foreach}
 	</div>
 </body>
