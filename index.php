@@ -15,11 +15,5 @@ $allComments = $comment->getAllComments();
 
 $smarty->assign('allComments', $allComments); // assigns array to smarty
 
-
-
-
-
-
-
 $smarty->display('index.tpl');
 ?>
