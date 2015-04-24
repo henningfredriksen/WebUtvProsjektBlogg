@@ -8,6 +8,13 @@ $allPosts = $post->getAllPosts();
 
 $smarty->assign('allPosts', $allPosts);
 
-$smarty->display('index.tpl');
 
+
+
+
+
+
+
+
+$smarty->display('index.tpl');
 ?>
