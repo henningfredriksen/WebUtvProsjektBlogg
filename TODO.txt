@@ -1,0 +1,34 @@
+TO DO LISTE
+
+registrere ny bruker
+salting av passord
+verifisering av epost ved ny registrering
+glemt passord (bruk kode fra verifisering?)
+endre passord
+
+opprett innlegg (owner)
+slette innlegg (owner)
+redigere innlegg (owner)
+hit counter for innlegg
+vise innlegg (short, må ha kode for å forkorte en post)
+vise innlegg (expanded + comments)
+bytte mellom å vise short/expanded + comments innlegg
+
+
+
+skrive kommentarer (owner + users)
+slette kommentarer (owner + user som skrev kommentaren)
+redigere kommentar ?
+
+søk i innlegg (stikkord, tittel, innhold?)
+
+arkiv (mnd)
+
+logg for slettede kommentarer (bruk trigger i MySQL)
+
+validering av input
+
+alternative/valgfrie stylesheets (utseendede) + en plass å velge dem fra
+
+OBS!
+sjekke om keywords == NULL når vi henter fra posts-tabellen i database
