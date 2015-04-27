@@ -49,10 +49,10 @@ class User {
 		$params[2] = $this->email;
 		$params[3] = $this->password;
 		
-		$paramNames[0] = ":brukernavn";
-		$paramNames[1] = ":epost";
-		$paramNames[2] = ":passord";
-		$paramNames[3] = ":brukertilgang";
+		$paramNames[0] = ":name";
+		$paramNames[1] = ":username";
+		$paramNames[2] = ":email";
+		$paramNames[3] = ":password";
 		
 		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
 	}
