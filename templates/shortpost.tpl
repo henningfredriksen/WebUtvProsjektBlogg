@@ -11,7 +11,7 @@
 			{$post->getId()}<br>
 			{$post->getId()}<br>
 			<span id="posttitle">{$post->getTitle()}</span>
-			<div id="postcontent">{$post->getText()}</div><br>								
+			<div id="postcontent">{$post->getText()}</div><br>											
 		{/if}
 	{/foreach}
 	</div>

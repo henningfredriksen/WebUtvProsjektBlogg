@@ -14,7 +14,7 @@
 <!--		<a href="http://kark.hin.no/~501428/glemtpassord.html">Glemt passord</a></p>  -->
 <!--		<a href="RegistrerBruker.html">Registrer deg</a></p> -->
 	{else}
-		Hello, $activeUser->getUserName();
+		Hello, {$activeUser->getUserName()}
 	{/if}		
 	</div>
 </body>

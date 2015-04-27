@@ -58,16 +58,12 @@ class User {
 	}
 	
 	public function getUserByUsername($username) {
-		$query = "SELECT id, name, username, email FROM users WHERE username = ?";
-		
-		$params[0] = $username;
-		
-		$result = $this->dbaccess->run_prepared_query($query, $params);
-		
-		echo var_dump($result); 
+		$query = "SELECT id, name, username, email FROM users WHERE username = '" . $username . "'";
+				
+		$result = $this->dbaccess->run_query($query);
 		
 		while($user = $result->fetchObject('User')) {
-			return $user;
+			return $user; // this only happens once as usernames are unique, while loop handles 0 results 
 		} 
 		
 	}
