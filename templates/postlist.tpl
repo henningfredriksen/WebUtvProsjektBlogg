@@ -11,7 +11,44 @@
 			{foreach key=key from=$allPosts item=post}
 				<!-- saves the post ID, so it's accessable by the child templates -->
 				{$postid = $post->getId()}
-	      		{include file='postcontainer.tpl'}
+	      		{include file='postcontainer.tpl'}	      			
+	<!-- Jquery code that shows/hides shortposts / expandedposts + commentlist. 
+		it uses $postid to differentiate between each of the dynamically generated div blocks
+		(each of them set using $postid in shortpost/expandedpost/commentlist/comment.tpl ex. #shortpost1, #shortpost2, etc)
+		they inherit their style from a ccs class by the same name since they are dynamically generated
+	-->
+	{literal}
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script>
+		$(document).ready(function()
+		{
+			$("#expandedpost{/literal}{$postid}{literal}").hide();
+			
+			$("#commentlist{/literal}{$postid}{literal}").hide();
+			
+		    $("#shortpost{/literal}{$postid}{literal}").click(function()
+		    {
+		        $("#shortpost{/literal}{$postid}{literal}").hide();
+		        $("#expandedpost{/literal}{$postid}{literal}").show();
+		        $("#commentlist{/literal}{$postid}{literal}").show();
+		    });    
+		    
+		    $("#expandedpost{/literal}{$postid}{literal}").click(function()
+		    {
+		        $("#shortpost{/literal}{$postid}{literal}").show();
+		        $("#expandedpost{/literal}{$postid}{literal}").hide();
+		        $("#commentlist{/literal}{$postid}{literal}").hide();        
+		    });
+		    
+		    $("#commentlist{/literal}{$postid}{literal}").click(function()
+		    {        
+		        $("#shortpost{/literal}{$postid}{literal}").show();
+		        $("#expandedpost{/literal}{$postid}{literal}").hide();
+		        $("#commentlist{/literal}{$postid}{literal}").hide();
+		    });
+		});
+		</script>
+	{/literal}	      		
 	        {/foreach}
 	    {else}
 	    	

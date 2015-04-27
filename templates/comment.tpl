@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="css/blogstyle.css">
 </head>
 <body>
-	<div id="comment">
+	<div id="comment{$postid}" class="comment">
 		{foreach key=key from=$allComments item=comment}				
 			{if $comment->getId() == $commentid && $comment->getPostId() == $postid}
 				{$comment->getId()}<br>
@@ -13,7 +13,7 @@
 				{$comment->getAuthor()}<br>
 				{$comment->getComment()}<br>
 				{$comment->getDate()}<br>
-		{/if}
-	{/foreach}
+			{/if}
+		{/foreach}
 	</div>
 </body>

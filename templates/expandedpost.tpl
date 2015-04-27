@@ -5,7 +5,16 @@
 <link rel="stylesheet" type="text/css" href="css/blogstyle.css">
 </head>
 <body>
-	<div id="expandedpost">
-	
+	<div id="expandedpost{$postid}" class="expandedpost">
+		{foreach key=key from=$allPosts item=post}
+			{if $post->getId() == $postid}
+				EXPANDEDPOST<br>
+				{$post->getId()}<br>
+				{$post->getId()}<br>
+				<span id="posttitle">{$post->getTitle()}</span>
+				<div id="postcontent">{$post->getText()}</div><br>
+				EXPANDEDPOST<br>											
+			{/if}
+		{/foreach}
 	</div>
 </body>
