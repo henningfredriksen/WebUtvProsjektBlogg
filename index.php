@@ -15,5 +15,12 @@ $allComments = $comment->getAllComments();
 
 $smarty->assign('allComments', $allComments); // assigns array to smarty
 
+//checking if the user is logged in
+if(isset($_SESSION['username'])) {
+	$smarty->assign('isLoggedIn', true);
+}else {
+	$smarty->assign('isLoggedIn', false);
+}
+
 $smarty->display('index.tpl');
 ?>
