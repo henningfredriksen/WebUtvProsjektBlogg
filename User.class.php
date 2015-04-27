@@ -40,21 +40,21 @@ class User {
 		$this->password = $password;
 	}
 	
-	public function lagre_bruker () {
-		$query = "INSERT INTO brukere (brukernavn, epost, passord, bruker_tilgang)
-				VALUES (:brukernavn, :epost, :passord, :brukertilgang)";
+	public function saveUser() {
+		$query = "INSERT INTO users (name, username, email, password)
+				VALUES (:name, :username, :email, :password)";
 		
-		$params[0] = $this->brukernavn;
-		$params[1] = $this->epost;
-		$params[2] = $this->passord;
-		$params[3] = 2;
+		$params[0] = $this->name;
+		$params[1] = $this->username;
+		$params[2] = $this->email;
+		$params[3] = $this->password;
 		
 		$paramNames[0] = ":brukernavn";
 		$paramNames[1] = ":epost";
 		$paramNames[2] = ":passord";
 		$paramNames[3] = ":brukertilgang";
 		
-		$this->datamodell->prepared_insert_query($query, $params, $paramNames);
+		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
 	}
 	
 	public function getUserByUsername($username) {

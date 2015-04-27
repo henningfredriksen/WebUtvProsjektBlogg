@@ -11,9 +11,6 @@ slette innlegg (owner)
 redigere innlegg (owner)
 hit counter for innlegg
 vise innlegg (short, må ha kode for å forkorte en post)
-vise innlegg (expanded + comments)
-bytte mellom å vise short/expanded + comments innlegg
-
 
 
 skrive kommentarer (owner + users)
@@ -32,3 +29,8 @@ alternative/valgfrie stylesheets (utseendede) + en plass å velge dem fra
 
 OBS!
 sjekke om keywords == NULL når vi henter fra posts-tabellen i database
+
+
+FULLFØRT
+vise innlegg (expanded + comments)
+bytte mellom å vise short/expanded + comments innlegg

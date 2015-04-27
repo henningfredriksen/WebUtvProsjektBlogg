@@ -12,7 +12,7 @@
 		Passord: <input type="password" name="password"><br>
 		<input type="submit" value="Log in"><br>
 <!--		<a href="http://kark.hin.no/~501428/glemtpassord.html">Glemt passord</a></p>  -->
-<!--		<a href="RegistrerBruker.html">Registrer deg</a></p> -->
+		<a href="registeruser.html">Registrer deg</a></p>
 	{else}
 		Hello, {$activeUser->getUserName()}
 	{/if}		
