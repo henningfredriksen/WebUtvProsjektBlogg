@@ -57,6 +57,21 @@ class User {
 		$this->datamodell->prepared_insert_query($query, $params, $paramNames);
 	}
 	
+	public function getUserByUsername($username) {
+		$query = "SELECT id, name, username, email FROM users WHERE username = ?";
+		
+		$params[0] = $username;
+		
+		$result = $this->dbaccess->run_prepared_query($query, $params);
+		
+		echo var_dump($result); 
+		
+		while($user = $result->fetchObject('User')) {
+			return $user;
+		} 
+		
+	}
+	
 	public function checkLoginInfo($inputUsername, $inputPassword) {
 		$inputPassword = md5($inputPassword);
 		
@@ -73,6 +88,5 @@ class User {
 			return false;
 		}
 	}
-	
 	
 }

@@ -1,6 +1,5 @@
 <?php
 require_once 'config.php';
-require_once 'DBAccess.class.php';
 
 class Post {
 	private $id;
