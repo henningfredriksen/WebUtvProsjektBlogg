@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-28 19:47:03
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-28 20:20:37
          compiled from ".\templates\postlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:75005538e41b209bf3-36006013%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4963ff42f5b49917585228115b56c535354fbf38' => 
     array (
       0 => '.\\templates\\postlist.tpl',
-      1 => 1430243024,
+      1 => 1430245233,
       2 => 'file',
     ),
   ),
@@ -76,9 +76,9 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
 					        $.ajax({
 					            url: 'addhittopost.php',
 					            type: 'post',
-					            data: { "addHit": '<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
-'},
-					            success: function(response) { alert(response); }
+					            data: { "postid": '<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+'}
+					        <!-- , success: function(response) { alert(response); } --> 
 					        });
 					    });    
 					    

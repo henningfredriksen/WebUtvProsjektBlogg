@@ -33,8 +33,8 @@
 					        $.ajax({
 					            url: 'addhittopost.php',
 					            type: 'post',
-					            data: { "addHit": '{/literal}{$postid}{literal}'},
-					            success: function(response) { alert(response); }
+					            data: { "postid": '{/literal}{$postid}{literal}'}
+					        {/literal}<!-- , success: function(response) { alert(response); } --> {literal}
 					        });
 					    });    
 					    

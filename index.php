@@ -6,7 +6,6 @@ require_once 'DBAccess.class.php';
 // gets a list of all posts in database, in the form of an array of Post objects
 $post = new Post();
 $allPosts = $post->getAllPosts();
-$post->addHitToPost(3);
 $smarty->assign('allPosts', $allPosts); // assigns array to smarty
 
 // gets a list of all comments in database, in the form of an array of Comment objects
