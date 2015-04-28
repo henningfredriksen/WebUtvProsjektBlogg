@@ -11,10 +11,12 @@
 				{$post->getId()}<br>
 				{$post->getId()}<br>
 				<span id="posttitle">{$post->getTitle()}</span>
-				<div id="postcontent">{$post->getText()}</div><br>
-				{if $postHits =! null}
-				{$postHits}
-				{/if}							
+				<div id="postcontent">{$post->getText()}</div><br>											
+			{/if}
+		{/foreach}
+		{foreach key=key from=$hitsByPostId item=hit}
+			{if $postid == $hit['post_id']}
+				Hits: {$hit['hits']}
 			{/if}
 		{/foreach}
 	</div>

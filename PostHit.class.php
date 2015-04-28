@@ -11,8 +11,8 @@ class PostHit {
 
 	public function getId()	{return $this->id;}
 	public function getIp()	{return $this->ip;}
-	public function getDate()	{return $this->id;}
-	public function getPostId()	{return $this->id;}
+	public function getDate()	{return $this->date;}
+	public function getPostId()	{return $this->post_id;}
 
 	public function setId($id) {$this->id = $id;}
 	public function setIp($ip) {$this->ip = $ip;}
@@ -33,8 +33,16 @@ class PostHit {
 		while ($posthit = $result->fetchObject('PostHit'))
 		{
 			$postHitArray[] = $posthit;
-		}
+		}		
 		
 		return $postHitArray;
+	}
+	
+	public function countAllHits()
+	{
+		$query = 'SELECT post_id, COUNT(*) AS `hits` FROM posthit GROUP BY post_id';
+		$result = $this->dbaccess->run_assoc_fetch_query($query);	
+		
+		return $result;
 	}
 }
