@@ -7,8 +7,7 @@ class Post {
 	private $text;
 	private $date;
 	private $keywords;
-	private $author;
-	private $posthit_id;
+	private $author;	
 	
 	private $dbaccess;
 	
@@ -17,16 +16,14 @@ class Post {
 	public function getText()	{return $this->text;}
 	public function getAuthor()	{return $this->author;}
 	public function getDate()	{return $this->date;}
-	public function getKeyWords()	{return $this->keywords;}
-	public function getPostHitId()	{return $this->posthit_id;}
+	public function getKeyWords()	{return $this->keywords;}	
 	
 	public function setId($id) {$this->id = $id;}
 	public function setTitle($title) {$this->title = $title;}
 	public function setText($text) {$this->text = $text;}
 	public function setAuthor($author) {$this->author = $author;}
 	public function setDate($date) {$this->date = $postdate;}
-	public function setKeyWords($keywords) {$this->keywords = $keywords;}
-	public function setPostHitId($posthit_id) {$this->posthit_id = $posthit_id;}
+	public function setKeyWords($keywords) {$this->keywords = $keywords;}	
 	
 	public function __construct() {
 		$this->dbaccess = new DBAccess();
@@ -42,10 +39,7 @@ class Post {
 	
 	public function getAllPosts() {
 		
-	//	$datamodell = new Datamodell();
-	//	$query = 'SELECT innlegg.ID, innlegg.tittel, innlegg.tekst, innlegg.dato, innlegg.stikkord, brukere.brukernavn
-	//			 FROM innlegg LEFT JOIN brukere ON innlegg.forfatter = brukere.ID ORDER BY dato DESC';
-		$query = 'SELECT posts.id, posts.title, posts.text, users.username, posts.date, posts.keywords, posts.author_id from posts
+		$query = 'SELECT posts.id, posts.title, posts.text, users.username, posts.date, posts.keywords, posts.author_id FROM posts
 					LEFT JOIN users ON posts.author_id = users.id ORDER BY date DESC';
 		$result = $this->dbaccess->run_query($query);
 		
@@ -56,6 +50,17 @@ class Post {
 		}
 		
 		return $postArray;
+	}
+	
+	public function addHitToPost($postid)
+	{
+		$query = "INSERT INTO posthit (post_id) VALUES (:postid)";
+		
+		$params[0] = $this->id;		
+
+		$paramNames[0] = ":postid";
+		
+		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);	
 	}
 	
 /*	public function lagre_innlegg() {

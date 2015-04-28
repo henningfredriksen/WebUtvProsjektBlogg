@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-24 19:23:38
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-28 18:05:50
          compiled from ".\templates\postcontainer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:208855538e41b248407-30429016%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bd6351917f42b650bf0ca0533b1bec1ad9a8dbe0' => 
     array (
       0 => '.\\templates\\postcontainer.tpl',
-      1 => 1429896215,
+      1 => 1430237080,
       2 => 'file',
     ),
   ),
@@ -28,8 +28,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <body>
 	<div id="postcontainer">
 		<?php echo $_smarty_tpl->getSubTemplate ('shortpost.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-		
-		<!-- need IF sentence here to select between shortpost and expandedpost+commentlist. it needs to know the id of the post -->
+				
+		<?php echo $_smarty_tpl->getSubTemplate ('expandedpost.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
 		<?php echo $_smarty_tpl->getSubTemplate ('commentlist.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
 	</div>

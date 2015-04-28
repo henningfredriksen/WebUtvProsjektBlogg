@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-24 20:33:34
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-28 18:05:50
          compiled from ".\templates\commentlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:16583553a7c1a58c570-02127254%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0b0549b292f6fee1d15a859585adeb70e9883081' => 
     array (
       0 => '.\\templates\\commentlist.tpl',
-      1 => 1429900411,
+      1 => 1430237080,
       2 => 'file',
     ),
   ),
@@ -19,6 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_553a7c1a62c812_93308032',
   'variables' => 
   array (
+    'postid' => 0,
     'allComments' => 0,
     'comment' => 0,
   ),
@@ -31,7 +32,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <link rel="stylesheet" type="text/css" href="css/blogstyle.css">
 </head>
 <body>
-	<div id="commentlist">
+	<div id="commentlist<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+" class="commentlist">
 		<?php if ($_smarty_tpl->tpl_vars['allComments']->value!=null) {?>
 			<!-- includes all the posts in the array as a seperate template -->
 			<?php  $_smarty_tpl->tpl_vars['comment'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['comment']->_loop = false;
@@ -44,12 +46,10 @@ $_smarty_tpl->tpl_vars['comment']->_loop = true;
 					<!-- saves the post ID, so it's accessable by the child templates -->
 					<?php $_smarty_tpl->tpl_vars['commentid'] = new Smarty_variable($_smarty_tpl->tpl_vars['comment']->value->getId(), null, 0);?>
 		      		<?php echo $_smarty_tpl->getSubTemplate ('comment.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-	     	
-		      	
-		      	
+	   
 	        <?php } ?>
 	    <?php } else { ?>
 	    	
 	    <?php }?>
-    </div>	
+    </div>
 </body><?php }} ?>

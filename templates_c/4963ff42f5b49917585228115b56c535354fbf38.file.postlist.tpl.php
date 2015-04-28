@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-24 17:18:18
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-28 19:47:03
          compiled from ".\templates\postlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:75005538e41b209bf3-36006013%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4963ff42f5b49917585228115b56c535354fbf38' => 
     array (
       0 => '.\\templates\\postlist.tpl',
-      1 => 1429888680,
+      1 => 1430243024,
       2 => 'file',
     ),
   ),
@@ -21,6 +21,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'allPosts' => 0,
     'post' => 0,
+    'postid' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -44,7 +45,68 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
 				<!-- saves the post ID, so it's accessable by the child templates -->
 				<?php $_smarty_tpl->tpl_vars['postid'] = new Smarty_variable($_smarty_tpl->tpl_vars['post']->value->getId(), null, 0);?>
 	      		<?php echo $_smarty_tpl->getSubTemplate ('postcontainer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-
+      			
+				<!-- Jquery code that shows/hides shortposts / expandedposts + commentlist. 
+					it uses $postid to differentiate between each of the dynamically generated div blocks
+					(each of them set using $postid in shortpost/expandedpost/commentlist/comment.tpl ex. #shortpost1, #shortpost2, etc)
+					they inherit their style from a ccs class by the same name since they are dynamically generated	-->
+				
+					<?php echo '<script'; ?>
+ src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"><?php echo '</script'; ?>
+>
+					<?php echo '<script'; ?>
+>
+					$(document).ready(function()
+					{
+						$("#expandedpost<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+").hide();
+						
+						$("#commentlist<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+").hide();
+						
+					    $("#shortpost<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+").click(function()
+					    {
+					        $("#shortpost<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+").hide();
+					        $("#expandedpost<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+").show();
+					        $("#commentlist<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+").show();
+					        $.ajax({
+					            url: 'addhittopost.php',
+					            type: 'post',
+					            data: { "addHit": '<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+'},
+					            success: function(response) { alert(response); }
+					        });
+					    });    
+					    
+					    $("#expandedpost<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+").click(function()
+					    {
+					        $("#shortpost<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+").show();
+					        $("#expandedpost<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+").hide();
+					        $("#commentlist<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+").hide();        
+					    });
+					    
+					    $("#commentlist<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+").click(function()
+					    {        
+					        $("#shortpost<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+").show();
+					        $("#expandedpost<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+").hide();
+					        $("#commentlist<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+").hide();
+					    });
+					});
+					<?php echo '</script'; ?>
+>
+					      		
 	        <?php } ?>
 	    <?php } else { ?>
 	    	
