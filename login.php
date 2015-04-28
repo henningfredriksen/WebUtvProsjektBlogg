@@ -17,4 +17,4 @@ if($username){
 	header("Location: index.php");
 } else {
 	echo "Feil brukernavn eller passord";
-}
+}  

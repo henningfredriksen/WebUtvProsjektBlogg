@@ -8,7 +8,8 @@ class User {
 	private $name;
 	private $username;
 	private $email;
-	private $password;	
+	private $password;
+	private $salt;	
 	
 	public function __construct() {
 		$this->dbaccess = new DBAccess();
@@ -41,18 +42,20 @@ class User {
 	}
 	
 	public function saveUser() {
-		$query = "INSERT INTO users (name, username, email, password)
-				VALUES (:name, :username, :email, :password)";
+		$query = "INSERT INTO users (name, username, email, password, salt)
+				VALUES (:name, :username, :email, :password, :salt)";
 		
 		$params[0] = $this->name;
 		$params[1] = $this->username;
 		$params[2] = $this->email;
 		$params[3] = $this->password;
+		$params[4] = $this->salt;
 		
 		$paramNames[0] = ":name";
 		$paramNames[1] = ":username";
 		$paramNames[2] = ":email";
 		$paramNames[3] = ":password";
+		$paramNames[4] = ":salt";
 		
 		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
 	}
@@ -69,12 +72,18 @@ class User {
 	}
 	
 	public function checkLoginInfo($inputUsername, $inputPassword) {
-		$inputPassword = md5($inputPassword);
+//		$inputPassword = md5($inputPassword);
 		
 		$query = "SELECT username FROM users WHERE username = ? AND password = ?";
+		$saltquery = "SELECT salt FROM users WHERE username = '" . $inputUsername . "'";
+		
+		$result = $this->dbaccess->run_query($saltquery);
+		$salt = $result['salt'];
+		
+		$password = md5($salt . $inputPassword);
 	
 		$params[0] = $inputUsername;
-		$params[1] = $inputPassword;
+		$params[1] = $password;
 		
 		$username = $this->dbaccess->run_prepared_query($query, $params);
 	
@@ -82,7 +91,13 @@ class User {
 			return $username;
 		}else {
 			return false;
-		}
+		} 
+	}
+	
+	public function generateHash() {
+		$generatedsalt = substr(md5(uniqid(rand(), true)), 0, 32);
+		$this->password = md5($generatedsalt . $this->password);
+		$this->salt = $generatedsalt;
 	}
 	
 }
