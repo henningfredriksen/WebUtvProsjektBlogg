@@ -8,6 +8,11 @@ $post = new Post();
 $allPosts = $post->getAllPosts();
 $smarty->assign('allPosts', $allPosts); // assigns array to smarty
 
+// gets a list of all hits in database, in the form of an array of PostHit objects
+$posthit = new PostHit();
+$allPostHits = $posthit->getAllHits();
+$smarty->assign('allPostHits', $allPostHits); // assigns array to smarty
+
 // gets a list of all comments in database, in the form of an array of Comment objects
 $comment = new Comment();
 $allComments = $comment->getAllComments();
