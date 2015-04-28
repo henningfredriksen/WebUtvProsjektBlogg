@@ -72,18 +72,12 @@ class User {
 	}
 	
 	public function checkLoginInfo($inputUsername, $inputPassword) {
-//		$inputPassword = md5($inputPassword);
+		$hashedpassword = $this->getHash($inputPassword, $inputUsername);
 		
 		$query = "SELECT username FROM users WHERE username = ? AND password = ?";
-		$saltquery = "SELECT salt FROM users WHERE username = '" . $inputUsername . "'";
-		
-		$result = $this->dbaccess->run_query($saltquery);
-		$salt = $result['salt'];
-		
-		$password = md5($salt . $inputPassword);
 	
 		$params[0] = $inputUsername;
-		$params[1] = $password;
+		$params[1] = $hashedpassword;
 		
 		$username = $this->dbaccess->run_prepared_query($query, $params);
 	
@@ -92,6 +86,17 @@ class User {
 		}else {
 			return false;
 		} 
+	}
+	
+	public function getHash($password, $username) {
+		$saltquery = "SELECT salt FROM users WHERE username = '" . $username . "'";
+		$result = $this->dbaccess->run_query($saltquery);
+		$arraywithsalt = $result->fetch();
+		$salt = $arraywithsalt['salt'];
+		
+		$password = md5($salt . $password);
+		
+		return $password;
 	}
 	
 	public function generateHash() {
