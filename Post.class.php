@@ -56,9 +56,9 @@ class Post {
 	{
 		$query = "INSERT INTO posthit (post_id) VALUES ($postid)";
 		
-		$params[0] = $this->id;		
+		$params[0] = $this->id;				
 
-		$paramNames[0] = "$postid";
+		$paramNames[0] = "$postid";		
 		
 		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);	
 	}

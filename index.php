@@ -11,7 +11,6 @@ $smarty->assign('allPosts', $allPosts); // assigns array to smarty
 $posthit = new PostHit();
 $hitsByPostId = $posthit->countAllHits();
 $smarty->assign('hitsByPostId', $hitsByPostId); // assigns array to smarty
-var_dump($hitsByPostId);
 
 // gets a list of all comments in database, in the form of an array of Comment objects
 $comment = new Comment();
