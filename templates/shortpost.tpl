@@ -13,7 +13,7 @@
 				<span id="posttitle">{$post->getTitle()}</span>
 				<div id="postcontent">{$post->getText()}</div><br>
 			{/if}
-		{/foreach}
+		{/foreach}		
 	</div>
 
 </body>

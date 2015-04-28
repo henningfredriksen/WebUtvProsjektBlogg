@@ -31,6 +31,12 @@ class DBAccess {
 		return $data;
 	}
 	
+	public function run_assoc_fetch_query($query) {
+		$stmt = $this->db->prepare($query);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);		
+	}
+	
 	public function run_prepared_query($query, $params) {
 		$stmt = $this->db->prepare($query);
 		
