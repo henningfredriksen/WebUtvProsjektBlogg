@@ -1,9 +1,7 @@
 TO DO LISTE
 
-salting av passord
-verifisering av epost ved ny registrering
+------------verifisering av epost ved ny registrering
 glemt passord (bruk kode fra verifisering?)
-endre passord
 
 opprett innlegg (owner)
 slette innlegg (owner)
@@ -36,3 +34,5 @@ bytte mellom å vise short/expanded + comments innlegg
 hit counter for innlegg
 
 registrere ny bruker
+salting av passord
+endre passord

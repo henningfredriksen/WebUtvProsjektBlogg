@@ -3,6 +3,7 @@
 require_once 'config.php';
 
 $validator = new ValidateUserInput();
+$emailsender = new SendEmail();
 
 $name = $_POST["personname"];
 $username = $_POST["username"];
@@ -25,10 +26,11 @@ if($password == $rpassword) {
 	$user->generateHash();
 	
 	$user->saveUser();
+	$emailsender->SendEmailToConfirm($email);
 	
 	header("Location: index.php");
 
 } else {
-	echo "Passord mÃ¥ vÃ¦re like";
-	echo "<a href=RegistrerBruker.html>PrÃ¸v pÃ¥ nytt</a></p>";
+	echo "Passord må være like";
+	echo "<a href=RegistrerBruker.html>Prøv på nytt</a></p>";
 }
