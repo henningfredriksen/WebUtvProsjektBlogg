@@ -63,21 +63,22 @@ class Post {
 		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);	
 	}
 	
-/*	public function lagre_innlegg() {
+	public function savePost() {		
+		$query = "INSERT INTO posts (title, text, author_id, keywords)
+				VALUES (:title, :text, (SELECT id FROM users WHERE username = :author), :keywords)";
 		
-		$query = "INSERT INTO innlegg (tittel, tekst, forfatter)
-				VALUES (:title, :text, (SELECT ID from brukere WHERE brukernavn= :forfatter))";
-		
-		$params[0] = $this->tittel;
-		$params[1] = $this->tekst;
-		$params[2] = $this->forfatter;
+		$params[0] = $this->title;
+		$params[1] = $this->text;
+		$params[2] = $this->author;
+		$params[3] = $this->keywords;
 		
 		$paramNames[0] = ":title";
 		$paramNames[1] = ":text";
-		$paramNames[2] = ":forfatter";
+		$paramNames[2] = ":author";
+		$paramNames[3] = ":keywords";
 		
-		$this->datamodell->prepared_insert_query($query, $params, $paramNames);
-	} */
+		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
+	} 
 	
 /*	private function forkort_tekst($tekst) {
 		if (strlen($tekst) > 200)
