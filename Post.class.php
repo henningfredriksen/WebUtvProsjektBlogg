@@ -80,7 +80,12 @@ class Post {
 		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
 	} 
 	
-/*	private function forkort_tekst($tekst) {
+	public function deletePost($postid) {
+		$query = "DELETE FROM posts WHERE id=$postid";
+		$this->dbaccess->delete_query($query);
+	}
+		
+	private function forkort_tekst($tekst) {
 		if (strlen($tekst) > 200)
 		{
 			$new_text = substr($tekst, 0, 200);
@@ -89,7 +94,6 @@ class Post {
 		} else {
 			return $tekst;
 		}
-	} */
-	
+	} 
 }
 ?>

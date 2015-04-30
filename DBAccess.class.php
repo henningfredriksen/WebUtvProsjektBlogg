@@ -61,5 +61,12 @@ class DBAccess {
 		
 		$stmt->execute();
 	}
+	
+	public function delete_query($query)
+	{
+		$stmt = $this->db->query($query);
+//		return $stmt;
+		
+	}
 }
 ?>

@@ -19,5 +19,7 @@
 				Hits: {$hit['hits']}
 			{/if}
 		{/foreach}
+		
+		<a href="deletepost.php?postid={$postid}">Delete post</a>
 	</div>
 </body>
