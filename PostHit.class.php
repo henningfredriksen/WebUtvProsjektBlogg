@@ -23,7 +23,7 @@ class PostHit {
 	public function __construct() {
 		$this->dbaccess = new DBAccess();
 	}
-	
+	/*
 	public function getAllHits()
 	{
 		$query = 'SELECT posthit.id, posthit.ip, posthit.date, posthit.post_id FROM posthit';
@@ -37,7 +37,7 @@ class PostHit {
 		
 		return $postHitArray;
 	}
-	
+	*/
 	public function countAllHits()
 	{
 		$query = 'SELECT post_id, COUNT(*) AS `hits` FROM posthit GROUP BY post_id';
