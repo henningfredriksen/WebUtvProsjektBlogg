@@ -13,7 +13,10 @@
 				{$comment->getAuthor()}<br>
 				{$comment->getComment()}<br>
 				{$comment->getDate()}<br>
+				<a href="deletecomment.php?commentid={$commentid}" onclick="return confirm('Are you sure you want to delete this comment?');">Delete comment</a>
 			{/if}
 		{/foreach}
+		
+		
 	</div>
 </body>

@@ -50,5 +50,10 @@ class Comment {
 		return $commentArray;
 	}
 	
+	public function deleteComment($commentid) {
+		$query = "DELETE FROM comments WHERE id=$commentid";
+		$this->dbaccess->delete_query($query);
+	}
+	
 }
 ?>
