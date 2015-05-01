@@ -19,7 +19,6 @@
 				Hits: {$hit['hits']}
 			{/if}
 		{/foreach}
-		
-		<a href="deletepost.php?postid={$postid}" onclick="return confirm('Are you sure you want to delete this post?');">Delete post</a>
+			<a href="deletepost.php?postid={$postid}" onclick="return confirm('Are you sure you want to delete this post?');">Delete post</a>
 	</div>
 </body>

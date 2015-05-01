@@ -11,9 +11,11 @@ $inputPassword = strip_tags($inputPassword);
 
 
 $username = $user->checkLoginInfo($inputUsername, $inputPassword);
+$username = $username['username'];
 
 if($username){
-	$_SESSION['username'] = $username['username'];
+	$_SESSION['username'] = $username;
+	$user = $user->getUserByUsername($username);
 	header("Location: index.php");
 } else {
 	echo "Feil brukernavn eller passord";

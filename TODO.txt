@@ -4,14 +4,13 @@ TO DO LISTE
 glemt passord (bruk kode fra verifisering?)
 
 sjekke brukertype på innlogget bruker
-slette innlegg (owner)
 redigere innlegg (owner)
-vise innlegg (short, må ha kode for å forkorte en post)
 
-
+slette innlegg (owner)
 skrive kommentarer (owner + users)
 slette kommentarer (owner + user som skrev kommentaren)
-redigere kommentar ? (NEI)
+
+vise innlegg (short, må ha kode for å forkorte en post)
 
 søk i innlegg (stikkord, tittel, innhold?)
 

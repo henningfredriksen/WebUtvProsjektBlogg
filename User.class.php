@@ -9,7 +9,8 @@ class User {
 	private $username;
 	private $email;
 	private $password;
-	private $salt;	
+	private $salt;
+	private $usertype;	
 	
 	public function __construct() {
 		$this->dbaccess = new DBAccess();
@@ -20,6 +21,8 @@ class User {
 	public function getUsername() {return $this->username;}
 	public function getEmail() {return $this->email;}
 	public function getPassword() {return $this->password;}
+	public function getSalt() {return $this->salt;}
+	public function getUsertype() {return $this->usertype;}
 	
 	public function setId($id) {
 		$this->id = $id;
@@ -41,27 +44,33 @@ class User {
 		$this->password = $password;
 	}
 	
+	public function setUsertype($usertype) {
+		$this->usertype = $usertype;
+	}
+	
 	public function saveUser() {
-		$query = "INSERT INTO users (name, username, email, password, salt)
-				VALUES (:name, :username, :email, :password, :salt)";
+		$query = "INSERT INTO users (name, username, email, password, salt, user_type)
+				VALUES (:name, :username, :email, :password, :salt, :usertype)";
 		
 		$params[0] = $this->name;
 		$params[1] = $this->username;
 		$params[2] = $this->email;
 		$params[3] = $this->password;
 		$params[4] = $this->salt;
+		$params[5] = 2;
 		
 		$paramNames[0] = ":name";
 		$paramNames[1] = ":username";
 		$paramNames[2] = ":email";
 		$paramNames[3] = ":password";
 		$paramNames[4] = ":salt";
+		$paramNames[5] = ":usertype";
 		
 		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
 	}
 	
 	public function getUserByUsername($username) {
-		$query = "SELECT id, name, username, email FROM users WHERE username = '" . $username . "'";
+		$query = "SELECT id, name, username, email, user_type FROM users WHERE username = '" . $username . "'";
 				
 		$result = $this->dbaccess->run_query($query);
 		
