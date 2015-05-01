@@ -102,7 +102,7 @@ class Post {
 		}
 		
 		return $postArray;
-	}
+	}	
 		
 	private function forkort_tekst($tekst) {
 		if (strlen($tekst) > 200)

@@ -18,6 +18,11 @@ if (isset($_POST['search']))
 	$allPosts = $post->getSearchedPosts($_POST['search']);
 }
 
+$archive = new Archive();
+$test = $archive->generateYearMonthArray();
+$smarty->assign('yearMonthArray', $test);
+print_r($test);
+
 $smarty->assign('allPosts', $allPosts); // assigns array to smarty
 
 
