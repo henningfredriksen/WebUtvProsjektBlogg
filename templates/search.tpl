@@ -6,6 +6,8 @@
 </head>
 <body>
 	<div id="search">
-	
+		<form action="index.php" method="post">
+		<input type="text" name="search" size="15">		
+		<input type="submit" value="Search"><br>		
 	</div>
 </body>

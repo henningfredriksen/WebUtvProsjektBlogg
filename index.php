@@ -3,10 +3,23 @@ require_once 'config.php';
 require_once 'Post.class.php';
 require_once 'DBAccess.class.php';
 
-// gets a list of all posts in database, in the form of an array of Post objects
+
 $post = new Post();
-$allPosts = $post->getAllPosts();
+
+if (!isset($_POST['search']))
+{
+	// gets a list of all posts in database, in the form of an array of Post objects
+	$allPosts = $post->getAllPosts();	
+}
+
+if (isset($_POST['search']))
+{
+	// gets a list of posts in database that matches the users search parameters, in the form of an array of Post objects
+	$allPosts = $post->getSearchedPosts($_POST['search']);
+}
+
 $smarty->assign('allPosts', $allPosts); // assigns array to smarty
+
 
 $posthit = new PostHit();
 $hitsByPostId = $posthit->countAllHits();

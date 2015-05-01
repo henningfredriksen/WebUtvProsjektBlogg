@@ -84,6 +84,25 @@ class Post {
 		$query = "DELETE FROM posts WHERE id=$postid";
 		$this->dbaccess->delete_query($query);
 	}
+	
+	public function getSearchedPosts($searchString)
+	{
+		$query = "SELECT posts.id, posts.title, posts.text, users.username, posts.date, posts.keywords, posts.author_id
+		FROM posts 
+		LEFT JOIN users ON posts.author_id = users.id 
+		WHERE posts.title LIKE '%$searchString%' OR posts.text LIKE '%$searchString%' OR posts.keywords LIKE '%$searchString%' 
+		ORDER BY date DESC" ;
+				
+		$result = $this->dbaccess->run_query($query);
+		
+		$postArray = Array();
+		while ($post = $result->fetchObject('Post'))
+		{
+			$postArray[] = $post;
+		}
+		
+		return $postArray;
+	}
 		
 	private function forkort_tekst($tekst) {
 		if (strlen($tekst) > 200)
