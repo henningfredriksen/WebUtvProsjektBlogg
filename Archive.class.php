@@ -33,9 +33,17 @@ class Archive {
 		}
 		
 		foreach ($dateArray as $date)
-		{
+		{	
+//			$yearMonthArray[$date['year']]['month'] = $date['month'];
+			$monthsList = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
 			
-			$yearMonthArray[$date['year']]['year'] = $date['month'];
+			for ($i = 0; $i < 12; $i++)
+			{	
+				if ($i == $date['month'])
+				{
+					$yearMonthArray[$date['year']]['month'] = $monthsList[$i];
+				}		
+			}
 		}
 
 		return $yearMonthArray;		
