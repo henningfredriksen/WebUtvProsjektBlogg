@@ -7,6 +7,11 @@
 </head>
 <body>
 	<div id="archive">
-	
+		{foreach key=key from=$yearMonthArray item=line}
+		{$key}<br>			
+			{foreach key=key from=$line item=item}
+				{$item}				
+			{/foreach}
+		{/foreach}
 	</div>
 </body>
