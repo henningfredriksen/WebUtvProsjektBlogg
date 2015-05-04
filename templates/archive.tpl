@@ -9,8 +9,8 @@
 	<div id="archive">
 		{foreach key=linekey from=$yearMonthArray item=line}
 			{$linekey}<br>								
-			{foreach key=itemkey from=$line item=item}
-				<a href="index.php?year={$item['year']}&month={$item['month']}">{$item}</a>
+			{foreach key=itemkey from=$line item=item}				
+				<a href="index.php?year={$linekey}&month={$item}">{$item}</a>
 			{/foreach}
 			<br>
 		{/foreach}

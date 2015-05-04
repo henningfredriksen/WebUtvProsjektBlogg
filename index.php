@@ -3,7 +3,7 @@ require_once 'config.php';
 
 $post = new Post();
 
-if (!isset($_POST['search']))
+if (!isset($_POST['search']) && !(isset($_POST['year']) && isset($_POST['month'])))
 {
 	// gets a list of all posts in database, in the form of an array of Post objects
 	$allPosts = $post->getAllPosts();	
@@ -15,12 +15,20 @@ if (isset($_POST['search']))
 	$allPosts = $post->getSearchedPosts($_POST['search']);
 }
 
+
+if (isset($_POST['year']) && isset($_POST['month']))
+{
+	$allPosts = $post->getPostsByYearMonth($_POST['year'], $_POST['month']);
+}
+
+$smarty->assign('allPosts', $allPosts); // assigns array to smarty
+
 $archive = new Archive();
 $test = $archive->generateYearMonthArray();
 $smarty->assign('yearMonthArray', $test);
 print_r($test);
 
-$smarty->assign('allPosts', $allPosts); // assigns array to smarty
+
 
 
 $posthit = new PostHit();
