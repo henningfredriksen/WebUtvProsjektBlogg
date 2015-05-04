@@ -19,7 +19,7 @@ if (isset($_POST['search']))
 if (isset($_GET['year'], $_GET['month']))
 {
 		$allPosts = $post->getPostsByYearMonth($_GET['year'], $_GET['month']);	
-}
+} 
 
 $smarty->assign('allPosts', $allPosts); // assigns array to smarty
 
