@@ -23,14 +23,12 @@ if (isset($_POST['year']) && isset($_POST['month']))
 
 $smarty->assign('allPosts', $allPosts); // assigns array to smarty
 
+//
 $archive = new Archive();
-$test = $archive->generateYearMonthArray();
-$smarty->assign('yearMonthArray', $test);
-print_r($test);
+$yearMonthArray = $archive->generateYearMonthArray();
+$smarty->assign('yearMonthArray', $yearMonthArray);
 
-
-
-
+//
 $posthit = new PostHit();
 $hitsByPostId = $posthit->countAllHits();
 $smarty->assign('hitsByPostId', $hitsByPostId); // assigns array to smarty

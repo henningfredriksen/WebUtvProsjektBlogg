@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-28 18:40:45
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-04 22:15:15
          compiled from ".\templates\shortpost.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:211625538e41b267812-86795474%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ce4838d6f6a522dc8cb1257e5f508c68e21266f0' => 
     array (
       0 => '.\\templates\\shortpost.tpl',
-      1 => 1430239224,
+      1 => 1430770498,
       2 => 'file',
     ),
   ),
@@ -51,7 +51,7 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
 				<div id="postcontent"><?php echo $_smarty_tpl->tpl_vars['post']->value->getText();?>
 </div><br>
 			<?php }?>
-		<?php } ?>
+		<?php } ?>		
 	</div>
 
 </body><?php }} ?>
