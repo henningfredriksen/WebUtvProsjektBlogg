@@ -9,7 +9,6 @@ $inputUsername = strip_tags($inputusername);
 $inputPassword = trim($inputpassw);
 $inputPassword = strip_tags($inputPassword);
 
-
 $username = $user->checkLoginInfo($inputUsername, $inputPassword);
 $username = $username['username'];
 

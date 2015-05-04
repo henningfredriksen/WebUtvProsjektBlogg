@@ -25,6 +25,8 @@ sjekke om keywords == NULL når vi henter fra posts-tabellen i database
 
 vedlegg til innlegg
 
+epost må være unik (registrering)
+
 FULLFØRT
 vise innlegg (expanded + comments)
 bytte mellom å vise short/expanded + comments innlegg

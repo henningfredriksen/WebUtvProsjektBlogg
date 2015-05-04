@@ -10,7 +10,8 @@ class User {
 	private $email;
 	private $password;
 	private $salt;
-	private $usertype;	
+	private $usertype;
+	private $email_confirmed;	
 	
 	public function __construct() {
 		$this->dbaccess = new DBAccess();
@@ -23,6 +24,7 @@ class User {
 	public function getPassword() {return $this->password;}
 	public function getSalt() {return $this->salt;}
 	public function getUsertype() {return $this->usertype;}
+	public function getEmailConfirmed() {return $this->email_confirmed;}
 	
 	public function setId($id) {
 		$this->id = $id;
@@ -48,9 +50,13 @@ class User {
 		$this->usertype = $usertype;
 	}
 	
+	public function setEmailConfirmed($email_confirmed) {
+		$this->email_confirmed = $email_confirmed;
+	}
+	
 	public function saveUser() {
-		$query = "INSERT INTO users (name, username, email, password, salt, user_type)
-				VALUES (:name, :username, :email, :password, :salt, :usertype)";
+		$query = "INSERT INTO users (name, username, email, password, salt, user_type, email_confirmed)
+				VALUES (:name, :username, :email, :password, :salt, :usertype, :email_confirmed)";
 		
 		$params[0] = $this->name;
 		$params[1] = $this->username;
@@ -58,6 +64,7 @@ class User {
 		$params[3] = $this->password;
 		$params[4] = $this->salt;
 		$params[5] = 2;
+		$params[6] = false;
 		
 		$paramNames[0] = ":name";
 		$paramNames[1] = ":username";
@@ -65,6 +72,7 @@ class User {
 		$paramNames[3] = ":password";
 		$paramNames[4] = ":salt";
 		$paramNames[5] = ":usertype";
+		$paramNames[6] = ":email_confirmed";
 		
 		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
 	}
