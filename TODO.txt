@@ -5,9 +5,7 @@ glemt passord (bruk kode fra verifisering?)
 
 redigere innlegg (owner)
 
-slette innlegg (owner)
 skrive kommentarer (owner + users)
-slette kommentarer (owner + user som skrev kommentaren)
 
 endre fra timestamp til datetime
 
@@ -19,9 +17,6 @@ validering av input
 
 alternative/valgfrie stylesheets (utseendede) + en plass å velge dem fra
 
-OBS!
-sjekke om keywords == NULL når vi henter fra posts-tabellen i database
-
 vedlegg til innlegg
 
 epost må være unik (registrering)
@@ -31,6 +26,8 @@ vise innlegg (expanded + comments)
 bytte mellom å vise short/expanded + comments innlegg
 hit counter for innlegg
 
+slette innlegg (owner)
+slette kommentarer (owner + user som skrev kommentaren)
 registrere ny bruker
 salting av passord
 endre passord
