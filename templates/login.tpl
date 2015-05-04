@@ -7,10 +7,10 @@
 <body>
 	<div id="login">
 	{if !$isLoggedIn}	
-		<form action="login.php" method="post">
+		<form id="login_id" name="login" action="login.php" method="post">
 		Brukernavn: <input type="text" name="username"><br>
 		Passord: <input type="password" name="password"><br>
-		<input type="submit" value="Logg inn">
+		<input name="login_input" type="submit" value="Log in">
 		</form>	
 		<a href="registeruser.html">Registrer deg</a></p>
 	{else}
