@@ -48,7 +48,7 @@ if(isset($_SESSION['username'])) {
 	$user = $user->getUserByUsername($_SESSION['username']);
 	$smarty->assign('activeUser', $user);
 }else {
-	$smarty->assign('isLoggedIn', false);
+	$smarty->assign('isLoggedIn', false);	
 }
 
 $smarty->display('index.tpl');

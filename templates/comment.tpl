@@ -13,8 +13,10 @@
 				{$comment->getAuthor()}<br>
 				{$comment->getComment()}<br>
 				{$comment->getDate()}<br>
-				{if $comment->getAuthorId() == $activeUser->getId() || $activeUser->getUsertype() == 1}
-				<a href="deletecomment.php?commentid={$commentid}" onclick="return confirm('Are you sure you want to delete this comment?');">Delete comment</a>
+				{if isset($activeUser)}
+					{if $comment->getAuthorId() == $activeUser->getId() || $activeUser->getUsertype() == 1}
+					<a href="deletecomment.php?commentid={$commentid}" onclick="return confirm('Are you sure you want to delete this comment?');">Delete comment</a>
+					{/if}
 				{/if}
 			{/if}
 		{/foreach}
