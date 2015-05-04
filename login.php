@@ -13,7 +13,7 @@ $inputPassword = strip_tags($inputPassword);
 $username = $user->checkLoginInfo($inputUsername, $inputPassword);
 $username = $username['username'];
 
-if($username){
+if($username != null){
 	$_SESSION['username'] = $username;
 	$user = $user->getUserByUsername($username);
 	header("Location: index.php");

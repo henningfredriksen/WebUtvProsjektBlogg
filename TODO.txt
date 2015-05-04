@@ -12,8 +12,6 @@ slette kommentarer (owner + user som skrev kommentaren)
 
 vise innlegg (short, må ha kode for å forkorte en post)
 
-søk i innlegg (stikkord, tittel, innhold?)
-
 arkiv (mnd)
 
 logg for slettede kommentarer (bruk trigger i MySQL)
@@ -36,3 +34,5 @@ registrere ny bruker
 salting av passord
 endre passord
 opprett innlegg (owner)
+
+søk i innlegg (stikkord, tittel, innhold?)
