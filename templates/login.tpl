@@ -6,16 +6,17 @@
 </head>
 <body>
 	<div id="login">
-	{if !$isLoggedIn}
+	{if !$isLoggedIn}	
 	<form action="login.php" method="post">
 		Brukernavn: <input type="text" name="username"><br>
 		Passord: <input type="password" name="password"><br>
-		<input type="submit" value="Log in"><br>
-<!--		<a href="http://kark.hin.no/~501428/glemtpassord.html">Glemt passord</a></p>  -->
-		<a href="registeruser.html">Registrer deg</a></p>
+		<input type="submit" value="Logg inn"><br>
+	</form>		
+	<a href="registeruser.html">Registrer deg</a></p>
 	{else}
 		Hello, {$activeUser->getUserName()}
 		<a href="changepassword.html">Endre Passord</a></p>
-	{/if}		
+	{/if}	
 	</div>
 </body>
+</hmtl>
