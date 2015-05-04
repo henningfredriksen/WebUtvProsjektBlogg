@@ -3,16 +3,15 @@ TO DO LISTE
 ------------verifisering av epost ved ny registrering
 glemt passord (bruk kode fra verifisering?)
 
-sjekke brukertype på innlogget bruker
 redigere innlegg (owner)
 
 slette innlegg (owner)
 skrive kommentarer (owner + users)
 slette kommentarer (owner + user som skrev kommentaren)
 
-vise innlegg (short, må ha kode for å forkorte en post)
+endre fra timestamp til datetime
 
-arkiv (mnd)
+vise innlegg (short, må ha kode for å forkorte en post)
 
 logg for slettede kommentarer (bruk trigger i MySQL)
 
@@ -38,3 +37,5 @@ endre passord
 opprett innlegg (owner)
 
 søk i innlegg (stikkord, tittel, innhold?)
+arkiv (mnd)
+sjekke brukertype på innlogget bruker
