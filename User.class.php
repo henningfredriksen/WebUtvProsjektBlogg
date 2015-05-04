@@ -55,7 +55,7 @@ class User {
 	}
 	
 	public function saveUser() {
-		$query = "INSERT INTO users (name, username, email, password, salt, user_type, email_confirmed)
+		$query = "INSERT INTO users (name, username, email, password, salt, usertype, email_confirmed)
 				VALUES (:name, :username, :email, :password, :salt, :usertype, :email_confirmed)";
 		
 		$params[0] = $this->name;
@@ -78,7 +78,7 @@ class User {
 	}
 	
 	public function getUserByUsername($username) {
-		$query = "SELECT id, name, username, email, user_type FROM users WHERE username = '" . $username . "'";
+		$query = "SELECT id, name, username, email, usertype FROM users WHERE username = '" . $username . "'";
 				
 		$result = $this->dbaccess->run_query($query);
 		

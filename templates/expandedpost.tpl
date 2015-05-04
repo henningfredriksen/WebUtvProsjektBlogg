@@ -19,10 +19,11 @@
 				Hits: {$hit['hits']}
 			{/if}
 		{/foreach}
-		{if isset($activeUser)}
+		 {if isset($activeUser)}
 			{if $activeUser->getUsertype() == 1}
 				<a href="deletepost.php?postid={$postid}" onclick="return confirm('Are you sure you want to delete this post?');">Delete post</a>
 			{/if}
-		{/if}
+		{/if}	
+			
 	</div>
 </body>
