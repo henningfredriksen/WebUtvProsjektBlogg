@@ -7,11 +7,12 @@
 </head>
 <body>
 	<div id="archive">
-		{foreach key=key from=$yearMonthArray item=line}
-		{$key}<br>									
-			{foreach key=key from=$line item=item}							
-				{$item}			
+		{foreach key=linekey from=$yearMonthArray item=line}
+			{$linekey}<br>								
+			{foreach key=itemkey from=$line item=item}
+				<a href="index.php?year={$item['year']}&month={$item['month']}">{$item}</a>
 			{/foreach}
+			<br>
 		{/foreach}
 	</div>
 </body>
