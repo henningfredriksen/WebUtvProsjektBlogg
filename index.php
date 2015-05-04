@@ -6,6 +6,8 @@ require_once 'DBAccess.class.php';
 
 $post = new Post();
 
+mail("rhymfaxe2@hotmail.com", "lknhlkfgnhlfg", "jnfdlgdknfgldkfgmdgdf", "From:rhymfaxe@gmail.com");
+
 if (!isset($_POST['search']))
 {
 	// gets a list of all posts in database, in the form of an array of Post objects
