@@ -37,7 +37,7 @@ class Comment {
 		//$query = 'SELECT posts.id, posts.title, posts.text, users.username, posts.date, posts.keywords from posts
 		//			LEFT JOIN users ON posts.author_id = users.id ORDER BY date DESC';
 		$query = 'SELECT comments.id, comments.author_id, comments.post_id, users.username, comments.comment, comments.date FROM comments
-					LEFT JOIN users ON comments.author_id = users.id ORDER BY date DESC';
+					LEFT JOIN users ON comments.author_id = users.id ORDER BY date ASC';
 		
 		$result = $this->dbaccess->run_query($query);
 	

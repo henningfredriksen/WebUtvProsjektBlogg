@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-04 22:15:15
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-06 00:32:24
          compiled from ".\templates\postlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:75005538e41b209bf3-36006013%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4963ff42f5b49917585228115b56c535354fbf38' => 
     array (
       0 => '.\\templates\\postlist.tpl',
-      1 => 1430770499,
+      1 => 1430865133,
       2 => 'file',
     ),
   ),
@@ -19,6 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_5538e41b221302_20223919',
   'variables' => 
   array (
+    'activeUser' => 0,
     'allPosts' => 0,
     'post' => 0,
     'postid' => 0,
@@ -33,6 +34,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </head>
 <body>
 	<div id="postlist">
+		<?php if (isset($_smarty_tpl->tpl_vars['activeUser']->value)) {?>
+			<?php if ($_smarty_tpl->tpl_vars['activeUser']->value->getUsertype()==1) {?>
+				<?php echo $_smarty_tpl->getSubTemplate ('writepost.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+			<?php }?>
+		<?php }?>
+					
 		<?php if ($_smarty_tpl->tpl_vars['allPosts']->value!=null) {?>
 			<!-- includes all the posts in the array as a seperate template -->
 			<?php  $_smarty_tpl->tpl_vars['post'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['post']->_loop = false;
@@ -57,7 +65,9 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
 					<?php echo '<script'; ?>
 >
 					$(document).ready(function()
-					{
+					{	
+						$("#writepost").hide();
+						
 						$("#expandedpost<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
 ").hide();
 						
@@ -92,17 +102,11 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
 					        $("#commentlist<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
 ").hide();        
 					    });
-					    
-					    $("#commentlist<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
-").click(function()
-					    {        
-					        $("#shortpost<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
-").show();
-					        $("#expandedpost<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
-").hide();
-					        $("#commentlist<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
-").hide();
-					    });
+
+					    $("#writenewpostbutton").click(function()
+							    {
+							        $("#writepost").show();
+							    });
 					});
 					<?php echo '</script'; ?>
 >

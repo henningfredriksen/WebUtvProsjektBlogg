@@ -8,10 +8,10 @@
 	<div id="expandedpost{$postid}" class="expandedpost">
 		{foreach key=key from=$allPosts item=post}
 			{if $post->getId() == $postid}				
-				{$post->getId()}<br>
-				{$post->getId()}<br>
+				{$post->getId()}<br>				
 				<span id="posttitle">{$post->getTitle()}</span>
-				<div id="postcontent">{$post->getText()}</div><br>											
+				<div id="postcontent">{$post->getText()}</div><br>
+				{$post->getDate()}											
 			{/if}
 		{/foreach}
 		{foreach key=key from=$hitsByPostId item=hit}

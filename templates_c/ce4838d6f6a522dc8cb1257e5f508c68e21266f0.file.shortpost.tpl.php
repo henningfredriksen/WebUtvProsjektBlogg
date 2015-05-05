@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-04 22:15:15
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-06 01:09:27
          compiled from ".\templates\shortpost.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:211625538e41b267812-86795474%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ce4838d6f6a522dc8cb1257e5f508c68e21266f0' => 
     array (
       0 => '.\\templates\\shortpost.tpl',
-      1 => 1430770498,
+      1 => 1430866412,
       2 => 'file',
     ),
   ),
@@ -41,9 +41,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['post']->key => $_smarty_tpl->tpl_vars
 $_smarty_tpl->tpl_vars['post']->_loop = true;
  $_smarty_tpl->tpl_vars['key']->value = $_smarty_tpl->tpl_vars['post']->key;
 ?>
-			<?php if ($_smarty_tpl->tpl_vars['post']->value->getId()==$_smarty_tpl->tpl_vars['postid']->value) {?>				
-				<?php echo $_smarty_tpl->tpl_vars['post']->value->getId();?>
-<br>
+			<?php if ($_smarty_tpl->tpl_vars['post']->value->getId()==$_smarty_tpl->tpl_vars['postid']->value) {?>
 				<?php echo $_smarty_tpl->tpl_vars['post']->value->getId();?>
 <br>
 				<span id="posttitle"><?php echo $_smarty_tpl->tpl_vars['post']->value->getTitle();?>

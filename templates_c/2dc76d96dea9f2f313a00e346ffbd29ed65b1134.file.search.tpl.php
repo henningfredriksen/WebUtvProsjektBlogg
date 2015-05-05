@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-05 00:27:20
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-06 00:04:29
          compiled from ".\templates\search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:109105538e41b1d6f65-05066125%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2dc76d96dea9f2f313a00e346ffbd29ed65b1134' => 
     array (
       0 => '.\\templates\\search.tpl',
-      1 => 1430778411,
+      1 => 1430863455,
       2 => 'file',
     ),
   ),
@@ -29,6 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<div id="search">
 		<form id="searchid" name="search" action="index.php" method="post">
 		<input type="text" name="search" size="15">		
-		<input name="search_input" type="submit" value="Search"><br>		
+		<input name="search_input" type="submit" value="Search"><br>
+		</form>		
 	</div>
 </body><?php }} ?>
