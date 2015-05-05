@@ -37,6 +37,14 @@ $comment = new Comment();
 $allComments = $comment->getAllComments();
 $smarty->assign('allComments', $allComments); // assigns array to smarty
 
+if (isset($_SESSION['showRegisterUser']))
+{
+	if ($_SESSION['showRegisterUser'])
+	{
+		unset($_SESSION['showRegisterUser']);
+		$smarty->assign('showRegisterUser', true);
+	}
+}
 
 //checking if the user is logged in
 if(isset($_SESSION['username'])) {

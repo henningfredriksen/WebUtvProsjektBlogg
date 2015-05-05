@@ -7,7 +7,8 @@ $emailsender = new SendEmail();
 
 if (isset($_GET['showRegisterUser']))
 {
-	$smarty->assign('showRegisterUser', true);
+//	$smarty->assign('showRegisterUser', true);
+	$_SESSION['showRegisterUser'] = true;
 	header("Location: index.php");
 }
 
