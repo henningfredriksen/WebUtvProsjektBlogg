@@ -12,13 +12,19 @@
 		Passord: <input type="password" name="password"><br>
 		<input name="login_input" type="submit" value="Log in">
 		</form>	
-		<a href="registeruser.html">Registrer deg</a></p>
+		<a href="registeruser.php?showRegisterUser='true'">Register New User</a></p>
 	{else}
-		Hello, {$activeUser->getUserName()}
-		<a href="changepassword.html">Endre Passord</a></p>
-		<div id="writenewpostbutton">
-			<button value="Write New Post"   />
-		</div>		
+		{if isset($showRegisterUser)}
+			{if $showRegisterUser}
+				{include file='registeruser.tpl'}
+			{/if}			
+		{else}	
+			Hello, {$activeUser->getUserName()}
+			<a href="changepassword.html">Endre Passord</a></p>
+			<div id="writenewpostbutton">
+				<button value="Write New Post"   />
+			</div>
+		{/if}		
 	{/if}	
 	</div>
 </body>

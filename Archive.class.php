@@ -27,7 +27,7 @@ class Archive {
 			{
 				if ($yearMonth['year'] == $years['year'])
 				{
-					$yearMonthArray[$yearMonth['year']][] = $monthsList[$yearMonth['month']]; 
+					$yearMonthArray[$yearMonth['year']][] = $monthsList[$yearMonth['month'] -1]; 
 				}
 			}
 		}

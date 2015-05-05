@@ -106,7 +106,7 @@ class Post {
 
 	public function getPostsByYearMonth($year, $month)
 	{
-		$monthsList = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+		$monthsList = array('', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
 		$month = array_search($month, $monthsList);				
 		$query = "SELECT posts.id, posts.title, posts.text, users.username, posts.date, posts.keywords, posts.author_id FROM posts
 					LEFT JOIN users ON posts.author_id = users.id WHERE YEAR(date) = " . $year . " AND MONTH(date) = " . $month . " ORDER BY date DESC";
