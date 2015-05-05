@@ -8,12 +8,13 @@
 	<div id="index">
 		{include file='header.tpl'}
 		{include file='buttonbar.tpl'}
-		{include file='login.tpl'}				
+		{include file='login.tpl'}
+		{include file='postlist.tpl'}				
+		
 		<div id="rightcontainer">
 			{include file='search.tpl'}
 			{include file='archive.tpl'}
 		</div>
-		{include file='postlist.tpl'}				
 		{include file='footer.tpl'}					
 	</div>
 </body>

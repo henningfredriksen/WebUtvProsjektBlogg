@@ -20,7 +20,7 @@
 					<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 					<script>
 					$(document).ready(function()
-					{
+					{	
 						$("#expandedpost{/literal}{$postid}{literal}").hide();
 						
 						$("#commentlist{/literal}{$postid}{literal}").hide();
@@ -43,13 +43,6 @@
 					        $("#shortpost{/literal}{$postid}{literal}").show();
 					        $("#expandedpost{/literal}{$postid}{literal}").hide();
 					        $("#commentlist{/literal}{$postid}{literal}").hide();        
-					    });
-					    
-					    $("#commentlist{/literal}{$postid}{literal}").click(function()
-					    {        
-					        $("#shortpost{/literal}{$postid}{literal}").show();
-					        $("#expandedpost{/literal}{$postid}{literal}").hide();
-					        $("#commentlist{/literal}{$postid}{literal}").hide();
 					    });
 					});
 					</script>

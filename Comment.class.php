@@ -55,5 +55,18 @@ class Comment {
 		$this->dbaccess->delete_query($query);
 	}
 	
+	public function saveComment() {
+		$query = "INSERT INTO comments (author_id, post_id, comment) VALUES (:author_id, :post_id, :comment)";
+	
+		$params[0] = $this->author_id;
+		$params[1] = $this->post_id;
+		$params[2] = $this->comment;		
+	
+		$paramNames[0] = ":author_id";
+		$paramNames[1] = ":post_id";
+		$paramNames[2] = ":comment";		
+	
+		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
+	}
 }
 ?>

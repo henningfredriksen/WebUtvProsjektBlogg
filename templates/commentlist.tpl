@@ -13,8 +13,11 @@
 					{$commentid = $comment->getId()}
 		      		{include file='comment.tpl'}	   
 	        {/foreach}
-	    {else}
-	    	
+		    {if isset($activeUser)}
+				{if $activeUser->getUsertype() == 1 || $activeUser->getUsertype() == 2}
+					{include file='writecomment.tpl'}
+				{/if}
+			{/if}
 	    {/if}
     </div>
 </body>

@@ -24,6 +24,5 @@
 				<a href="deletepost.php?postid={$postid}" onclick="return confirm('Are you sure you want to delete this post?');">Delete post</a>
 			{/if}
 		{/if}	
-			
 	</div>
 </body>
