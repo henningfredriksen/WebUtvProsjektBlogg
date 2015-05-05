@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-28 18:05:50
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-04 22:15:15
          compiled from ".\templates\comment.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:26356553a7c1a6671a1-14206209%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '171bf92c5ad71e2d6c0feb51240db9c06afe89e9' => 
     array (
       0 => '.\\templates\\comment.tpl',
-      1 => 1430237080,
+      1 => 1430770499,
       2 => 'file',
     ),
   ),
@@ -23,6 +23,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'allComments' => 0,
     'comment' => 0,
     'commentid' => 0,
+    'activeUser' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -53,8 +54,16 @@ $_smarty_tpl->tpl_vars['comment']->_loop = true;
 <br>
 				<?php echo $_smarty_tpl->tpl_vars['comment']->value->getDate();?>
 <br>
+				<?php if (isset($_smarty_tpl->tpl_vars['activeUser']->value)) {?>
+					<?php if ($_smarty_tpl->tpl_vars['comment']->value->getAuthorId()==$_smarty_tpl->tpl_vars['activeUser']->value->getId()||$_smarty_tpl->tpl_vars['activeUser']->value->getUsertype()==1) {?>
+					<a href="deletecomment.php?commentid=<?php echo $_smarty_tpl->tpl_vars['commentid']->value;?>
+" onclick="return confirm('Are you sure you want to delete this comment?');">Delete comment</a>
+					<?php }?>
+				<?php }?>
 			<?php }?>
 		<?php } ?>
+		
+		
 	</div>
 </body>
 <?php }} ?>

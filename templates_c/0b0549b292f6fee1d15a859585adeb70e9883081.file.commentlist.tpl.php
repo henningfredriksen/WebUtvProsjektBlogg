@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-28 18:05:50
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-05 22:49:27
          compiled from ".\templates\commentlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:16583553a7c1a58c570-02127254%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0b0549b292f6fee1d15a859585adeb70e9883081' => 
     array (
       0 => '.\\templates\\commentlist.tpl',
-      1 => 1430237080,
+      1 => 1430858957,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'postid' => 0,
     'allComments' => 0,
     'comment' => 0,
+    'activeUser' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -48,8 +49,12 @@ $_smarty_tpl->tpl_vars['comment']->_loop = true;
 		      		<?php echo $_smarty_tpl->getSubTemplate ('comment.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 	   
 	        <?php } ?>
-	    <?php } else { ?>
-	    	
+		    <?php if (isset($_smarty_tpl->tpl_vars['activeUser']->value)) {?>
+				<?php if ($_smarty_tpl->tpl_vars['activeUser']->value->getUsertype()==1||$_smarty_tpl->tpl_vars['activeUser']->value->getUsertype()==2) {?>
+					<?php echo $_smarty_tpl->getSubTemplate ('writecomment.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+				<?php }?>
+			<?php }?>
 	    <?php }?>
     </div>
 </body><?php }} ?>

@@ -2,25 +2,23 @@
 require_once 'config.php';
 
 $inputvalidator = new ValidateUserInput();
-print("test1");
+print($_POST['comment']);
 if (isset($_POST['comment'], $_POST['postid'], $_POST['userid']))
 {
-	print("test2");
+	print($_POST['postid']);
 	$content = $_POST["comment"];
 	$content = $inputvalidator->validateInputString($content);	
-	
-	$username = $_SESSION['username'];
 	
 	$comment = new Comment();
 	$comment->setComment($content);
 	$comment->setAuthor($username);
-	$comment->setAuthorId($_POST['userid']);
-	$comment->setId($_POST['postid']);
+	$comment->setAuthorId(intval($_POST['userid']));
+	$comment->setPostId(intval($_POST['postid']));
 	
 	$comment->saveComment();
-	print("test3");
+	print($_POST['userid']);
 }
 
-// header("Location: index.php");
+header("Location: index.php");
 
 ?>

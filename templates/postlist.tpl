@@ -6,6 +6,12 @@
 </head>
 <body>
 	<div id="postlist">
+		{if isset($activeUser)}
+			{if $activeUser->getUsertype() == 1}
+				{include file='writepost.tpl'}
+			{/if}
+		{/if}
+					
 		{if $allPosts != null}
 			<!-- includes all the posts in the array as a seperate template -->
 			{foreach key=key from=$allPosts item=post}
@@ -21,6 +27,8 @@
 					<script>
 					$(document).ready(function()
 					{	
+						$("#writepost").hide();
+						
 						$("#expandedpost{/literal}{$postid}{literal}").hide();
 						
 						$("#commentlist{/literal}{$postid}{literal}").hide();
@@ -44,6 +52,11 @@
 					        $("#expandedpost{/literal}{$postid}{literal}").hide();
 					        $("#commentlist{/literal}{$postid}{literal}").hide();        
 					    });
+
+					    $("#writenewpostbutton").click(function()
+							    {
+							        $("#writepost").show();
+							    });
 					});
 					</script>
 				{/literal}	      		

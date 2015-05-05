@@ -5,10 +5,12 @@
 <link rel="stylesheet" type="text/css" href="css/blogstyle.css">
 </head>
 <body>
-	<form action="createcomment.php" method="post">		
-		<textarea cols="50" rows="10" name="comment" placeholder="Write your comment here"></textarea>
-		<input type="hidden" name="postid" value="{$postid}">{$postid}		
-		<input type="hidden" name="userid" value="{$activeUser->getId()}">{$activeUser->getId()}		
-		<input type="submit" value="Post comment">
-	</form>
+	<div id="comment{$postid}" class="comment">
+		<form id="createcommentid" action="createcomment.php" method="post">		
+			<textarea cols="80" rows="5" name="comment" placeholder="Write your comment here"></textarea>
+			<input type="hidden" name="postid" value="{$postid}">		
+			<input type="hidden" name="userid" value="{$activeUser->getId()}">		
+			<input name="createcomment_input" type="submit" value="Post comment">
+		</form>
+	</div>
 </body>

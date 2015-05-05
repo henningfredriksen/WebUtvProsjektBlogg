@@ -16,6 +16,9 @@
 	{else}
 		Hello, {$activeUser->getUserName()}
 		<a href="changepassword.html">Endre Passord</a></p>
+		<div id="writenewpostbutton">
+			<button value="Write New Post"   />
+		</div>		
 	{/if}	
 	</div>
 </body>
