@@ -1,11 +1,8 @@
 TO DO LISTE
 
-------------verifisering av epost ved ny registrering
 glemt passord (bruk kode fra verifisering?)
 
 redigere innlegg (owner)
-
-skrive kommentarer (owner + users)
 
 endre fra timestamp til datetime
 
@@ -38,3 +35,6 @@ opprett innlegg (owner)
 søk i innlegg (stikkord, tittel, innhold?)
 arkiv (mnd)
 sjekke brukertype på innlogget bruker
+skrive kommentarer (owner + users)
+
+verifisering av epost ved ny registrering

@@ -18,7 +18,7 @@ class SendEmail {
 		
 		$this->dbaccess->run_prepared_query($query, $params);
 		
-		mail($email, "Bekreft epostadresse", "http://kark.hin.no/~501428/confirmemail.php?id=" . $id, "From:501428@student.hin.no");
+		mail($email, "Bekreft epostadresse", "http://kark.hin.no/~501428/confirmemail.php?email=" . $email . "&id=" . $id, "From:501428@student.hin.no");
 	}
 	
 	public function SendEmailToResetPassword($email){
