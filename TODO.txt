@@ -6,10 +6,9 @@ logg for slettede kommentarer (bruk trigger i MySQL)
 validering av input
 alternative/valgfrie stylesheets (utseendede) + en plass å velge dem fra
 multiple attachments (optional)
-epost må være unik (registrering)
 trenger flere checks på opplastet fil
-
-
+brukerbilde
+opplasting av brukerbilde
 
 
 FULLFØRT
@@ -35,3 +34,5 @@ glemt passord (bruk kode fra verifisering?)
 
 pass på at filene fra attachments blir slettet når vi sletter en bruker/post/attachment (pga cascade)
 vedlegg til innlegg
+
+epost må være unik (registrering)
