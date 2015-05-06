@@ -37,8 +37,7 @@ $comment = new Comment();
 $allComments = $comment->getAllComments();
 $smarty->assign('allComments', $allComments); // assigns array to smarty
 
-if (isset($_SESSION['showRegisterUser']))
-{
+if (isset($_SESSION['showRegisterUser'])){
 	unset($_SESSION['showRegisterUser']);
 	$smarty->assign('showRegisterUser', true);
 }else if(isset($_SESSION['showForgottenPassword'])) {

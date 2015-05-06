@@ -1,10 +1,8 @@
-<input type="hidden" name="fromlink" value="1">
-
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Endre Passord</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="css/blogstyle.css">
 </head>
 <body>
 	<form action="changepassword.php" method="post">
