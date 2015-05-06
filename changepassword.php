@@ -4,17 +4,24 @@ require_once 'config.php';
 $dbaccess = new DBAccess();
 $user = new User();
 
-$oldpassword = $_POST["oldpassword"];
-$newpassword = $_POST["newpassword"];
-$rnewpassword = $_POST["rnewpassword"];
-
-$activeusername = $_SESSION['username'];
-
-if($newpassword == $rnewpassword) {
+if(isset($_SESSION['resetingemail'])) {
+	$query = "SELECT username FROM users WHERE email = ?";
+	$params[0] = $_SESSION['resetingemail'];	
+	$result = $dbaccess->run_prepared_query($query, $params);
+	$username = $result['username'];
+}else {
+	$activeusername = $_SESSION['username'];
+	$oldpassword = $_POST["oldpassword"];
 	
 	$username = $user->checkLoginInfo($activeusername, $oldpassword);
 	$username = $username['username'];
-	
+}
+
+$newpassword = $_POST["newpassword"];
+$rnewpassword = $_POST["rnewpassword"];
+
+
+if($newpassword == $rnewpassword) {	
 	if(isset($username)) {
 		$query = "UPDATE users SET password=? WHERE username=?";
 		

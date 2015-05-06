@@ -18,7 +18,7 @@ class SendEmail {
 		
 		$this->dbaccess->run_prepared_query($query, $params);
 		
-		mail($email, "Bekreft epostadresse", "http://kark.hin.no/~501428/confirmemail.php?email=" . $email . "&id=" . $id, "From:501428@student.hin.no");
+		mail($email, "Bekreft epostadresse", "http://kark.hin.no/~501428/validatelink.php?email=" . $email . "&id=" . $id . "&request=1", "From:501428@student.hin.no");
 	}
 	
 	public function SendEmailToResetPassword($email){
@@ -31,6 +31,6 @@ class SendEmail {
 	
 		$this->dbaccess->run_prepared_query($query, $params);
 	
-		mail($email, "Glemt Passord", "http://kark.hin.no/~501428/newpassword.php?id=" . $id, "From:501428@student.hin.no");
+		mail($email, "Glemt Passord", "http://kark.hin.no/~501428/validatelink.php?email=" . $email . "&id=" . $id . "&request=2", "From:501428@student.hin.no");
 	}
 }

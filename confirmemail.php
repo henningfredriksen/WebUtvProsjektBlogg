@@ -5,6 +5,7 @@ $dbaccess = new DBAccess();
 $email = $_GET[email];
 $id = $_GET[id];
 
+
 $query = "SELECT hash FROM users WHERE email = '" . $email . "'";
 $result = $dbaccess->run_query($query);
 $data = $result->fetch();
