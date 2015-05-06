@@ -25,12 +25,12 @@
 			Passord: <input type="password" name="password"><br>
 			<input name="login_input" type="submit" value="Log in">
 			</form>	
-			<a href="registeruser.php?showRegisterUser='true'">Register New User</a></p>
+			<a href="registeruser.php?showRegisterUser='true'">Register New User</a>
 			<a href="forgottenpassword.php?showForgottenPassword='true'">Forgot Your Password?</a>
 		{/if}		
 	{else}
 			Hello, {$activeUser->getUserName()}
-			<a href="changepassword.php?showChangePassword='true'">Change Password</a></p>
+			<a href="changepassword.php?showChangePassword='true'">Change Password</a>
 			<div id="writenewpostbutton">
 				<button value="Write New Post"   />
 			</div>
