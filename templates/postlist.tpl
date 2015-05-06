@@ -11,7 +11,15 @@
 				{include file='writepost.tpl'}
 			{/if}
 		{/if}
-					
+		{literal}
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+			<script>
+			$(document).ready(function()
+			{
+				$("#writepost").hide();
+			});						
+			</script>
+		{/literal}							
 		{if $allPosts != null}
 			<!-- includes all the posts in the array as a seperate template -->
 			{foreach key=key from=$allPosts item=post}
@@ -27,8 +35,6 @@
 					<script>
 					$(document).ready(function()
 					{	
-						$("#writepost").hide();
-						
 						$("#expandedpost{/literal}{$postid}{literal}").hide();
 						
 						$("#commentlist{/literal}{$postid}{literal}").hide();
@@ -54,9 +60,15 @@
 					    });
 
 					    $("#writenewpostbutton").click(function()
-							    {
-							        $("#writepost").show();
-							    });
+					    {
+					        $("#writepost").show();
+						});
+
+					    $("#newPostCancelButton").click(function()
+					    {
+					        $("#writepost").hide();
+						});
+					    
 					});
 					</script>
 				{/literal}	      		

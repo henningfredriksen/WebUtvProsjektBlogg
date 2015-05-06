@@ -15,5 +15,8 @@
 			<input name="userfile" type="file">			
 			<input type="submit" value="Post">
 		</form>
+		<div id="newPostCancelButton">
+			<button>Cancel</button>
+		</div>
 	</div>
 </body>
