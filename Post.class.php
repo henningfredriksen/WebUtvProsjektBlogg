@@ -85,9 +85,7 @@ class Post {
 		$paramNames[2] = ":author";
 		$paramNames[3] = ":keywords";
 		
-		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
-		
-		return mysql_insert_id();		
+		return $this->dbaccess->prepared_insert_query_withreturnedid($query, $params, $paramNames);	
 	} 
 	
 	public function deletePost($postid) {

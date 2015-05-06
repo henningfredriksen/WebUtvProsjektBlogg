@@ -62,6 +62,20 @@ class DBAccess {
 		$stmt->execute();
 	}
 	
+	public function prepared_insert_query_withreturnedid($query, $params, $paramNames) {
+		$stmt = $this->db->prepare($query);
+	
+		$count = 0;
+	
+		foreach ($paramNames AS $paramName) {
+			$stmt->bindParam($paramName, $params[$count]);
+			$count++;
+		}
+	
+		$stmt->execute();
+		return $this->db->lastInsertId();
+	}
+	
 	public function delete_query($query)
 	{
 		$stmt = $this->db->query($query);
