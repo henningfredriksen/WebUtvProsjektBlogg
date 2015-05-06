@@ -20,17 +20,29 @@ if (isset($_POST["title"], $_POST["content"]))
 	$post->setAuthor($username);
 	$post->setKeyWords($keywords);
 	
-	if (isset($_POST['userfile']))
+	// if uploaded file
+	if ($_FILES['userfile']['name'])
 	{
 		$filename = $_FILES['userfile']['name'];
 		$filemimetype = $_FILES['userfile']['type'];
 		$filesize = $_FILES['userfile']['size'];
 		$filetmpname = $_FILES['userfile']['tmp_name'];
 		$fileerror = $_FILES['userfile']['error'];
-
+		
+		$generatedFilename = time() . $filename;
+		
+		echo $fileerror;
+		
+		$validator = new ValidateUserInput();
+		
+		// if filesize less than 1000000 bytes (1 MiB)
+		if($_FILES['photo']['size'] < (1000000))
+		{					
+			move_uploaded_file($filetmpname, 'uploadedfiles/'. $generatedFilename);
+		}
 	}
 	
 	$post->savePost();
 }
 
-header("Location: index.php");
+//header("Location: index.php");

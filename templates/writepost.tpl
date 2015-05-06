@@ -6,6 +6,7 @@
 </head>
 <body>
 	<div id="writepost">
+		<!-- http://davidwalsh.name/multiple-file-upload -->
 		<form enctype="multipart/form-data" action="createpost.php" method="post">
 			Title <input type="text" name ="title"><br>
 			Content <textarea cols="50" rows="10" name="content" placeholder="Write your post here."></textarea><br>
