@@ -7,7 +7,8 @@ class Post {
 	private $text;
 	private $date;
 	private $keywords;
-	private $author;	
+	private $author;
+	private $shortpost;	
 	
 	private $dbaccess;
 	
@@ -16,14 +17,16 @@ class Post {
 	public function getText()	{return $this->text;}
 	public function getAuthor()	{return $this->author;}
 	public function getDate()	{return $this->date;}
-	public function getKeyWords()	{return $this->keywords;}	
+	public function getKeyWords()	{return $this->keywords;}
+	public function getShortpost()	{return $this->shortpost;}
 	
 	public function setId($id) {$this->id = $id;}
 	public function setTitle($title) {$this->title = $title;}
 	public function setText($text) {$this->text = $text;}
 	public function setAuthor($author) {$this->author = $author;}
 	public function setDate($date) {$this->date = $postdate;}
-	public function setKeyWords($keywords) {$this->keywords = $keywords;}	
+	public function setKeyWords($keywords) {$this->keywords = $keywords;}
+	public function setShortpost($shortpost) {$this->shortpost = $shortpost;}	
 	
 	public function __construct() {
 		$this->dbaccess = new DBAccess();
@@ -39,14 +42,19 @@ class Post {
 	
 	public function getAllPosts() {
 		
-		$query = 'SELECT posts.id, posts.title, posts.text, users.username, posts.date, posts.keywords, posts.author_id FROM posts
-					LEFT JOIN users ON posts.author_id = users.id ORDER BY date DESC';
+		$query = "SELECT posts.id, posts.title, posts.text, users.username 'author', posts.date, posts.keywords, posts.author_id FROM posts
+					LEFT JOIN users ON posts.author_id = users.id ORDER BY date DESC";
 		$result = $this->dbaccess->run_query($query);
 		
 		$postArray = Array();
 		while ($post = $result->fetchObject('Post'))
+		{			
+			$postArray[] = $post;			
+		}
+		
+		foreach ($postArray as $line)
 		{
-			$postArray[] = $post;
+			$line->setShortpost($this->shortenPostContent($line->getText()));
 		}
 		
 		return $postArray;
@@ -87,7 +95,7 @@ class Post {
 	
 	public function getSearchedPosts($searchString)
 	{
-		$query = "SELECT posts.id, posts.title, posts.text, users.username, posts.date, posts.keywords, posts.author_id
+		$query = "SELECT posts.id, posts.title, posts.text, users.username 'author', posts.date, posts.keywords, posts.author_id
 		FROM posts 
 		LEFT JOIN users ON posts.author_id = users.id 
 		WHERE posts.title LIKE '%$searchString%' OR posts.text LIKE '%$searchString%' OR posts.keywords LIKE '%$searchString%' 
@@ -98,7 +106,12 @@ class Post {
 		$postArray = Array();
 		while ($post = $result->fetchObject('Post'))
 		{
-			$postArray[] = $post;
+			$postArray[] = $post;			
+		}
+		
+		foreach ($postArray as $line)
+		{
+			$line->setShortpost($this->shortenPostContent($line->getText()));
 		}
 		
 		return $postArray;
@@ -108,7 +121,7 @@ class Post {
 	{
 		$monthsList = array('', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
 		$month = array_search($month, $monthsList);				
-		$query = "SELECT posts.id, posts.title, posts.text, users.username, posts.date, posts.keywords, posts.author_id FROM posts
+		$query = "SELECT posts.id, posts.title, posts.text, users.username 'author', posts.date, posts.keywords, posts.author_id FROM posts
 					LEFT JOIN users ON posts.author_id = users.id WHERE YEAR(date) = " . $year . " AND MONTH(date) = " . $month . " ORDER BY date DESC";
 		$result = $this->dbaccess->run_query($query);
 		
@@ -118,17 +131,22 @@ class Post {
 			$postArray[] = $post;
 		}
 		
+		foreach ($postArray as $line)
+		{
+			$line->setShortpost($this->shortenPostContent($line->getText()));
+		}
+		
 		return $postArray;
 	}
 		
-	private function forkort_tekst($tekst) {
-		if (strlen($tekst) > 200)
+	public function shortenPostContent($str) {
+		if (strlen($str) > 200)
 		{
-			$new_text = substr($tekst, 0, 200);
+			$new_text = substr($str, 0, 200);
 			$new_text = trim($new_text);
 			return $new_text . "...";
 		} else {
-			return $tekst;
+			return $str;
 		}
 	} 
 }

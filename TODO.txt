@@ -6,8 +6,6 @@ redigere innlegg (owner)
 
 endre fra timestamp til datetime
 
-vise innlegg (short, må ha kode for å forkorte en post)
-
 logg for slettede kommentarer (bruk trigger i MySQL)
 
 validering av input
@@ -31,6 +29,7 @@ registrere ny bruker
 salting av passord
 endre passord
 opprett innlegg (owner)
+vise innlegg (short, må ha kode for å forkorte en post)
 
 søk i innlegg (stikkord, tittel, innhold?)
 arkiv (mnd)
