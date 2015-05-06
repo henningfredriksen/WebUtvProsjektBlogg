@@ -4,6 +4,7 @@ require_once 'config.php';
 
 $validator = new ValidateUserInput();
 $emailsender = new SendEmail();
+$dbaccess = new DBAccess();
 
 if (isset($_GET['showRegisterUser']))
 {
@@ -21,23 +22,31 @@ if(isset($_POST["personname"], $_POST["username"], $_POST["email"], $_POST["pass
 	$rpassword = $_POST["rpassword"];
 	
 	if($password == $rpassword) {
-		$user = new User();
+		$query = "SELECT email FROM users WHERE email= ?";
+		$params[0] = $email;
+		$result = $dbaccess->run_prepared_query($query, $params);
 		
-		$password = trim($password);
-		$name = $validator->validateInputString($name);
-		$username = $validator->validateInputString($username);
-		$email = $validator->validateInputString($email);
-		
-		$user->setName($name);
-		$user->setUserName($username);
-		$user->setEmail($email);
-		$user->setPassword($password);
-		$user->generateHash();
-		
-		$user->saveUser();
-		$emailsender->SendEmailToConfirm($email);
-		
-		header("Location: index.php");
+		if(!isset($result['email'])) {
+			$user = new User();
+			
+			$password = trim($password);
+			$name = $validator->validateInputString($name);
+			$username = $validator->validateInputString($username);
+			$email = $validator->validateInputString($email);
+			
+			$user->setName($name);
+			$user->setUserName($username);
+			$user->setEmail($email);
+			$user->setPassword($password);
+			$user->generateHash();
+			
+			$user->saveUser();
+			$emailsender->SendEmailToConfirm($email);
+			
+			header("Location: index.php");
+		}else {
+			echo "Det eksisterer allerede en bruker med denne epostadressen..";
+		}
 	} 
 }
 else {
