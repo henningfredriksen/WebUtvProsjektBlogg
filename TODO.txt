@@ -12,7 +12,7 @@ validering av input
 
 alternative/valgfrie stylesheets (utseendede) + en plass å velge dem fra
 
-vedlegg til innlegg
+multiple attachments (optional)
 
 epost må være unik (registrering)
 
@@ -39,3 +39,6 @@ sjekke brukertype på innlogget bruker
 skrive kommentarer (owner + users)
 
 verifisering av epost ved ny registrering
+
+pass på at filene fra attachments blir slettet når vi sletter en bruker/post/attachment (pga cascade)
+vedlegg til innlegg

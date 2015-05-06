@@ -89,6 +89,20 @@ class Post {
 	} 
 	
 	public function deletePost($postid) {
+		// fetches the filename of and deletes the locally stored attachments attached to the post about to be deleted
+		$attachmentQuery = "SELECT filename FROM attachments WHERE post_id=$postid";
+		$result = $this->dbaccess->run_query($attachmentQuery);		
+		while($line = $result->fetchObject('Attachment'))
+		{
+			$attachment[] = $line;
+		}
+		
+		foreach ($attachment as $atch)
+		{
+			unlink('uploadedfiles/'.$atch->getFilename());
+		}		
+		
+		// deletes the post
 		$query = "DELETE FROM posts WHERE id=$postid";
 		$this->dbaccess->delete_query($query);
 	}
