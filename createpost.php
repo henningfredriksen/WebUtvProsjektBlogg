@@ -32,7 +32,6 @@ if (isset($_POST["title"], $_POST["content"]))
 		$generatedFilename = time() . $filename;
 		
 		$validfile = false;
-		echo $fileerror;
 		
 		// if filesize less than 1000000 bytes (1 MiB)
 		if($filesize > (1000000))
@@ -51,10 +50,7 @@ if (isset($_POST["title"], $_POST["content"]))
 		else {
 			$validfile = true;
 		}
-		
-		
-		
-		
+				
 		// move file
 		if ($validfile)
 		{

@@ -18,6 +18,8 @@ epost må være unik (registrering)
 
 pass på at filene fra attachments blir slettet når vi sletter en bruker/post/attachment (pga cascade)
 
+trenger flere checks på opplastet fil
+
 FULLFØRT
 vise innlegg (expanded + comments)
 bytte mellom å vise short/expanded + comments innlegg
