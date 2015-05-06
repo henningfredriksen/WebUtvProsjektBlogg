@@ -20,7 +20,7 @@ if (isset($_POST["title"], $_POST["content"]))
 	$post->setAuthor($username);
 	$post->setKeyWords($keywords);
 	
-	// if uploaded file
+	// if uploaded file exists
 	if ($_FILES['userfile']['name'])
 	{
 		$filename = $_FILES['userfile']['name'];
@@ -31,15 +31,36 @@ if (isset($_POST["title"], $_POST["content"]))
 		
 		$generatedFilename = time() . $filename;
 		
+		$validfile = false;
 		echo $fileerror;
 		
-		$validator = new ValidateUserInput();
-		
 		// if filesize less than 1000000 bytes (1 MiB)
-		if($_FILES['photo']['size'] < (1000000))
+		if($filesize > (1000000))
 		{					
+			$validfile = false;
+		}
+		else {
+			$validfile = true;
+		}
+		
+		// checks if there are any errors
+		if($fileerror != 0)
+		{
+			$validfile = false;
+		}
+		else {
+			$validfile = true;
+		}
+		
+		
+		
+		
+		// move file
+		if ($validfile)
+		{
 			move_uploaded_file($filetmpname, 'uploadedfiles/'. $generatedFilename);
 		}
+		
 	}
 	
 	$post->savePost();
