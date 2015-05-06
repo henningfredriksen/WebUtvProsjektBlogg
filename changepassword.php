@@ -1,6 +1,12 @@
 <?php
 require_once 'config.php';
 
+if (isset($_GET['showChangePassword']))
+{
+	$_SESSION['showChangePassword'] = true;
+	header("Location: index.php");
+}
+
 $dbaccess = new DBAccess();
 $user = new User();
 

@@ -39,11 +39,14 @@ $smarty->assign('allComments', $allComments); // assigns array to smarty
 
 if (isset($_SESSION['showRegisterUser']))
 {
-	if ($_SESSION['showRegisterUser'])
-	{
-		unset($_SESSION['showRegisterUser']);
-		$smarty->assign('showRegisterUser', true);
-	}
+	unset($_SESSION['showRegisterUser']);
+	$smarty->assign('showRegisterUser', true);
+}else if(isset($_SESSION['showForgottenPassword'])) {
+	unset($_SESSION['showForgottenPassword']);
+	$smarty->assign('showForgottenPassword', true);
+}else if (isset($_SESSION['showChangePassword'])){
+	unset($_SESSION['showChangePassword']);
+	$smarty->assign('showChangePassword', true);
 }
 
 //checking if the user is logged in
