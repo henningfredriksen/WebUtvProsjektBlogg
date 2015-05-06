@@ -6,10 +6,12 @@
 </head>
 <body>
 	<div id="writepost">
-		<form action="createpost.php" method="post">
+		<form enctype="multipart/form-data" action="createpost.php" method="post">
 			Title <input type="text" name ="title"><br>
 			Content <textarea cols="50" rows="10" name="content" placeholder="Write your post here."></textarea><br>
 			Keywords <input type="text" name="keywords"><br>
+			<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
+			<input name="userfile" type="file">			
 			<input type="submit" value="Post">
 		</form>
 	</div>

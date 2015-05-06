@@ -86,6 +86,8 @@ class Post {
 		$paramNames[3] = ":keywords";
 		
 		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
+		
+		return mysql_insert_id();		
 	} 
 	
 	public function deletePost($postid) {
