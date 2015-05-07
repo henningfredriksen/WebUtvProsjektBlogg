@@ -31,6 +31,7 @@
 	{else}
 			Hello, {$activeUser->getUserName()}
 			<a href="changepassword.php?showChangePassword='true'">Change Password</a>
+			<a href="logout.php">Log out</a>
 			<div id="writenewpostbutton">
 				<button value="Write New Post"   /></button>
 			</div>

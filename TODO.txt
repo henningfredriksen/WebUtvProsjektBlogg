@@ -9,7 +9,7 @@ multiple attachments (optional)
 trenger flere checks på opplastet fil
 brukerbilde
 opplasting av brukerbilde
-logout knapp
+
 
 
 FULLFØRT
@@ -37,3 +37,4 @@ pass på at filene fra attachments blir slettet når vi sletter en bruker/post/att
 vedlegg til innlegg
 
 epost må være unik (registrering)
+logout knapp
