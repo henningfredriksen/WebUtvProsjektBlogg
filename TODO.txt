@@ -9,6 +9,7 @@ multiple attachments (optional)
 trenger flere checks på opplastet fil
 brukerbilde
 opplasting av brukerbilde
+logout knapp
 
 
 FULLFØRT
