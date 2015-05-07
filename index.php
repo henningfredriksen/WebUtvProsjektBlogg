@@ -52,6 +52,11 @@ else if(isset($_SESSION['showChangePassword']))
 	unset($_SESSION['showChangePassword']);
 	$smarty->assign('showChangePassword', true);
 }
+else if(isset($_SESSION['editprofile']))
+{
+	unset($_SESSION['editprofile']);
+	$smarty->assign('editprofile', true);
+}
 
 //checking if the user is logged in
 if(isset($_SESSION['username'])) {

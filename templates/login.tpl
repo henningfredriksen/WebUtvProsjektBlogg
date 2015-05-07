@@ -14,11 +14,7 @@
 		{else if isset($showForgottenPassword)}
 			{if $showForgottenPassword}
 				{include file='forgottenpassword.tpl'}
-			{/if}
-		{else if isset($showChangePassword)}
-			{if $showChangePassword}
-				{include file='changepassword.tpl'}
-			{/if}			
+			{/if}					
 		{else}		
 			<form id="login_id" name="login" action="login.php" method="post">
 			Brukernavn: <input type="text" name="username"><br>
@@ -29,12 +25,23 @@
 			<a href="forgottenpassword.php?showForgottenPassword='true'">Forgot Your Password?</a>
 		{/if}		
 	{else}
-			Hello, {$activeUser->getUserName()}
-			<a href="changepassword.php?showChangePassword='true'">Change Password</a>
-			<a href="logout.php">Log out</a>
-			<div id="writenewpostbutton">
-				<button value="Write New Post"   /></button>
-			</div>
+		{if isset($showChangePassword)}
+			{if $showChangePassword}
+				{include file='changepassword.tpl'}
+			{/if}
+		{else if isset($editprofile)}
+			{if $editprofile}
+				{include file='editprofile.tpl'}
+			{/if}				
+		{else}
+		Hello, {$activeUser->getUserName()}
+		<a href="changepassword.php?showChangePassword='true'">Change Password</a>
+		<a href="editprofile.php?editprofile='true'">Change User Pic</a>
+		<a href="logout.php">Log out</a>
+		<div id="writenewpostbutton">
+			<button value="Write New Post"   /></button>
+		</div>
+		{/if}
 	{/if}	
 	</div>
 </body>
