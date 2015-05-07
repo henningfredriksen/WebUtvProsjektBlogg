@@ -32,9 +32,9 @@
 			Hello, {$activeUser->getUserName()}
 			<a href="changepassword.php?showChangePassword='true'">Change Password</a>
 			<div id="writenewpostbutton">
-				<button value="Write New Post"   />
+				<button value="Write New Post"   /></button>
 			</div>
 	{/if}	
 	</div>
 </body>
-</hmtl>
+</html>
