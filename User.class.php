@@ -11,7 +11,9 @@ class User {
 	private $password;
 	private $salt;
 	private $usertype;
-	private $email_confirmed;	
+	private $email_confirmed;
+	private $picturefilename;
+	private $picturemimetype;	
 	
 	public function __construct() {
 		$this->dbaccess = new DBAccess();
@@ -25,6 +27,8 @@ class User {
 	public function getSalt() {return $this->salt;}
 	public function getUsertype() {return $this->usertype;}
 	public function getEmailConfirmed() {return $this->email_confirmed;}
+	public function getPictureFilename() {return $this->picturefilename;}
+	public function getPictureMimetype() {return $this->picturemimetype;}
 	
 	public function setId($id) {
 		$this->id = $id;
@@ -54,6 +58,14 @@ class User {
 		$this->email_confirmed = $email_confirmed;
 	}
 	
+	public function setPictureFilename($picturefilename) {
+		$this->picturefilename = $picturefilename;
+	}
+	
+	public function setPictureMimetype($picturemimetype) {
+		$this->picturemimetype = $picturemimetype;
+	}
+	
 	public function saveUser() {
 		$query = "INSERT INTO users (name, username, email, password, salt, usertype, email_confirmed)
 				VALUES (:name, :username, :email, :password, :salt, :usertype, :email_confirmed)";
@@ -78,7 +90,7 @@ class User {
 	}
 	
 	public function getUserByUsername($username) {
-		$query = "SELECT id, name, username, email, usertype FROM users WHERE username = '" . $username . "'";
+		$query = "SELECT id, name, username, email, usertype, picturefilename, picturemimetype FROM users WHERE username = '" . $username . "'";
 				
 		$result = $this->dbaccess->run_query($query);
 		
@@ -86,6 +98,19 @@ class User {
 			return $user; // this only happens once as usernames are unique, while loop handles 0 results 
 		} 
 		
+	}
+	
+	public function savePicture($userid)
+	{
+		$query = "UPDATE users SET picturefilename=:picturefilename, picturemimetype=:picturemimetype WHERE id='" . $userid . "'";
+		
+		$params[0] = $this->picturefilename;
+		$params[1] = $this->picturemimetype;
+		
+		$paramNames[0] = ":picturefilename";
+		$paramNames[1] = ":picturemimetype";
+		
+		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
 	}
 	
 	public function checkLoginInfo($inputUsername, $inputPassword) {
