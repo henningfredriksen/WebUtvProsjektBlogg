@@ -1,7 +1,7 @@
 <?php
 require_once 'config.php';
 
-$user = new user();
+$user = new User();
 
 $inputusername = $_POST["username"];
 $inputpassw = $_POST["password"];
