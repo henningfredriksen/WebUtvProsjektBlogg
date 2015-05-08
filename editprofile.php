@@ -6,13 +6,16 @@ if (isset($_GET['editprofile']))
 	$_SESSION['editprofile'] = true;
 	header("Location: index.php");
 }
+print("test1");
+print($_POST['profilepic']);
 
-if (isset($_POST['profilepic']))
+if (isset($_POST["profilepic"]))
 {
+	print("test2");
 	// if uploaded file exists
 	if ($_FILES['profilepic']['name'])
 	{
-		print("test1");
+		print("test3");
 		
 		
 		$filename = $_FILES['profilepic']['name'];
