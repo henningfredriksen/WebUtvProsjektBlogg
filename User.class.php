@@ -102,6 +102,22 @@ class User {
 	
 	public function savePicture($userid)
 	{
+		// fetches the filename of and deletes the locally stored picture before uploading a new one (replacing)
+		$attachmentQuery = "SELECT picturefilename FROM users WHERE id=$userid";
+		$result = $this->dbaccess->run_query($attachmentQuery);
+		while($line = $result->fetchObject('User'))
+		{
+			$users[] = $line;
+		}
+		
+		foreach ($users as $user)
+		{
+			if (file_exists('uploadedfiles/'.$user->getPictureFilename()))
+			{
+				unlink('uploadedfiles/'.$user->getPictureFilename());
+			}
+		}		
+		
 		$query = "UPDATE users SET picturefilename=:picturefilename, picturemimetype=:picturemimetype WHERE id='" . $userid . "'";
 		
 		$params[0] = $this->picturefilename;

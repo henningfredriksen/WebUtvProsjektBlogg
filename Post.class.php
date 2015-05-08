@@ -99,7 +99,10 @@ class Post {
 		
 		foreach ($attachment as $atch)
 		{
-			unlink('uploadedfiles/'.$atch->getFilename());
+			if (file_exists('uploadedfiles/'.$atch->getFilename()))
+			{
+				unlink('uploadedfiles/'.$atch->getFilename());
+			}
 		}		
 		
 		// deletes the post

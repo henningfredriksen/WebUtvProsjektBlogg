@@ -27,6 +27,11 @@ class Attachment {
 		$this->dbaccess = new DBAccess();
 	}
 	
+	public function getAllAttachments()
+	{
+		return $bleh;
+	}
+	
 	public function saveAttachment()
 	{
 		$query = "INSERT INTO attachments (filename, mimetype, filesize, post_id) VALUES (:filename, :mimetype, :filesize, :post_id)";
