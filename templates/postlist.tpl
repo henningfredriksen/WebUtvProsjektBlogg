@@ -17,6 +17,16 @@
 			$(document).ready(function()
 			{
 				$("#writepost").hide();
+
+				$("#writenewpostbutton").click(function()
+			    {
+			        $("#writepost").show();
+				});
+
+			    $("#newPostCancelButton").click(function()
+			    {
+			        $("#writepost").hide();
+				});
 			});						
 			</script>
 		{/literal}							
@@ -58,17 +68,6 @@
 					        $("#expandedpost{/literal}{$postid}{literal}").hide();
 					        $("#commentlist{/literal}{$postid}{literal}").hide();        
 					    });
-
-					    $("#writenewpostbutton").click(function()
-					    {
-					        $("#writepost").show();
-						});
-
-					    $("#newPostCancelButton").click(function()
-					    {
-					        $("#writepost").hide();
-						});
-					    
 					});
 					</script>
 				{/literal}	      		

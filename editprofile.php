@@ -41,20 +41,32 @@ if ($_FILES['profilepic']['name'])
 	{
 		$validfile = true;
 	}
+	
+	// checks for accepted filestypes
+	if ($filemimetype == "image/jpeg" || $filemimetype == "image/jpg" || $filemimetype == "image/gif" || $filemimetype == "image/png")
+	{
+		return true;
+	}
+	else 
+	{
+		$message = 'Invalid file type. Only JPG, GIF and PNG types are accepted.';
+		echo '<script type="text/javascript">alert("'.$message.'");</script>';
+		return false;
+	}
 
 	// move file
 	if ($validfile)
 	{
 		move_uploaded_file($filetmpname, 'uploadedfiles/'. $generatedFilename);
+		
+		$user = new User();
+		$user->setPictureFilename($generatedFilename);
+		$user->setPictureMimetype($filemimetype);
+		
+		$user->savePicture($userid);
 	}
-	
-	$user = new User();
-	$user->setPictureFilename($generatedFilename);
-	$user->setPictureMimetype($filemimetype);
-	
-	$user->savePicture($userid);
 }
 	
-header("Location: index.php");
+//header("Location: index.php");
 
 ?>

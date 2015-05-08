@@ -21,8 +21,9 @@
 			Passord: <input type="password" name="password"><br>
 			<input name="login_input" type="submit" value="Log in">
 			</form>	
-			<a href="registeruser.php?showRegisterUser='true'">Register New User</a>
-			<a href="forgottenpassword.php?showForgottenPassword='true'">Forgot Your Password?</a>
+			<br>
+			<a href="registeruser.php?showRegisterUser='true'">Register New User</a><br>
+			<a href="forgottenpassword.php?showForgottenPassword='true'">Forgot Your Password?</a><br>
 		{/if}		
 	{else}
 		{if isset($showChangePassword)}
@@ -34,16 +35,15 @@
 				{include file='editprofile.tpl'}
 			{/if}				
 		{else}
-		Hello, {$activeUser->getUserName()}
-		<a href="changepassword.php?showChangePassword='true'">Change Password</a>
-		<a href="editprofile.php?editprofile='true'">Change User Pic</a>
-		<a href="logout.php">Log out</a>
-		{if $activeUser->getPictureFilename()  != ""}				
-			<img alt="Profile Picture" src="uploadedfiles/{$activeUser->getPictureFilename()}">
-		{/if}	
-		<div id="writenewpostbutton">
-			<button value="Write New Post"   /></button>
-		</div>
+			Welcome, {$activeUser->getName()}.<br>
+			{if $activeUser->getPictureFilename()  != ""}				
+				<img alt="Profile Picture" src="uploadedfiles/{$activeUser->getPictureFilename()}"><br>
+			{/if}
+			<a href="changepassword.php?showChangePassword='true'">Change Password</a><br>
+			<a href="editprofile.php?editprofile='true'">Change User Pic</a><br>
+			<a id="writenewpostbutton" href="" onclick="return true;">Write New Post</a><br>
+			<a href="logout.php">Log out</a><br>
+			
 		{/if}
 	{/if}	
 	</div>
