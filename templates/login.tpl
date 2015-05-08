@@ -38,6 +38,9 @@
 		<a href="changepassword.php?showChangePassword='true'">Change Password</a>
 		<a href="editprofile.php?editprofile='true'">Change User Pic</a>
 		<a href="logout.php">Log out</a>
+		{if $activeUser->getPictureFilename()  != ""}				
+			<img alt="Profile Picture" src="uploadedfiles/{$activeUser->getPictureFilename()}">
+		{/if}	
 		<div id="writenewpostbutton">
 			<button value="Write New Post"   /></button>
 		</div>
