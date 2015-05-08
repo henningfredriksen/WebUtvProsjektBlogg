@@ -1,16 +1,18 @@
 TO DO LISTE
 
 redigere innlegg (owner)
-endre fra timestamp til datetime
-logg for slettede kommentarer (bruk trigger i MySQL)
-validering av input
-alternative/valgfrie stylesheets (utseendede) + en plass å velge dem fra
-multiple attachments (optional)
-trenger flere checks på opplastet fil
+------------validering av input
+------------alternative/valgfrie stylesheets (utseendede) + en plass å velge dem fra
+------------multiple attachments (optional)
+trenger flere checks på opplastet fil (filtype?, max str dimensjoner?)
+
+sjekk ip-adresse/24 timer på posthit(unike hits)
+
 brukerbilde
-opplasting av brukerbilde
 
-
+DIV
+putte classes i classes-mappe og skrive om autoloader
+CSS/HMTL
 
 FULLFØRT
 vise innlegg (expanded + comments)
@@ -38,3 +40,6 @@ vedlegg til innlegg
 
 epost må være unik (registrering)
 logout knapp
+
+logg for slettede kommentarer (bruk trigger i MySQL)
+opplasting av brukerbilde

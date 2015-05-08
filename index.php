@@ -65,6 +65,11 @@ else if(isset($_SESSION['editprofile']))
 	unset($_SESSION['editprofile']);
 	$smarty->assign('editprofile', true);
 }
+else if(isset($_SESSION['editpostid']))
+{
+	$smarty->assign('editpostid', $_SESSION['editpostid']);
+	unset($_SESSION['editpostid']);
+}
 
 //checking if the user is logged in
 if(isset($_SESSION['username'])) {
