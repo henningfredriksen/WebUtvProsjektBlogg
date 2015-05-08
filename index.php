@@ -35,7 +35,10 @@ $smarty->assign('hitsByPostId', $hitsByPostId); // assigns array to smarty
 //
 $attachment = new Attachment();
 $attachments = $attachment->getAllAttachments();
-$smarty->assign('attachments', $attachments); // assigns array to smarty
+if (!empty($attachments))
+{
+	$smarty->assign('attachments', $attachments); // assigns array to smarty
+}
 
 // gets a list of all comments in database, in the form of an array of Comment objects
 $comment = new Comment();

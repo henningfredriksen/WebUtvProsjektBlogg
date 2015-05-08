@@ -29,7 +29,16 @@ class Attachment {
 	
 	public function getAllAttachments()
 	{
-		return $bleh;
+		$query = "SELECT id, filename, mimetype, filesize, post_id FROM attachments";
+		$result = $this->dbaccess->run_query($query);		
+
+		$attachmentArray = Array();
+		while ($attachment = $result->fetchObject('Attachment'))
+		{			
+			$attachmentArray[] = $attachment;			
+		}
+		
+		return $attachmentArray;
 	}
 	
 	public function saveAttachment()

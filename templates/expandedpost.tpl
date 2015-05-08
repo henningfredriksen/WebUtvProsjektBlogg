@@ -24,6 +24,13 @@
 			{if $activeUser->getUsertype() == 1}
 				<a href="deletepost.php?postid={$postid}" onclick="return confirm('Are you sure you want to delete this post?');">Delete post</a>
 			{/if}
-		{/if}	
+		{/if}
+		{if isset($attachments)}
+			{foreach key=key from=$attachments item=attachment}
+				{if $attachment->getPostId() == $postid}
+					<img alt="Attachment" src="uploadedfiles/{$attachment->getFilename()}">
+				{/if}
+			{/foreach}
+		{/if}
 	</div>
 </body>
