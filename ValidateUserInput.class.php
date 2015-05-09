@@ -1,4 +1,5 @@
 <?php
+require_once 'config.php';
 
 class ValidateUserInput {
 	
@@ -22,7 +23,7 @@ class ValidateUserInput {
 		$imgwidth = $imginfo[0];
 		$imgheight = $imginfo[1];
 		
-		$errorarray = array(
+		$errorarray = Array(
 				0=>"The file uploaded successfully",
 				1=>"The uploaded file exceeds the upload_max_filesize directive in php.ini",
 				2=>"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form",
@@ -32,7 +33,7 @@ class ValidateUserInput {
 				7=>"Failed to write file to disk",
 				8=>"A PHP extension stopped the file upload."
 		);
-		
+				
 		// checks filesize (in bytes)
 		if($filesize > ($MAX_FILESIZE))
 		{
