@@ -47,8 +47,7 @@ if (isset($_POST["title"], $_POST["content"]))
 			$attachment->setFilesize($filesize);
 			$attachment->setPostId($post->savePost()); // saves the post, gets returned the id of the last inserted post
 			
-			$attachment->saveAttachment();
-			$post->savePost();
+			$attachment->saveAttachment();			
 		}
 	}
 	else
