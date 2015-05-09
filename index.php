@@ -81,5 +81,37 @@ if(isset($_SESSION['username'])) {
 	$smarty->assign('isLoggedIn', false);	
 }
 
+
+// error reporting
+if(isset($_SESSION['imgwidtherror'], $_SESSION['imgheighterror']))
+{
+	
+	$msg = "Image exceeds the maximum dimensions of " . $_SESSION['imgwidtherror'] . "px width, " . $_SESSION['imgheighterror'] . "px height.";
+	echo '<script type="text/javascript">alert("' . $msg . '");</script>';
+	unset($_SESSION['imgwidtherror']);
+	unset($_SESSION['imgheighterror']);
+}
+
+if(isset($_SESSION['imgtypeerror']))
+{
+	$msg = "Invalid file type. Only JPG, GIF and PNG are accepted.";
+	echo '<script type="text/javascript">alert("' . $msg . '");</script>';
+	unset($_SESSION['imgtypeerror']);
+}
+
+if(isset($_SESSION['fileerror']))
+{
+	$msg = $_SESSION['fileerror'];
+	echo '<script type="text/javascript">alert("' . $msg . '");</script>';
+	unset($_SESSION['fileerror']);
+}
+
+if(isset($_SESSION['filesizeerror']))
+{
+	$msg = "Image exceeds the maximum file size of " . $_SESSION['filesizeerror'] . " bytes.";
+	echo '<script type="text/javascript">alert("' . $msg . '");</script>';
+	unset($_SESSION['filesizeerror']);
+}
+
 $smarty->display('index.tpl');
 ?>
