@@ -19,6 +19,12 @@ if ($_FILES['profilepic']['name'])
 	$userid = $_POST['userid'];
 
 	$generatedFilename = "profilepic" . time() . $filename;
+	
+	$MAX_WIDTH = 100; 
+	$MAX_HEIGHT = 100;
+	$imginfo = getimagesize($filetmpname);
+	$imgwidth = $imginfo[0];
+	$imgheight = $imginfo[1];
 
 	$validfile = false; // initial value
 
@@ -45,13 +51,24 @@ if ($_FILES['profilepic']['name'])
 	// checks for accepted filestypes
 	if ($filemimetype == "image/jpeg" || $filemimetype == "image/jpg" || $filemimetype == "image/gif" || $filemimetype == "image/png")
 	{
-		return true;
+		$validfile = true;
 	}
 	else 
 	{
-		$message = 'Invalid file type. Only JPG, GIF and PNG types are accepted.';
-		echo '<script type="text/javascript">alert("'.$message.'");</script>';
-		return false;
+		$msg = "Invalid file type. Only JPG, GIF and PNG are accepted.";
+		echo '<script type="text/javascript">alert("' . $msg . '");</script>';
+		$validfile = false;
+	}
+	
+	if ($imgwidth < $MAX_WIDTH && $imgheight < $MAX_HEIGHT)
+	{
+		$validfile = true;
+	}
+	else 
+	{
+		$msg = "Image exceeds the maximum dimensions of " . $MAX_WIDTH . "px x " . $MAX_HEIGHT . "px.";
+		echo '<script type="text/javascript">alert("' . $msg . '");</script>';
+		$validfile = false;
 	}
 
 	// move file
