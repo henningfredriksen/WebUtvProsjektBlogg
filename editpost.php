@@ -1,6 +1,9 @@
 <?php
 require_once 'config.php';
 
+error_reporting(E_ALL);
+ini_set( 'display_errors','1');
+
 if (isset($_GET['postid'])) {
 	$postid = $_GET['postid'];
 	$_SESSION['editpostid'] = $postid;
@@ -11,6 +14,8 @@ $inputvalidator = new ValidateUserInput();
 
 if (isset($_POST["title"], $_POST["content"]))
 {
+	$username = $_SESSION["username"];
+	
 	$title = $_POST["title"];
 	$title = $inputvalidator->validateInputString($title);
 	$content = $_POST["content"];
@@ -24,7 +29,8 @@ if (isset($_POST["title"], $_POST["content"]))
 		if (!empty($attachments))
 		{
 			foreach ($attachments as $a) {
-				if($a->getId() == $postid) {
+				if($a->getPostId() == $postid) {
+					
 					$a->deleteAttachment();
 				}
 			}
@@ -93,11 +99,9 @@ if (isset($_POST["title"], $_POST["content"]))
 		$attachment->setFilename($generatedFilename);
 		$attachment->setMimetype($filemimetype);
 		$attachment->setFilesize($filesize);
-		$attachment->setPostId($post->savePost()); // saves the post, gets returned the id of the last inserted post
+		$attachment->setPostId($post->updatePost()); // saves the post, gets returned the id of the last inserted post
 
 		$attachment->saveAttachment();
-		
-		$post->updatePost();
 
 	}
 	else

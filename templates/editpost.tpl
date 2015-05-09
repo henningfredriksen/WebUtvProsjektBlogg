@@ -27,8 +27,8 @@
 				</form>
 			{/if}
 		{/foreach}
-		<div id="newPostCancelEditButton">
-			<button>Cancel</button>
+		<div id="editPostCancelButton">
+			<button type="button" onClick="location.href = 'index.php'">Cancel</button>
 		</div>
 	</div>
 </body>

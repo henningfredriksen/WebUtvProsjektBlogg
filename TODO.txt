@@ -3,9 +3,6 @@ TO DO LISTE
 ------------validering av input
 ------------alternative/valgfrie stylesheets (utseendede) + en plass å velge dem fra
 ------------multiple attachments (optional)
-trenger flere checks på opplastet fil (filtype?, max str dimensjoner?)
-
-slette og legge til attachments i rediger innlegg
 
 DIV
 putte classes i classes-mappe og skrive om autoloader
@@ -13,6 +10,7 @@ CSS/HMTL
 ramme rundt brukerbilde
 
 FULLFØRT
+slette og legge til attachments i rediger innlegg
 trenger flere checks på opplastet fil (filtype?, max str dimensjoner?)
 sjekk ip-adresse/24 timer på posthit(unike hits)
 vise innlegg (expanded + comments)

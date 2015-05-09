@@ -85,6 +85,8 @@ class Post {
 		$params[2] = $this->keywords;
 		
 		$this->dbaccess->run_prepared_query($query, $params);
+		
+		return $this->id;
 	}
 	
 	public function deletePost($postid) {
