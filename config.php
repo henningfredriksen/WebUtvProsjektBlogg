@@ -4,7 +4,7 @@ session_start();
 $smarty = new Smarty();
 
 function siljesAutoloader($class_name){
-	include $class_name . '.class' . '.php';
+	include "classes" . DIRECTORY_SEPARATOR . $class_name . '.class' . '.php';
 }
 
 spl_autoload_register('siljesAutoloader');
