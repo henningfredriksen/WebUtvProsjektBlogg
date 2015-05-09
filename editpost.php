@@ -52,7 +52,7 @@ if (isset($_POST["title"], $_POST["content"]))
 		if (!empty($attachments))
 		{
 			foreach ($attachments as $a) {
-				if($a->getId() == $postid) {
+				if($a->getPostId() == $postid) {
 					$a->deleteAttachment();
 				}
 			}
@@ -66,25 +66,7 @@ if (isset($_POST["title"], $_POST["content"]))
 
 		$generatedFilename = time() . $filename;
 
-		$validfile = false; // initial value
-
-		// if filesize less than 1000000 bytes (1 MiB)
-		if($filesize > (1000000))
-		{
-			$validfile = false;
-		}
-		else {
-			$validfile = true;
-		}
-
-		// checks if there are any errors
-		if($fileerror != 0)
-		{
-			$validfile = false;
-		}
-		else {
-			$validfile = true;
-		}
+		$validfile = $inputvalidator->validateFile($filename, $filemimetype, $filesize, $filetmpname, $fileerror, 1000000, 500, 600);
 
 		// move file
 		if ($validfile)
