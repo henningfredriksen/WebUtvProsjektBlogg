@@ -15,6 +15,13 @@
 				{$post->getDate()}											
 			{/if}
 		{/foreach}
+		{if isset($attachments)}
+			{foreach key=key from=$attachments item=attachment}
+				{if $attachment->getPostId() == $postid}
+					<img alt="Attachment" src="uploadedfiles/{$attachment->getFilename()}">
+				{/if}
+			{/foreach}
+		{/if}
 		{foreach key=key from=$hitsByPostId item=hit}
 			{if $postid == $hit['post_id']}
 				Hits: {$hit['hits']}
@@ -26,12 +33,6 @@
 				<a href="editpost.php?postid={$postid}">Edit post</a>
 			{/if}
 		{/if}
-		{if isset($attachments)}
-			{foreach key=key from=$attachments item=attachment}
-				{if $attachment->getPostId() == $postid}
-					<img alt="Attachment" src="uploadedfiles/{$attachment->getFilename()}">
-				{/if}
-			{/foreach}
-		{/if}
+		
 	</div>
 </body>

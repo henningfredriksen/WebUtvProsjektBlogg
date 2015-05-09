@@ -6,6 +6,13 @@
 </head>
 <body>
 	<div id="editpost">
+		{if isset($attachments)}
+			{foreach key=key from=$attachments item=attachment}
+				{if $attachment->getPostId() == $postid}
+					<img alt="Attachment" src="uploadedfiles/{$attachment->getFilename()}">
+				{/if}
+			{/foreach}
+		{/if}
 		{foreach key=key from=$allPosts item=post}
 			{if $post->getId() == $editpostid}
 				<form enctype="multipart/form-data" action="editpost.php" method="post">
@@ -19,6 +26,7 @@
 				</form>
 			{/if}
 		{/foreach}
+		<a href="deletepost.php?postid={$postid}" onclick="return confirm('Are you sure you want to delete this post?');">Delete post</a>
 		<div id="newPostCancelButton">
 			<button>Cancel</button>
 		</div>
