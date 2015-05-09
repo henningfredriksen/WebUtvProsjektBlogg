@@ -46,15 +46,15 @@ class PostHit {
 		return $result;
 	}
 	
-	public function addHitToPost($postid, $ip)
+	public function addHitToPost()
 	{
-		$query = "INSERT INTO posthit (post_id, ip) VALUES ($postid, $ip)";
+		$query = "INSERT INTO posthit (post_id, ip) VALUES (:postid, :ip)";
 	
 		$params[0] = $this->post_id;
 		$params[1] = $this->ip;
 	
-		$paramNames[0] = "$postid";
-		$paramNames[1] = "$ip";
+		$paramNames[0] = ":postid";
+		$paramNames[1] = ":ip";
 	
 		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
 	}
