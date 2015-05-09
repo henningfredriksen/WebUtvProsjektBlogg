@@ -23,6 +23,10 @@ if (isset($_POST["title"], $_POST["content"]))
 	// if uploaded file exists
 	if ($_FILES['userfile']['name'])
 	{
+		$MAX_FILESIZE = 1000000;
+		$MAX_WIDTH = 500;
+		$MAX_HEIGHT = 600;
+		
 		$filename = $_FILES['userfile']['name'];
 		$filemimetype = $_FILES['userfile']['type'];
 		$filesize = $_FILES['userfile']['size'];
@@ -31,40 +35,21 @@ if (isset($_POST["title"], $_POST["content"]))
 		
 		$generatedFilename = time() . $filename;
 		
-		$validfile = false; // initial value
-		
-		// if filesize less than 1000000 bytes (1 MiB)
-		if($filesize > (1000000))
-		{					
-			$validfile = false;
-		}
-		else {
-			$validfile = true;
-		}
-		
-		// checks if there are any errors
-		if($fileerror != 0)
-		{
-			$validfile = false;
-		}
-		else {
-			$validfile = true;
-		}
+		$validator = new ValidateUserInput();
 				
 		// move file
-		if ($validfile)
+		if ($validator->validateFile($filename, $filemimetype, $filesize, $filetmpname, $fileerror, $MAX_FILESIZE, $MAX_WIDTH, $MAX_HEIGHT))
 		{
 			move_uploaded_file($filetmpname, 'uploadedfiles/'. $generatedFilename);
+			$attachment = new Attachment();
+			$attachment->setFilename($generatedFilename);
+			$attachment->setMimetype($filemimetype);
+			$attachment->setFilesize($filesize);
+			$attachment->setPostId($post->savePost()); // saves the post, gets returned the id of the last inserted post
+			
+			$attachment->saveAttachment();
+			$post->savePost();
 		}
-		
-		$attachment = new Attachment();
-		$attachment->setFilename($generatedFilename);
-		$attachment->setMimetype($filemimetype);
-		$attachment->setFilesize($filesize);
-		$attachment->setPostId($post->savePost()); // saves the post, gets returned the id of the last inserted post
-		
-		$attachment->saveAttachment();
-		
 	}
 	else
 	{
@@ -73,3 +58,4 @@ if (isset($_POST["title"], $_POST["content"]))
 }
 
 header("Location: index.php");
+?>
