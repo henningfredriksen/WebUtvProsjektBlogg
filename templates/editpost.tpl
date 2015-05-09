@@ -19,15 +19,15 @@
 					Title <input type="text" name ="title" value="{$post->getTitle()}"><br>
 					Content <textarea cols="50" rows="10" name="content">{$post->getText()}</textarea><br>
 					Keywords <input type="text" name="keywords" value="{$post->getKeywords()}"><br>
+					<input type="checkbox" name="deleteattachment" value="delete"> Delete the excisting attachment<br>
 					<input type="hidden" name="postid" value="{$post->getId()}">
-					<!-- 	<input type="hidden" name="MAX_FILE_SIZE" value="1000000"> -->
-					<!-- 	<input name="userfile" type="file">		-->	
+					<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
+					<input name="userfile" type="file">	
 					<input type="submit" value="Post">
 				</form>
 			{/if}
 		{/foreach}
-		<a href="deletepost.php?postid={$postid}" onclick="return confirm('Are you sure you want to delete this post?');">Delete post</a>
-		<div id="newPostCancelButton">
+		<div id="newPostCancelEditButton">
 			<button>Cancel</button>
 		</div>
 	</div>

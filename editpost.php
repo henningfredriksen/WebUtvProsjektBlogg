@@ -18,6 +18,19 @@ if (isset($_POST["title"], $_POST["content"]))
 	$keywords = $_POST["keywords"];
 	$keywords = $inputvalidator->validateInputString($keywords);
 	$postid = $_POST["postid"];
+	if(isset($_POST["deleteattachment"])) {
+		$attachment = new Attachment();
+		$attachments = $attachment->getAllAttachments();
+		if (!empty($attachments))
+		{
+			foreach ($attachments as $a) {
+				if($a->getId() == $postid) {
+					$a->deleteAttachment();
+				}
+			}
+		}
+		
+	}
 
 	$post = new Post();
 	$post->setId($postid);
@@ -29,8 +42,19 @@ if (isset($_POST["title"], $_POST["content"]))
 	$post->updatePost();
 
 	// if uploaded file exists
-/*	if ($_FILES['userfile']['name'])
+	if ($_FILES['userfile']['name'])
 	{
+		$attachment = new Attachment();
+		$attachments = $attachment->getAllAttachments();
+		if (!empty($attachments))
+		{
+			foreach ($attachments as $a) {
+				if($a->getId() == $postid) {
+					$a->deleteAttachment();
+				}
+			}
+		}
+		
 		$filename = $_FILES['userfile']['name'];
 		$filemimetype = $_FILES['userfile']['type'];
 		$filesize = $_FILES['userfile']['size'];
@@ -72,12 +96,14 @@ if (isset($_POST["title"], $_POST["content"]))
 		$attachment->setPostId($post->savePost()); // saves the post, gets returned the id of the last inserted post
 
 		$attachment->saveAttachment();
+		
+		$post->updatePost();
 
 	}
 	else
 	{
-		$post->savePost();
-	} */
+		$post->updatePost();
+	} 
 }
 
 header("Location: index.php");

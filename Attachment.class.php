@@ -58,5 +58,25 @@ class Attachment {
 		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
 	}
 	
+	public function deleteAttachment() {
+		$attachmentQuery = "SELECT filename FROM attachments WHERE post_id='" . $this->post_id . "'";
+		$result = $this->dbaccess->run_query($attachmentQuery);
+		while($line = $result->fetchObject('Attachment'))
+		{
+			$attachment[] = $line;
+		}
+		
+		foreach ($attachment as $atch)
+		{
+			if (file_exists('uploadedfiles/'.$atch->getFilename()))
+			{
+				unlink('uploadedfiles/'.$atch->getFilename());
+			}
+		}
+		
+		$deleteQuery = "DELETE FROM attachments WHERE post_id='" . $this->post_id . "'";
+		$this->dbaccess->run_query($deleteQuery);
+	}
+	
 }
 ?>

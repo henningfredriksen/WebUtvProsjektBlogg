@@ -5,7 +5,6 @@ TO DO LISTE
 ------------multiple attachments (optional)
 trenger flere checks på opplastet fil (filtype?, max str dimensjoner?)
 
-sjekk ip-adresse/24 timer på posthit(unike hits)
 slette og legge til attachments i rediger innlegg
 
 DIV
@@ -14,6 +13,8 @@ CSS/HMTL
 ramme rundt brukerbilde
 
 FULLFØRT
+trenger flere checks på opplastet fil (filtype?, max str dimensjoner?)
+sjekk ip-adresse/24 timer på posthit(unike hits)
 vise innlegg (expanded + comments)
 bytte mellom å vise short/expanded + comments innlegg
 hit counter for innlegg
