@@ -1,18 +1,17 @@
 TO DO LISTE
 
-redigere innlegg (owner)
 ------------validering av input
 ------------alternative/valgfrie stylesheets (utseendede) + en plass å velge dem fra
 ------------multiple attachments (optional)
 trenger flere checks på opplastet fil (filtype?, max str dimensjoner?)
 
 sjekk ip-adresse/24 timer på posthit(unike hits)
-
-brukerbilde
+slette og legge til attachments i rediger innlegg
 
 DIV
 putte classes i classes-mappe og skrive om autoloader
 CSS/HMTL
+ramme rundt brukerbilde
 
 FULLFØRT
 vise innlegg (expanded + comments)
@@ -43,3 +42,5 @@ logout knapp
 
 logg for slettede kommentarer (bruk trigger i MySQL)
 opplasting av brukerbilde
+
+redigere innlegg (owner)

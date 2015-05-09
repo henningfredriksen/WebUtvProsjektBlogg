@@ -72,4 +72,4 @@ if (isset($_POST["title"], $_POST["content"]))
 	}
 }
 
-//header("Location: index.php");
+header("Location: index.php");

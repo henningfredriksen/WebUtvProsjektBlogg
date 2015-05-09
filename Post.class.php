@@ -75,7 +75,17 @@ class Post {
 		$paramNames[3] = ":keywords";
 		
 		return $this->dbaccess->prepared_insert_query_withreturnedid($query, $params, $paramNames);	
-	} 
+	}
+
+	public function updatePost() {
+		$query = "UPDATE posts SET title=?, text=?, keywords=? WHERE id='" . $this->id . "'";
+		
+		$params[0] = $this->title;
+		$params[1] = $this->text;
+		$params[2] = $this->keywords;
+		
+		$this->dbaccess->run_prepared_query($query, $params);
+	}
 	
 	public function deletePost($postid) {
 		// fetches the filename of and deletes the locally stored attachments attached to the post about to be deleted
