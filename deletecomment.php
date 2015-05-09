@@ -1,9 +1,6 @@
 <?php
 require_once 'config.php';
 
-// check user level here as well + that the user id matches
-
-
 if (isset($_GET['commentid'])) {
 	$commentid = $_GET['commentid'];
 	$comment = new Comment();

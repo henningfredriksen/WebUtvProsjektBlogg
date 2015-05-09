@@ -4,6 +4,9 @@ TO DO LISTE
 ------------alternative/valgfrie stylesheets (utseendede) + en plass å velge dem fra
 ------------multiple attachments (optional)
 
+error reporting i (changepassword, confirmemail, forgottenpassword, login, registeruser, validatelink)
+
+
 DIV
 putte classes i classes-mappe og skrive om autoloader
 CSS/HMTL

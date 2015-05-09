@@ -1,9 +1,6 @@
 <?php
 require_once 'config.php';
 
-// check user level here as well
-
-
 if (isset($_GET['postid'])) {	
 	$postid = $_GET['postid'];	
 	$post = new Post();	
