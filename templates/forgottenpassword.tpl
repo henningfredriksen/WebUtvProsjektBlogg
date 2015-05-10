@@ -9,9 +9,12 @@
 <body>
 	<div id="forgottenpassword">	
 		<form id="forgottenpasswordform" name="forgottenpassword" action="forgottenpassword.php" method="post">
-		Epost: <input type="text" name="email"><br>
-		<input name="forgottenpassword_input" type="submit" value="Nullstill passord">
+		<table>
+		<tr><td>Epost</td><td><input type="text" name="email"></td></tr>
+		<tr><td colspan="2"><input name="forgottenpassword_input" type="submit" value="Nullstill passord"></td></tr>
+		</table>
 		</form>
+		
 	</div>
 </body>
 </html>

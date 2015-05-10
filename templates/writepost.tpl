@@ -10,15 +10,17 @@
 	<div id="writepost">
 		<!-- http://davidwalsh.name/multiple-file-upload -->
 		<form enctype="multipart/form-data" action="createpost.php" method="post">
-			Title <input type="text" name ="title"><br>
-			Content <textarea cols="50" rows="10" name="content" placeholder="Write your post here."></textarea><br>
-			Keywords <input type="text" name="keywords"><br>
+		<table>
+			<tr><td>Title</td><td><input type="text" name ="title"></td></tr>
+			<tr><td>Content</td><td><textarea cols="50" rows="10" name="content" placeholder="Write your post here."></textarea></td></tr>
+			<tr><td>Keywords</td><td><input type="text" name="keywords"></td></tr>
 			<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
-			<input name="userfile" type="file">			
-			<input type="submit" value="Post">
+			<tr><td colspan="2"><input name="userfile" type="file"></td></tr>			
+			<tr><td><input type="submit" value="Post"></td>
 		</form>
 		<div id="newPostCancelButton">
-			<button>Cancel</button>
+			<td><button>Cancel</button></td></tr>
 		</div>
+		</table>
 	</div>
 </body>
