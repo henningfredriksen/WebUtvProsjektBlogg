@@ -8,11 +8,13 @@ error reporting i (changepassword, confirmemail, forgottenpassword, login, regis
 
 
 DIV
-putte classes i classes-mappe og skrive om autoloader
 CSS/HMTL
 ramme rundt brukerbilde
+dokumentasjon
+prosjektrapport
 
 FULLFØRT
+putte classes i classes-mappe og skrive om autoloader
 slette og legge til attachments i rediger innlegg
 trenger flere checks på opplastet fil (filtype?, max str dimensjoner?)
 sjekk ip-adresse/24 timer på posthit(unike hits)

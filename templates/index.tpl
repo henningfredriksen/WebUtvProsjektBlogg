@@ -9,7 +9,6 @@
 <body>
 	<div id="index">
 		{include file='header.tpl'}
-		{include file='buttonbar.tpl'}
 		{include file='login.tpl'}
 		<div id="rightcontainer">
 			{include file='search.tpl'}

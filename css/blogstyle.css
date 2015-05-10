@@ -1,7 +1,7 @@
 @CHARSET "utf-8";
 
 body { 
-	background-color: #white;
+	background-color: #D1E8FF;
 	margin: 0;
 	padding: 0;
 	margin-top: 1%;
@@ -14,22 +14,15 @@ body {
 #index {
 	width: 1200px; 
 	margin: 0 auto; 
-  	background: white;
+  	background: #D1E8FF;
 }
 
 #header {
 	width: 100%;
 	height: 100px;    
     margin-top: 1%;
-    background: blue;    
-}  	
-
-#buttonbar {
-	width: 100%;
-	height: 40px;
-    margin-bottom: 1%;
-    background: green;
-}  	
+    background: #75D1FF;    
+}  	  	
 
 #footer {
 	width: 100%;
@@ -47,7 +40,7 @@ body {
     margin-right: 2%;
     display: inline-block;    
     float: left;
-    background: blue;
+    background: #75D1FF;
 }
 
 #rightcontainer {
@@ -95,11 +88,11 @@ body {
 }
 
 .shortpost {
-	background: yellow;
+	background: #FF7519;
 }
 
 .expandedpost {
-	background: blue;
+	background: #FF944D;
 }
 
 .commentlist {
