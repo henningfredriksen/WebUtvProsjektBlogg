@@ -1,5 +1,15 @@
+
 <?php
 require_once 'config.php';
+
+/* Createcomment has two purposes.
+ * 
+ * One is to catch the href from expandedpost.tpl, send a variable via session
+ * back to index.php, where a smarty variable is set, enabling showing of writecomment.tpl 
+ * 
+ * The other is to catch the $_POST variables sent from writecomment.tpl, validate the input
+ * and write the comment to database via Comment.class.php
+ */
 
 if(isset($_GET['writecomment'], $_GET['postidforcomment']))
 {

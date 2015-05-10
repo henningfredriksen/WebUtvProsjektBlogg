@@ -1,6 +1,20 @@
 <?php
 require_once 'config.php';
 
+/*
+ * Editprofile.php has two purposes.
+ * 
+ * The first is to receive the $_GET variable send from the href in login.tpl and
+ * send a variable back to index.php via session, where a smarty variable is
+ * set to allow the showing of editprofile.tpl in the left floating box
+ * 
+ * The second is to handle the $_POST variable sent from editprofile.tpl, which is
+ * a form submitted uploaded file. If a file is submitted, it is validated before it is
+ * permanently uploaded to /uploadedfiles. The savePicture() method in User.class.php
+ * saves a new generated filename, and the mimetype to the users table in DB.
+ * The method handles deletion of the old file when a new one is written to DB.
+ */
+
 if (isset($_GET['editprofile']))
 {
 	$_SESSION['editprofile'] = true;
