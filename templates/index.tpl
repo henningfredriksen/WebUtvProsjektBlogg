@@ -3,6 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="css/blogstyle.css">
+<title> Index
+</title>
 </head>
 <body>
 	<div id="index">
@@ -14,6 +16,6 @@
 			{include file='archive.tpl'}
 		</div>
 		{include file='postlist.tpl'}
-		{include file='footer.tpl'}					
+		{include file='footer.tpl'}
 	</div>
 </body>

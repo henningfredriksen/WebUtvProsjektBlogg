@@ -3,13 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="css/blogstyle.css">
+<title> Postlist
+</title>
 </head>
 <body>
 	<div id="postlist">
 		{if isset($activeUser)}
 			{if $activeUser->getUsertype() == 1}
-				{include file='writepost.tpl'}
-				{literal}
+			{literal}
 					<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 					<script>
 					$(document).ready(function()
@@ -28,6 +29,7 @@
 					});						
 					</script>
 				{/literal}	
+				{include file='writepost.tpl'}
 			{/if}
 		{/if}
 						

@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/blogstyle.css">
+<title> Login
+</title>
 </head>
 <body>
 	<div id="login">
