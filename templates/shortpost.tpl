@@ -9,11 +9,11 @@
 <body>
 	<div id="shortpost{$postid}" class="shortpost">
 		{foreach key=key from=$allPosts item=post}
-			{if $post->getId() == $postid}
-				{$post->getAuthor()}<br>			
-				<span id="posttitle">{$post->getTitle()}</span>
+			{if $post->getId() == $postid}			
+				<span id="posttitle">{$post->getTitle()}</span><br>
+				<span id="author">{$post->getAuthor()}</span> <span id="date">{$post->getDate()}</span><br>
 				<div id="postcontent">{$post->getShortpost()}</div>
-				{$post->getDate()}
+				
 			{/if}
 		{/foreach}		
 	</div>
