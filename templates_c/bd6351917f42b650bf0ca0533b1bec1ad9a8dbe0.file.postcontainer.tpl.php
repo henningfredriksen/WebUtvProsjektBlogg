@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-04 22:15:15
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-10 02:26:05
          compiled from ".\templates\postcontainer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:208855538e41b248407-30429016%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bd6351917f42b650bf0ca0533b1bec1ad9a8dbe0' => 
     array (
       0 => '.\\templates\\postcontainer.tpl',
-      1 => 1430770498,
+      1 => 1431217498,
       2 => 'file',
     ),
   ),
@@ -17,6 +17,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.21-dev',
   'unifunc' => 'content_5538e41b24c284_01917119',
+  'variables' => 
+  array (
+    'editpostid' => 0,
+    'postid' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5538e41b24c284_01917119')) {function content_5538e41b24c284_01917119($_smarty_tpl) {?><!DOCTYPE HTML>
@@ -24,14 +29,31 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="css/blogstyle.css">
+<title> Postcontainer
+</title>
 </head>
 <body>
 	<div id="postcontainer">
-		<?php echo $_smarty_tpl->getSubTemplate ('shortpost.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+		
+		<?php if (isset($_smarty_tpl->tpl_vars['editpostid']->value)) {?>
+			<?php if ($_smarty_tpl->tpl_vars['postid']->value==$_smarty_tpl->tpl_vars['editpostid']->value) {?>
+				<?php echo $_smarty_tpl->getSubTemplate ('editpost.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+			<?php } else { ?>
+				<?php echo $_smarty_tpl->getSubTemplate ('shortpost.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 				
-		<?php echo $_smarty_tpl->getSubTemplate ('expandedpost.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+				<?php echo $_smarty_tpl->getSubTemplate ('expandedpost.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
-		<?php echo $_smarty_tpl->getSubTemplate ('commentlist.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+				<?php echo $_smarty_tpl->getSubTemplate ('commentlist.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
+			<?php }?>
+		<?php } else { ?>
+			<?php echo $_smarty_tpl->getSubTemplate ('shortpost.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+				
+			<?php echo $_smarty_tpl->getSubTemplate ('expandedpost.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+			<?php echo $_smarty_tpl->getSubTemplate ('commentlist.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+		<?php }?>
 	</div>
 </body><?php }} ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-06 00:45:33
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-10 02:26:05
          compiled from ".\templates\archive.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:311035538e41b1ee676-45344797%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99ec127f582c5ac9b7fdbde521ddeea954df0f5c' => 
     array (
       0 => '.\\templates\\archive.tpl',
-      1 => 1430865928,
+      1 => 1431217421,
       2 => 'file',
     ),
   ),
@@ -31,7 +31,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" type="text/css" href="css/blogstyle.css">
-</head>
+<title> Archive
+</title>
 </head>
 <body>
 	<div id="archive">
@@ -52,7 +53,7 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
  $_smarty_tpl->tpl_vars['itemkey']->value = $_smarty_tpl->tpl_vars['item']->key;
 ?>				
 				<a href="index.php?year=<?php echo $_smarty_tpl->tpl_vars['linekey']->value;?>
-&month=<?php echo $_smarty_tpl->tpl_vars['item']->value-1;?>
+ & month=<?php echo $_smarty_tpl->tpl_vars['item']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['item']->value;?>
 </a>
 			<?php } ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-05 22:49:27
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-10 02:26:05
          compiled from ".\templates\commentlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:16583553a7c1a58c570-02127254%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0b0549b292f6fee1d15a859585adeb70e9883081' => 
     array (
       0 => '.\\templates\\commentlist.tpl',
-      1 => 1430858957,
+      1 => 1431217440,
       2 => 'file',
     ),
   ),
@@ -31,6 +31,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="css/blogstyle.css">
+<title> Commentlist
+</title>
 </head>
 <body>
 	<div id="commentlist<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>

@@ -18,7 +18,7 @@
 			<tr><td colspan="2"><input name="userfile" type="file"></td></tr>			
 			<tr><td><input type="submit" value="Post"></td>
 		</form>
-			<td><button id="newPostCancelButton">Cancel</button></td></tr>
+			<td><button id="newPostCancelButton" onClick="return false;">Cancel</button></td></tr>
 		</table>
 	</div>
 </body>

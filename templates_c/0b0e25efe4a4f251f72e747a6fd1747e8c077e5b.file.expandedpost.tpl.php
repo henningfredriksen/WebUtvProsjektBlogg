@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-06 00:37:07
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-10 02:26:05
          compiled from ".\templates\expandedpost.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:11596553fafde0cd8b6-34496902%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0b0e25efe4a4f251f72e747a6fd1747e8c077e5b' => 
     array (
       0 => '.\\templates\\expandedpost.tpl',
-      1 => 1430865421,
+      1 => 1431217468,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'postid' => 0,
     'allPosts' => 0,
     'post' => 0,
+    'attachments' => 0,
+    'attachment' => 0,
     'hitsByPostId' => 0,
     'hit' => 0,
     'activeUser' => 0,
@@ -33,6 +35,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="css/blogstyle.css">
+<title> Expanded post
+</title>
 </head>
 <body>
 	<div id="expandedpost<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
@@ -46,6 +50,8 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
 ?>
 			<?php if ($_smarty_tpl->tpl_vars['post']->value->getId()==$_smarty_tpl->tpl_vars['postid']->value) {?>				
 				<?php echo $_smarty_tpl->tpl_vars['post']->value->getId();?>
+<br>
+				<?php echo $_smarty_tpl->tpl_vars['post']->value->getAuthor();?>
 <br>				
 				<span id="posttitle"><?php echo $_smarty_tpl->tpl_vars['post']->value->getTitle();?>
 </span>
@@ -55,6 +61,20 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
 											
 			<?php }?>
 		<?php } ?>
+		<?php if (isset($_smarty_tpl->tpl_vars['attachments']->value)) {?>
+			<?php  $_smarty_tpl->tpl_vars['attachment'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['attachment']->_loop = false;
+ $_smarty_tpl->tpl_vars['key'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['attachments']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['attachment']->key => $_smarty_tpl->tpl_vars['attachment']->value) {
+$_smarty_tpl->tpl_vars['attachment']->_loop = true;
+ $_smarty_tpl->tpl_vars['key']->value = $_smarty_tpl->tpl_vars['attachment']->key;
+?>
+				<?php if ($_smarty_tpl->tpl_vars['attachment']->value->getPostId()==$_smarty_tpl->tpl_vars['postid']->value) {?>
+					<img alt="Attachment" src="uploadedfiles/<?php echo $_smarty_tpl->tpl_vars['attachment']->value->getFilename();?>
+">
+				<?php }?>
+			<?php } ?>
+		<?php }?>
 		<?php  $_smarty_tpl->tpl_vars['hit'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['hit']->_loop = false;
  $_smarty_tpl->tpl_vars['key'] = new Smarty_Variable;
  $_from = $_smarty_tpl->tpl_vars['hitsByPostId']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -71,7 +91,10 @@ $_smarty_tpl->tpl_vars['hit']->_loop = true;
 			<?php if ($_smarty_tpl->tpl_vars['activeUser']->value->getUsertype()==1) {?>
 				<a href="deletepost.php?postid=<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
 " onclick="return confirm('Are you sure you want to delete this post?');">Delete post</a>
+				<a href="editpost.php?postid=<?php echo $_smarty_tpl->tpl_vars['postid']->value;?>
+">Edit post</a>
 			<?php }?>
-		<?php }?>	
+		<?php }?>
+		
 	</div>
 </body><?php }} ?>
