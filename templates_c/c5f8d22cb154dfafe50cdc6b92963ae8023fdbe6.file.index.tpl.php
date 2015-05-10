@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-10 02:26:05
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-10 06:44:33
          compiled from ".\templates\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:110905538e41b0ae120-16068059%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c5f8d22cb154dfafe50cdc6b92963ae8023fdbe6' => 
     array (
       0 => '.\\templates\\index.tpl',
-      1 => 1431217556,
+      1 => 1431233039,
       2 => 'file',
     ),
   ),
@@ -30,8 +30,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <body>
 	<div id="index">
 		<?php echo $_smarty_tpl->getSubTemplate ('header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-
-		<?php echo $_smarty_tpl->getSubTemplate ('buttonbar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
 		<?php echo $_smarty_tpl->getSubTemplate ('login.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 

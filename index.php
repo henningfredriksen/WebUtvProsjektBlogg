@@ -78,6 +78,11 @@ else if(isset($_SESSION['editpostid']))
 	$smarty->assign('editpostid', $_SESSION['editpostid']);
 	unset($_SESSION['editpostid']);
 }
+else if(isset($_SESSION['showcomment']))
+{
+	$smarty->assign('showcomment', $_SESSION['showcomment']);
+	unset($_SESSION['showcomment']);
+}
 
 //checking if the user is logged in
 if(isset($_SESSION['username'])) {

@@ -33,6 +33,7 @@
 			{if $activeUser->getUsertype() == 1}
 				<a href="deletepost.php?postid={$postid}" onclick="return confirm('Are you sure you want to delete this post?');">Delete post</a>
 				<a href="editpost.php?postid={$postid}">Edit post</a>
+				<a href="createcomment.php?writecomment='true' & postidforcomment={$postid}">Write comment</a>
 			{/if}
 		{/if}
 		

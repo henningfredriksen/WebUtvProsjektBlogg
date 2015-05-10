@@ -13,6 +13,7 @@
 			<input type="hidden" name="postid" value="{$postid}">		
 			<input type="hidden" name="userid" value="{$activeUser->getId()}">		
 			<input name="createcomment_input" type="submit" value="Post comment">
+			<button type="button" onClick="location.href = 'index.php'">Cancel</button>
 		</form>
 	</div>
 </body>

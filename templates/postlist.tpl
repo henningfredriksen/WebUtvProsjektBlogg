@@ -37,8 +37,7 @@
 			<!-- includes all the posts in the array as a seperate template -->
 			{foreach key=key from=$allPosts item=post}
 				<!-- saves the post ID, so it's accessable by the child templates -->
-				{$postid = $post->getId()}
-	      		{include file='postcontainer.tpl'}      			
+				{$postid = $post->getId()}	      		      			
 				<!-- Jquery code that shows/hides shortposts / expandedposts + commentlist. 
 					it uses $postid to differentiate between each of the dynamically generated div blocks
 					(each of them set using $postid in shortpost/expandedpost/commentlist/comment.tpl ex. #shortpost1, #shortpost2, etc)
@@ -73,7 +72,8 @@
 					    });
 					});
 					</script>
-				{/literal}	      		
+				{/literal}
+				{include file='postcontainer.tpl'}	      		
 	        {/foreach}
 	    {else}
 	    	

@@ -13,14 +13,32 @@
 			{if $postid == $editpostid}
 				{include file='editpost.tpl'}
 			{else}
-				{include file='shortpost.tpl'}				
+				{include file='shortpost.tpl'}
 				{include file='expandedpost.tpl'}
-				{include file='commentlist.tpl'}
+				{include file='commentlist.tpl'}				
 			{/if}
 		{else}
 			{include file='shortpost.tpl'}				
 			{include file='expandedpost.tpl'}
 			{include file='commentlist.tpl'}
+			{if isset($showcomment)}
+				{if $postid == $showcomment}
+					{include file='writecomment.tpl'}
+					{literal}
+					<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+					<script>
+					$(document).ready(function()
+					{
+						$("#shortpost{/literal}{$showcomment}{literal}").hide();
+		
+						$("#expandedpost{/literal}{$showcomment}{literal}").show();
+	
+						$("#commentlist{/literal}{$showcomment}{literal}").show();
+					});						
+					</script>
+				{/literal}
+				{/if}
+			{/if}	
 		{/if}
 	</div>
 </body>
