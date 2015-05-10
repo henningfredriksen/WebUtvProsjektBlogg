@@ -66,6 +66,7 @@ class User {
 		$this->picturemimetype = $picturemimetype;
 	}
 	
+	// writes a new user to the DB
 	public function saveUser() {
 		$query = "INSERT INTO users (name, username, email, password, salt, usertype, email_confirmed)
 				VALUES (:name, :username, :email, :password, :salt, :usertype, :email_confirmed)";
@@ -89,6 +90,7 @@ class User {
 		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
 	}
 	
+	// returns a user based on username
 	public function getUserByUsername($username) {
 		$query = "SELECT id, name, username, email, usertype, picturefilename, picturemimetype FROM users WHERE username = '" . $username . "'";
 				
@@ -96,10 +98,11 @@ class User {
 		
 		while($user = $result->fetchObject('User')) {
 			return $user; // this only happens once as usernames are unique, while loop handles 0 results 
-		} 
-		
+		} 		
 	}
 	
+	// writes the filename and mimetype of the users profile picture to database
+	// as well as deleting the previous profile picture from local storage (/uploadedfiles/)
 	public function savePicture($userid)
 	{
 		// fetches the filename of and deletes the locally stored picture before uploading a new one (replacing)
@@ -128,6 +131,7 @@ class User {
 		
 		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
 	}
+	
 	
 	public function checkLoginInfo($inputUsername, $inputPassword) {
 		$hashedpassword = $this->getHash($inputPassword, $inputUsername);

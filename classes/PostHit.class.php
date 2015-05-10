@@ -23,21 +23,11 @@ class PostHit {
 	public function __construct() {
 		$this->dbaccess = new DBAccess();
 	}
-	/*
-	public function getAllHits()
-	{
-		$query = 'SELECT posthit.id, posthit.ip, posthit.date, posthit.post_id FROM posthit';
-		$result = $this->dbaccess->run_query($query);
-		
-		$postHitArray = Array();
-		while ($posthit = $result->fetchObject('PostHit'))
-		{
-			$postHitArray[] = $posthit;
-		}		
-		
-		return $postHitArray;
-	}
-	*/
+	
+	// returns a multidimensional array, consisting of a post id, and how many hits that post has, ex
+	// # | post_id | hits
+	// 1 |    3	   | 29
+	// 2 |	  4    | 135
 	public function countAllHits()
 	{
 		$query = 'SELECT post_id, COUNT(*) AS `hits` FROM posthit GROUP BY post_id';
@@ -46,6 +36,7 @@ class PostHit {
 		return $result;
 	}
 	
+	// writes a hit to the DB
 	public function addHitToPost()
 	{
 		$query = "INSERT INTO posthit (post_id, ip) VALUES (:postid, :ip)";

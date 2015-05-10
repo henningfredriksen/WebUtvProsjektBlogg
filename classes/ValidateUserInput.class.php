@@ -13,16 +13,25 @@ class ValidateUserInput {
 		return $validatedinput;
 	}
 	
+	// validates an image file on properties like:
+	// exceeding a certain file size,
+	// being the wrong mimetype,
+	// exceeding certain image dimensions,
+	// other errors
+	// and returns an error to index.php via $_SESSION, where it is displayed (if one is encountered)
+	// if no errors occur, true is returned indicating successful validation 
 	public function validateFile($filename, $filemimetype, $filesize, $filetmpname, $fileerror, $maxFileSize, $maxWidth, $maxHeight)
 	{
 		$MAX_FILESIZE = $maxFileSize;
 		$MAX_WIDTH = $maxWidth;
 		$MAX_HEIGHT = $maxHeight;
 		
+		// uses getimagesize on the temporary file to retrieve the width and height of the image
 		$imginfo = getimagesize($filetmpname);
 		$imgwidth = $imginfo[0];
 		$imgheight = $imginfo[1];
 		
+		// creates an array of possible errors relating to file uploading
 		$errorarray = Array(
 				0=>"The file uploaded successfully",
 				1=>"The uploaded file exceeds the upload_max_filesize directive in php.ini",
@@ -67,6 +76,7 @@ class ValidateUserInput {
 			$validFiletype = false;
 		}
 		
+		// checks the width and height of the image
 		if ($imgwidth < $MAX_WIDTH && $imgheight < $MAX_HEIGHT)
 		{
 			$validFiledimensions = true;
@@ -78,6 +88,7 @@ class ValidateUserInput {
 			$validFiledimensions = false;
 		}
 		
+		// if no errors, the method returns true
 		if ($validFilesize && $noReportedErrors && $validFiletype && $validFiledimensions)
 		{
 			return true;
