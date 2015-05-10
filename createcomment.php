@@ -12,7 +12,6 @@ $inputvalidator = new ValidateUserInput();
 
 if (isset($_POST['comment'], $_POST['postid'], $_POST['userid']))
 {	
-	
 	$content = $_POST["comment"];
 	$content = $inputvalidator->validateInputString($content);	
 	
