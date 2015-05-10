@@ -19,9 +19,11 @@
 			{/if}					
 		{else}		
 			<form id="login_id" name="login" action="login.php" method="post">
-			Brukernavn: <input type="text" name="username"><br>
-			Passord: <input type="password" name="password"><br>
-			<input name="login_input" type="submit" value="Log in">
+			<table> 
+			<tr><td>Brukernavn:</td> <td><input type="text" name="username"><br></td></tr> 
+			<tr><td>Passord:</td> <td><input type="password" name="password"><br></td></tr> 
+			<tr><td><input name="login_input" type="submit" value="Log in"></td></tr>
+			</table>
 			</form>	
 			<br>
 			<a href="registeruser.php?showRegisterUser='true'">Register New User</a><br>
