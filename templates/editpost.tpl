@@ -29,10 +29,8 @@
 					<tr><td><input type="submit" value="Post"></td>
 				</form>
 			{/if}
-		{/foreach}
-		<div id="editPostCancelButton">
+		{/foreach}		
 			<td><button type="button" onClick="location.href = 'index.php'">Cancel</button></td></tr>
-			</table>
-		</div>
+			</table>		
 	</div>
 </body>
