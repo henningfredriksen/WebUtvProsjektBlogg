@@ -29,13 +29,8 @@ class Comment {
 		$this->dbaccess = new DBAccess();
 	}
 	
+	// reads all comments from DB, and returns an array of them
 	public function getAllComments() {
-	
-		//	$datamodell = new Datamodell();
-		//	$query = 'SELECT innlegg.ID, innlegg.tittel, innlegg.tekst, innlegg.dato, innlegg.stikkord, brukere.brukernavn
-		//			 FROM innlegg LEFT JOIN brukere ON innlegg.forfatter = brukere.ID ORDER BY dato DESC';
-		//$query = 'SELECT posts.id, posts.title, posts.text, users.username, posts.date, posts.keywords from posts
-		//			LEFT JOIN users ON posts.author_id = users.id ORDER BY date DESC';
 		$query = 'SELECT comments.id, comments.author_id, comments.post_id, users.username, comments.comment, comments.date FROM comments
 					LEFT JOIN users ON comments.author_id = users.id ORDER BY date ASC';
 		
@@ -50,11 +45,13 @@ class Comment {
 		return $commentArray;
 	}
 	
+	// deletes the selected comment
 	public function deleteComment($commentid) {
 		$query = "DELETE FROM comments WHERE id=$commentid";
 		$this->dbaccess->delete_query($query);
 	}
 	
+	// writes a new comment to database
 	public function saveComment() {
 		$query = "INSERT INTO comments (author_id, post_id, comment) VALUES (:author_id, :post_id, :comment)";
 	

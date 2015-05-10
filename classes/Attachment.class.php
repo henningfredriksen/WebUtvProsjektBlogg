@@ -27,6 +27,8 @@ class Attachment {
 		$this->dbaccess = new DBAccess();
 	}
 	
+	
+	// reads all attachments from DB (via DBAccess) and returns an array of all found attachments
 	public function getAllAttachments()
 	{
 		$query = "SELECT id, filename, mimetype, filesize, post_id FROM attachments";
@@ -41,6 +43,7 @@ class Attachment {
 		return $attachmentArray;
 	}
 	
+	// saves an attachment to DB (via DBAccess)
 	public function saveAttachment()
 	{
 		$query = "INSERT INTO attachments (filename, mimetype, filesize, post_id) VALUES (:filename, :mimetype, :filesize, :post_id)";
@@ -58,7 +61,8 @@ class Attachment {
 		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
 	}
 	
-	public function deleteAttachment() {
+	// deletes selected attachment, as well as the local file from /uploadedfiles/
+	public function deleteAttachment() {		 
 		$attachmentQuery = "SELECT filename FROM attachments WHERE post_id='" . $this->post_id . "'";
 		$result = $this->dbaccess->run_query($attachmentQuery);
 		while($line = $result->fetchObject('Attachment'))

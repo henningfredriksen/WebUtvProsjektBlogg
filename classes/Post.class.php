@@ -32,14 +32,9 @@ class Post {
 		$this->dbaccess = new DBAccess();
 	}
 	
-/*	public function get_post_by_id($Id) {
-		$query = 'SELECT innlegg.tittel, innlegg.tekst, innlegg.dato, innlegg.stikkord, brukere.brukernavn
-				FROM innlegg LEFT JOIN brukere ON innlegg.forfatter = brukere.ID WHERE innlegg.ID = ?';
-		$params[0] = $Id;
-		$post = $this->dbaccess->run_prepared_query($query, $params);
-		return $innlegg;
-	} */
-	
+	// Reads all posts from DB, and returns an array of them.
+	// In addition the content (the actual written content, excluding title, date etc) of each post,
+	// is shortened (via the shortenedPostContent() method) and saved as the $shortpost variable of the object
 	public function getAllPosts() {
 		
 		$query = "SELECT posts.id, posts.title, posts.text, users.username 'author', posts.date, posts.keywords, posts.author_id FROM posts
@@ -60,6 +55,7 @@ class Post {
 		return $postArray;
 	}
 	
+	// writes a post to the DB
 	public function savePost() {		
 		$query = "INSERT INTO posts (title, text, author_id, keywords)
 				VALUES (:title, :text, (SELECT id FROM users WHERE username = :author), :keywords)";
@@ -77,6 +73,7 @@ class Post {
 		return $this->dbaccess->prepared_insert_query_withreturnedid($query, $params, $paramNames);	
 	}
 
+	// updates selected fields of the post to DB
 	public function updatePost() {
 		$query = "UPDATE posts SET title=?, text=?, keywords=? WHERE id='" . $this->id . "'";
 		
@@ -89,6 +86,8 @@ class Post {
 		return $this->id;
 	}
 	
+	// deletes selected post, and local files related to the post 
+	// (attachments are automatically deleted via delete cascade in DB)
 	public function deletePost($postid) {
 		// fetches the filename of and deletes the locally stored attachments attached to the post about to be deleted
 		$attachmentQuery = "SELECT filename FROM attachments WHERE post_id=$postid";
@@ -111,6 +110,11 @@ class Post {
 		$this->dbaccess->delete_query($query);
 	}
 	
+	// Performs a query based on the search string supplied from search.tpl
+	// if any matches are found in either the title, the content or the keywords
+	// an array of the matching posts are returned.
+	// In addition the content (the actual written content, excluding title, date etc) of each post,
+	// is shortened (via the shortenedPostContent() method) and saved as the $shortpost variable of the object
 	public function getSearchedPosts($searchString)
 	{
 		$query = "SELECT posts.id, posts.title, posts.text, users.username 'author', posts.date, posts.keywords, posts.author_id
@@ -134,7 +138,12 @@ class Post {
 		
 		return $postArray;
 	}
-
+	
+	// Performs a query based on the year/month clicked in archive.tpl
+	// if any matches are found (should always be at least one, or there is nothing to click)
+	// an array of the matching posts is returned.
+	// In addition the content (the actual written content, excluding title, date etc) of each post,
+	// is shortened (via the shortenedPostContent() method) and saved as the $shortpost variable of the object
 	public function getPostsByYearMonth($year, $month)
 	{
 		$monthsList = array('', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
@@ -156,7 +165,8 @@ class Post {
 		
 		return $postArray;
 	}
-		
+	
+	// shortens a string down to 200 chars if it exceeds 200
 	public function shortenPostContent($str) {
 		if (strlen($str) > 200)
 		{
