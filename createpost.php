@@ -1,6 +1,14 @@
 <?php
 require_once 'config.php';
 
+/*
+ * Createpost.php receives the $_POST variables sent from writepost.tpl,
+ * validates the input, adds the input to a Post.class.php object,
+ * checks if a file is attached and validates the file via ValidateUserInput.class.php.
+ * If the file is successfully validated, the temp file is written permanently to /uploadedfiles/
+ * and the post is written to DB
+ */
+
 $inputvalidator = new ValidateUserInput();
 
 if (isset($_POST["title"], $_POST["content"]))

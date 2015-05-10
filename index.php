@@ -2,6 +2,18 @@
 <?php
 require_once 'config.php';
 
+/*
+ * Index.php is where the smarty template hierachy is loaded, and where all smarty variables are set
+ * based on input from other files. The arrays of various objects in use by smarty are read from DB here
+ * (via the relevant classes), various variables to guide the "flow" through the smarty hierachy are set.
+ * 
+ * Index.php also receives $_POST variables from the search function and the archive function, from which
+ * a different set of Post objects are loaded based on the search query or the year/month selected
+ * 
+ * It also displays various error messages received from other classes via $_SESSION and displays them via
+ * a javascrip alert()
+ */
+
 $post = new Post();
 
 if (!isset($_POST['search'], $_GET['year'], $_GET['month']))
@@ -18,7 +30,7 @@ if (isset($_POST['search']))
 
 if (isset($_GET['year'], $_GET['month']))
 {
-		$allPosts = $post->getPostsByYearMonth($_GET['year'], $_GET['month']);	
+	$allPosts = $post->getPostsByYearMonth($_GET['year'], $_GET['month']);	
 } 
 
 $smarty->assign('allPosts', $allPosts); // assigns array to smarty
@@ -77,7 +89,7 @@ else if(isset($_SESSION['showcomment']))
 	unset($_SESSION['showcomment']);
 }
 
-//checking if the user is logged in
+//checks if the user is logged in
 if(isset($_SESSION['username'])) {
 	$smarty->assign('isLoggedIn', true);
 	$user = new User();
