@@ -20,11 +20,11 @@
 		{else}		
 			<form id="login_id" name="login" action="login.php" method="post">
 			<table> 
-			<tr><td>Brukernavn:</td> <td><input type="text" name="username"><br></td></tr> 
-			<tr><td>Passord:</td> <td><input type="password" name="password"><br></td></tr> 
-			<tr><td><input name="login_input" type="submit" value="Log in"></td></tr>
+			<tr><td>Brukernavn:</td><td><input type="text" name="username"></td></tr> 
+			<tr><td>Passord:</td><td><input type="password" name="password"></td></tr> 
+			<tr><td colspan="2"><input name="login_input" type="submit" value="Log in"></td></tr>
 			</table>
-			</form>	
+			</form>
 			<br>
 			<a href="registeruser.php?showRegisterUser='true'">Register New User</a><br>
 			<a href="forgottenpassword.php?showForgottenPassword='true'">Forgot Your Password?</a><br>
