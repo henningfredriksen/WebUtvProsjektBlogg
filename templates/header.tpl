@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="header">
-	
+		Silje og Henning sin blogg
 	</div>
 </body>
 </html>

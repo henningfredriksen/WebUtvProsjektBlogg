@@ -10,11 +10,10 @@
 	<div id="expandedpost{$postid}" class="expandedpost">
 		{foreach key=key from=$allPosts item=post}
 			{if $post->getId() == $postid}				
-				{$post->getId()}<br>
-				{$post->getAuthor()}<br>				
-				<span id="posttitle">{$post->getTitle()}</span>
-				<div id="postcontent">{$post->getText()}</div><br>
-				{$post->getDate()}											
+			<!-- 	{$post->getId()}<br> -->
+				<span id="posttitle">{$post->getTitle()}</span><br>
+				<span id="author">{$post->getAuthor()}</span> <span id="date">{$post->getDate()}</span><br>			
+				<div id="postcontent">{$post->getText()}</div><br>															
 			{/if}
 		{/foreach}
 		{if isset($attachments)}

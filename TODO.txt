@@ -6,6 +6,7 @@ TO DO LISTE
 
 error reporting i (changepassword, confirmemail, forgottenpassword, login, registeruser, validatelink)
 
+brukernavn må være unikt i registrer bruker
 
 DIV
 CSS/HMTL
