@@ -5,14 +5,23 @@ TO DO LISTE
 ------------multiple attachments (optional)
 
 error reporting i (changepassword, confirmemail, forgottenpassword, login, registeruser, validatelink)
-
 brukernavn må være unikt i registrer bruker
+
+testing av alle funksjoner
+w3c validering, css validering
+opprette presentable brukere, skrive posts, legge til vedlegg (/uploadedfiles/ må leveres med)
+testing av kode når det ikke finnes noen brukere, posts etc
+skriving av prosjektrapport
+kommentering
+dokumentasjon:
+-  Det er mulig av andre å lære hva dere har gjort
+-  Det er mulig å flytte produktet til en annet system og tilpasse dette på en enkel måte
+-  Det er mulig for faglærer/sensor å se hva dere har gjort og tanken bak
+-  "smarty-flow" diagram el.lign.
 
 DIV
 CSS/HMTL
 ramme rundt brukerbilde
-dokumentasjon
-prosjektrapport
 
 FULLFØRT
 putte classes i classes-mappe og skrive om autoloader
