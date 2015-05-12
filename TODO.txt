@@ -4,6 +4,8 @@ TO DO LISTE
 ------------alternative/valgfrie stylesheets (utseendede) + en plass å velge dem fra
 ------------multiple attachments (optional)
 
+sjekke ipadresse mot session i alle php-filer
+
 SJEKK OM BRUKER ER INNLOGGET PÅ HVER SIDE, hvis ikke referer til index.php
 
 brukernavn må være unikt i registrer bruker
