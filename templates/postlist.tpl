@@ -8,31 +8,13 @@
 </head>
 <body>
 	<div id="postlist">
-		{if isset($activeUser)}
-			{if $activeUser->getUsertype() == 1}
-			{literal}
-					<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-					<script>
-					$(document).ready(function()
-					{
-						$("#writepost").hide();
-		
-						$("#writenewpostbutton").click(function()
-					    {
-					        $("#writepost").show();
-						});
-		
-					    $("#newPostCancelButton").click(function()
-					    {
-					        $("#writepost").hide();
-						});
-					});						
-					</script>
-				{/literal}	
-				{include file='writepost.tpl'}
+		{if isset($showwritepost)}
+			{if isset($activeUser)}
+				{if $activeUser->getUsertype() == 1}					
+					{include file='writepost.tpl'}
+				{/if}
 			{/if}
-		{/if}
-						
+		{/if}						
 		{if $allPosts != null}
 			<!-- includes all the posts in the array as a seperate template -->
 			{foreach key=key from=$allPosts item=post}

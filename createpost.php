@@ -9,6 +9,12 @@ require_once 'config.php';
  * and the post is written to DB
  */
 
+if (isset($_GET['createpost'])) {	
+	$_SESSION['showwritepost'] = true;
+	header("Location: index.php");
+}
+
+
 $inputvalidator = new ValidateUserInput();
 
 if (isset($_POST["title"], $_POST["content"]))
