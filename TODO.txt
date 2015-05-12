@@ -4,8 +4,11 @@ TO DO LISTE
 ------------alternative/valgfrie stylesheets (utseendede) + en plass å velge dem fra
 ------------multiple attachments (optional)
 
-error reporting i (changepassword, confirmemail, forgottenpassword, login, registeruser, validatelink)
+SJEKK OM BRUKER ER INNLOGGET PÅ HVER SIDE, hvis ikke referer til index.php
+
 brukernavn må være unikt i registrer bruker
+sjekk om epostadresse finnes i db før vi sender forgottenpassword mail
+egen error for hvis en bruker prøver å logge seg inn med ubekreftet email?
 
 testing av alle funksjoner
 w3c validering, css validering
@@ -17,13 +20,16 @@ dokumentasjon:
 -  Det er mulig av andre å lære hva dere har gjort
 -  Det er mulig å flytte produktet til en annet system og tilpasse dette på en enkel måte
 -  Det er mulig for faglærer/sensor å se hva dere har gjort og tanken bak
--  "smarty-flow" diagram el.lign.
+
 
 DIV
 CSS/HMTL
 ramme rundt brukerbilde
 
 FULLFØRT
+error reporting i (changepassword, confirmemail, forgottenpassword, login, registeruser, validatelink)
+-  "smarty-flow" diagram el.lign.
+
 putte classes i classes-mappe og skrive om autoloader
 slette og legge til attachments i rediger innlegg
 trenger flere checks på opplastet fil (filtype?, max str dimensjoner?)

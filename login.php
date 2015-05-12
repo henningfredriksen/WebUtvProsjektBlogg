@@ -12,10 +12,16 @@ $inputPassword = strip_tags($inputPassword);
 $username = $user->checkLoginInfo($inputUsername, $inputPassword);
 $username = $username['username'];
 
-if($username != null){
+if($username != null)
+{
 	$_SESSION['username'] = $username;
-	$user = $user->getUserByUsername($username);
-	header("Location: index.php");
-} else {
-	echo "Feil brukernavn eller passord";
-}  
+	$user = $user->getUserByUsername($username);	
+} 
+else
+{
+	$_SESSION["wrongusernameorpassword"] = true;	
+}
+
+header("Location: index.php");
+
+?>

@@ -42,14 +42,19 @@ if(isset($_POST["personname"], $_POST["username"], $_POST["email"], $_POST["pass
 			
 			$user->saveUser();
 			$emailsender->SendEmailToConfirm($email);
-			
-			header("Location: index.php");
-		}else {
-			echo "Det eksisterer allerede en bruker med denne epostadressen..";
 		}
+		else 
+		{
+			$_SESSION['useremailalreadyexists'] = true;
+		}
+	}
+	else 
+	{
+		$_SESSION['passwordmismatchoncreation'] = true;
+		//	echo "<a href=RegistrerBruker.html>Prøv på nytt</a></p>";
+	
 	} 
 }
-else {
-	echo "Passord må være like";
-	echo "<a href=RegistrerBruker.html>Prøv på nytt</a></p>";
-}
+
+
+header("Location: index.php");

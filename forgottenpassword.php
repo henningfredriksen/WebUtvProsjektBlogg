@@ -13,4 +13,6 @@ $emailsender = new SendEmail();
 
 $emailsender->SendEmailToResetPassword($email);
 
-echo "epost med link for å nullstille passord har blitt sendt til adressen du oppga";
+echo "An email with a link to reset your password has been sent to the supplied email-address.";
+
+?>
