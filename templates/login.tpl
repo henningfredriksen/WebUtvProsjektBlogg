@@ -45,7 +45,7 @@
 			{/if}
 			<a href="changepassword.php?showChangePassword='true'">Change Password</a><br>
 			<a href="editprofile.php?editprofile='true'">Change User Pic</a><br>
-			<a id="writenewpostbutton" href="" onclick="return false;">Write New Post</a><br>
+			<a href="createpost.php?createpost='true'">Write New Post</a><br>
 			<a href="logout.php">Log out</a><br>
 			
 		{/if}

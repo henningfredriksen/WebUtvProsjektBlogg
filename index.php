@@ -91,6 +91,11 @@ else if(isset($_SESSION['showcomment']))
 	$smarty->assign('showcomment', $_SESSION['showcomment']);
 	unset($_SESSION['showcomment']);
 }
+else if(isset($_SESSION['showwritepost']))
+{
+	$smarty->assign('showwritepost', $_SESSION['showwritepost']);
+	unset($_SESSION['showwritepost']);
+}
 
 //checks if the user is logged in
 if(isset($_SESSION['login'])) {

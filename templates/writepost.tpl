@@ -8,7 +8,6 @@
 </head>
 <body>
 	<div id="writepost">
-		<!-- http://davidwalsh.name/multiple-file-upload -->
 		<form enctype="multipart/form-data" action="createpost.php" method="post">
 		<table>
 			<tr><td>Title</td><td><input type="text" name ="title"></td></tr>
@@ -18,7 +17,7 @@
 			<tr><td colspan="2"><input name="userfile" type="file"></td></tr>			
 			<tr><td><input type="submit" value="Post"></td>
 		</form>
-			<td><button id="newPostCancelButton" onClick="return false;">Cancel</button></td></tr>
+			<td><button type="button" onClick="location.href = 'index.php'">Cancel</button></td></tr>
 		</table>
 	</div>
 </body>
