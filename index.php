@@ -173,6 +173,12 @@ if(isset($_SESSION['passwordmismatchonchangepassword']))
 	echo '<script type="text/javascript">alert("' . $msg . '");</script>';
 	unset($_SESSION['passwordmismatchonchangepassword']);
 }
+if(isset($_SESSION['emaildoesnotexist']))
+{
+	$msg = "No match for that email in database.";
+	echo '<script type="text/javascript">alert("' . $msg . '");</script>';
+	unset($_SESSION['emaildoesnotexist']);
+}
 
 // loads the cascading smarty template hierarchy
 $smarty->display('index.tpl');

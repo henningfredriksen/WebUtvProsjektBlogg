@@ -7,12 +7,25 @@ if (isset($_GET['showForgottenPassword']))
 	header("Location: index.php");
 }
 
-$email = $_GET['email'];
+if (isset($_POST['email']))
+{
+	$email = $_POST['email'];
+	
+	$user = new User();
+	if($user->checkIfEmailExists($mail))
+	{
+		$emailsender = new SendEmail();
+		
+		$emailsender->SendEmailToResetPassword($email);
+		
+		//echo "An email with a link to reset your password has been sent to the supplied email-address.";
+		
+	}
+	else
+	{
+		$_SESSION['emaildoesnotexist'] = true;
+	}
+}
 
-$emailsender = new SendEmail();
-
-$emailsender->SendEmailToResetPassword($email);
-
-echo "An email with a link to reset your password has been sent to the supplied email-address.";
-
+header("Location: index.php");
 ?>
