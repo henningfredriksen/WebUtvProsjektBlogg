@@ -9,13 +9,11 @@ $inputUsername = strip_tags($inputusername);
 $inputPassword = trim($inputpassw);
 $inputPassword = strip_tags($inputPassword);
 
-$username = $user->checkLoginInfo($inputUsername, $inputPassword);
-$username = $username['username'];
+$user = $user->checkLoginInfo($inputUsername, $inputPassword);
 
-if($username != null)
+if($user)
 {
-	$_SESSION['username'] = $username;
-	$user = $user->getUserByUsername($username);	
+	$_SESSION['username'] = $user->getUsername();	
 } 
 else
 {

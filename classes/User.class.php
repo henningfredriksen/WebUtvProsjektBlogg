@@ -11,6 +11,8 @@ class User {
 	private $password;
 	private $salt;
 	private $usertype;
+	private $IpAdress;
+	private $userAgent;
 	private $email_confirmed;
 	private $picturefilename;
 	private $picturemimetype;	
@@ -26,6 +28,8 @@ class User {
 	public function getPassword() {return $this->password;}
 	public function getSalt() {return $this->salt;}
 	public function getUsertype() {return $this->usertype;}
+	public function getIpAdress() {return $this->IpAdress;}
+	public function getUserAgent() {return $this->userAgent;}
 	public function getEmailConfirmed() {return $this->email_confirmed;}
 	public function getPictureFilename() {return $this->picturefilename;}
 	public function getPictureMimetype() {return $this->picturemimetype;}
@@ -52,6 +56,14 @@ class User {
 	
 	public function setUsertype($usertype) {
 		$this->usertype = $usertype;
+	}
+	
+	public function setIpAdress($IpAdress) {
+		$this->IpAdress = $IpAdress;
+	}
+	
+	public function setUserAgent($userAgent) {
+		$this->userAgent = $userAgent;
 	}
 	
 	public function setEmailConfirmed($email_confirmed) {
@@ -136,15 +148,18 @@ class User {
 	public function checkLoginInfo($inputUsername, $inputPassword) {
 		$hashedpassword = $this->getHash($inputPassword, $inputUsername);
 		
-		$query = "SELECT username FROM users WHERE username = ? AND password = ?";
+		$query = "SELECT * FROM users WHERE username = ? AND password = ?";
 	
 		$params[0] = $inputUsername;
 		$params[1] = $hashedpassword;
 		
-		$username = $this->dbaccess->run_prepared_query($query, $params);
+		$result = $this->dbaccess->run_prepared_query($query, $params);
+		$user = $result->fetchObject('User');		
 	
-		if(isset($username)) {
-			return $username;
+		if($user) {
+			$user->setIpAdress($_SERVER["REMOTE_ADDR"]);
+			$user->setUserAgent($_SERVER['HTTP_USER_AGENT']);
+			return $user;
 		}else {
 			return false;
 		} 

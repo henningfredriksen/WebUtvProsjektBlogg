@@ -95,7 +95,7 @@ else if(isset($_SESSION['showcomment']))
 //checks if the user is logged in
 if(isset($_SESSION['username'])) {
 	$smarty->assign('isLoggedIn', true);
-	$user = new User();
+	$user = new User(); //new User();
 	$user = $user->getUserByUsername($_SESSION['username']);	
 	$smarty->assign('activeUser', $user);
 }else {

@@ -46,7 +46,7 @@ class DBAccess {
 		
 		$stmt->execute();
 		
-		return $stmt->fetch();
+		return $stmt;
 	}
 	
 	public function prepared_insert_query($query, $params, $paramNames) {
