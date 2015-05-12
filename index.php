@@ -2,6 +2,8 @@
 <?php
 require_once 'config.php';
 
+
+
 /*
  * Index.php is where the smarty template hierachy is loaded, and where all smarty variables are set
  * based on input from other files. The arrays of various objects in use by smarty are read from DB here
