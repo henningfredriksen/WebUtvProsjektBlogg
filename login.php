@@ -15,6 +15,8 @@ if(isset($login))
 {
 	if($login) {
 		$_SESSION['login'] = $login;
+	} else {
+		$_SESSION["wrongusernameorpassword"] = true;
 	}
 		
 }

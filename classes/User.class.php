@@ -160,7 +160,6 @@ class User {
 				return false;
 			}			
 		}else {
-			$_SESSION["wrongusernameorpassword"] = true;
 			return false;
 		} 
 	}
