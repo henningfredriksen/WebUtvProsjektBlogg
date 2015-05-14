@@ -153,6 +153,13 @@ if(isset($_SESSION['useremailalreadyexists']))
 	unset($_SESSION['useremailalreadyexists']);
 }
 
+if(isset($_SESSION['usernamealreadyexists']))
+{
+	$msg = "A user with the supplied username already exists.";
+	echo '<script type="text/javascript">alert("' . $msg . '");</script>';
+	unset($_SESSION['usernamealreadyexists']);
+}
+
 if(isset($_SESSION['passwordmismatchoncreation']))
 {
 	$msg = "Created passwords did not match, try again.";

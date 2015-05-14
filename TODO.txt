@@ -4,10 +4,6 @@ TO DO LISTE
 ------------alternative/valgfrie stylesheets (utseendede) + en plass å velge dem fra
 ------------multiple attachments (optional)
 
-sjekke ipadresse mot session i alle php-filer
-
-SJEKK OM BRUKER ER INNLOGGET PÅ HVER SIDE, hvis ikke referer til index.php
-
 brukernavn må være unikt i registrer bruker
 sjekk om epostadresse finnes i db før vi sender forgottenpassword mail
 egen error for hvis en bruker prøver å logge seg inn med ubekreftet email?
@@ -29,6 +25,12 @@ CSS/HMTL
 ramme rundt brukerbilde
 
 FULLFØRT
+
+brukernavn må være unikt i registrer bruker
+sjekke ipadresse og useragent mot session i alle php-filer
+
+SJEKK OM BRUKER ER INNLOGGET PÅ HVER SIDE, hvis ikke referer til index.php
+
 error reporting i (changepassword, confirmemail, forgottenpassword, login, registeruser, validatelink)
 -  "smarty-flow" diagram el.lign.
 
