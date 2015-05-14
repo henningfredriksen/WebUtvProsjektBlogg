@@ -45,6 +45,10 @@ body {
     background: grey;
 }
 
+#centercontent {
+	width: 98%;
+}
+
 #login {
 	width:200px;	
 	border-style:solid;
@@ -103,18 +107,14 @@ body {
 	background: #D1E8FF;    
 }
 
-#writepost {
+#writepost, #editpost {
 	border-style: solid;
     border-width: 7px;
 	border-color: #3385FF;
-	background: white;
+	background: #E0F0FF;
 } 
 
 #postcontainer {
-	
-}
-
-#writenewpostbutton {
 	
 }
 
@@ -131,9 +131,23 @@ body {
 	font-size: 75%;
 }
 
+.commentinputfield {	
+	width: 99%;
+}
+
+.postinputspan {
+	display: block;
+	overflow: hidden;
+	padding-right: 10px;
+}
+
 .inputfield {
 	position: relative;
 	width:80%;
+}
+
+.postinputfield {	
+	width: 550px;
 }
 
 .shortpost {
