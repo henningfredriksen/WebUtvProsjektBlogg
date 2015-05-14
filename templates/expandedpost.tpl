@@ -19,7 +19,7 @@
 		{if isset($attachments)}
 			{foreach key=key from=$attachments item=attachment}
 				{if $attachment->getPostId() == $postid}
-					<img alt="Attachment" src="uploadedfiles/{$attachment->getFilename()}">
+					<img alt="Attachment" src="uploadedfiles/{$attachment->getFilename()}"><br>
 				{/if}
 			{/foreach}
 		{/if}

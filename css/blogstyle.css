@@ -21,10 +21,13 @@ body {
 	width: 100%;
 	height: 100px;
 	font-size: 200%;
-	color: white;    
-    	margin-top: 1%;
-    	margin-bottom: 2%;
-    	background: #3385FF;
+	color: white; 
+	border-style:solid;
+	border-width: 2px;
+	border-color: white;   
+   	margin-top: 1%;
+   	margin-bottom: 2%;
+   	background: #3385FF;
 	line-height: 100px;
 	text-align:center;
 	vertical-align: middle;    
@@ -32,7 +35,10 @@ body {
 
 #footer {
 	width: 100%;
-	height: 50px;    
+	height: 50px;
+	border-style:solid;
+	border-width: 2px;
+	border-color: white;     
     margin-top: 1%;
     margin-bottom: 1%;
     display: inline-block;
@@ -40,9 +46,12 @@ body {
 }
 
 #login {
-	width:200px;
-	height:200px;
-     border-radius: 25px;
+	width:200px;	
+	border-style:solid;
+	border-width: 2px;
+	border-color: white; 
+    border-radius: 25px;
+	padding:1%;
     margin-bottom: 1%;    
     margin-right: 2%;
     display: inline-block;    
@@ -50,44 +59,55 @@ body {
     background: #75D1FF;
 }
 
-#rightcontainer {
-	width:200px;
-    height:600px;
-    margin-left: 2%;    
+#rightcontainer {	
+	width: 200px;
+	margin-left: 2%;
     display: inline-block;
     float: right;	      
 }
 
-#search {
+.search {
 	border-radius: 25px;
-	width:200px;
-    height:40px;	       
+	border-style:solid;
+	border-width: 2px;
+	border-color: white;
+	width: 200px; 	    
+	padding: 5%;
+	float: left;	       
     margin-bottom: 10%;
     display: inline-block;    
     clear: right;   	    
     background: #75D1FF;
 }
 
-#archive {
-	width:200px;
-    height:200px;
-	border-radius: 25px;
+.searchform {
+	vertical-align: middle;
+}
+
+.archive {
+	width:200px;	
+	border-style:solid;
+	border-width: 2px;
+	border-color: white; 
+    border-radius: 25px;
+	padding:5%;
     margin-bottom: 1%;
-    display: inline-block;       	    
+    display: inline-block;    
+    float: left;
     background: #75D1FF;	
 }
 
 #postlist {	        
-    margin-bottom: 1%;
-    
+    margin-bottom: 1%;    
 	overflow: hidden;
 	background: #D1E8FF;    
 }
 
 #writepost {
 	border-style: solid;
-    	border-width: 7px;
+    border-width: 7px;
 	border-color: #3385FF;
+	background: white;
 } 
 
 #postcontainer {
@@ -111,9 +131,14 @@ body {
 	font-size: 75%;
 }
 
+.inputfield {
+	position: relative;
+	width:80%;
+}
+
 .shortpost {
 	border-style: solid;
-    	border-width: 7px;
+    border-width: 7px;
 	border-color: #FF944D;
 	background: white;
 	margin-top: 2%;
@@ -121,7 +146,7 @@ body {
 
 .expandedpost {
 	border-style: solid;
-    	border-width: 7px;
+    border-width: 7px;
 	border-color: #FF7519;
 	background: white;
 	margin-top: 2%;
@@ -133,7 +158,10 @@ body {
 
 .comment {
 	border-style: solid;
-    	border-width: 1px;
+	border-top-width: 0px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
 	border-color: #FF7519;
 	background: #FFD6AD;
 }
