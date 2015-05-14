@@ -25,20 +25,19 @@ if(isset($_SESSION['resetingemail']))
 	$query = "SELECT username FROM users WHERE email = ?";
 	$params[0] = $_SESSION['resetingemail'];	
 	$result = $dbaccess->run_prepared_query($query, $params);
+	$result = $result->fetch();
 	$username = $result['username'];
 }
-else
+
+
+if(isset($_POST['oldpassword'], $_POST['newpassword'], $_POST['rnewpassword']))
 {
 	$activeusername = $_SESSION['username'];
 	$oldpassword = $_POST["oldpassword"];
 	
 	$username = $user->checkLoginInfo($activeusername, $oldpassword);
 	$username = $username['username'];
-}
-
-
-if(isset($_POST['oldpassword'], $_POST['newpassword'], $_POST['rnewpassword']))
-{
+	
 	$newpassword = $_POST["newpassword"];
 	$rnewpassword = $_POST["rnewpassword"];
 	
