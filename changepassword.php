@@ -30,7 +30,29 @@ if(isset($_SESSION['resetingemail']))
 	$params[0] = $_SESSION['resetingemail'];	
 	$result = $dbaccess->run_prepared_query($query, $params);
 	$result = $result->fetch();
-	$username = $result['username'];
+	$activeusername = $result['username'];
+	
+	$newpassword = $_POST["newpassword"];
+	$rnewpassword = $_POST["rnewpassword"];
+	
+	if($newpassword == $rnewpassword)
+	{
+				
+			$query = "UPDATE users SET password=? WHERE username=?";
+				
+			$newpassword = $user->getHash($newpassword, $activeusername);
+				
+			$params[0] = $newpassword;
+			$params[1] = $activeusername;
+				
+			$dbaccess->run_prepared_query($query, $params);
+			header("Location: index.php");
+		
+	}
+	else
+	{
+		$_SESSION['passwordmismatchonchangepassword'] = true;
+	}
 }
 
 
