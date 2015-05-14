@@ -35,7 +35,7 @@ if (isset($_POST["title"], $_POST["content"]))
 	$keywords = $_POST["keywords"];
 	$keywords = $inputvalidator->validateInputString($keywords);	
 		
-	$username = $_SESSION['username'];
+	$username = $_SESSION['login']->getUsername();
 	
 	$post = new Post();
 	$post->setTitle($title);

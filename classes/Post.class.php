@@ -70,7 +70,7 @@ class Post {
 		$paramNames[2] = ":author";
 		$paramNames[3] = ":keywords";
 		
-		return $this->dbaccess->prepared_insert_query_withreturnedid($query, $params, $paramNames);	
+		return $this->dbaccess->prepared_insert_query_withreturnedid($query, $params, $paramNames);
 	}
 
 	// updates selected fields of the post to DB

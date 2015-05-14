@@ -15,7 +15,11 @@ require_once 'config.php';
  * It also displays various error messages received from other classes via $_SESSION and displays them via
  * a javascript alert()
  */
-
+if(isset($_SESSION['testid'])) {
+	echo var_dump($_SESSION['testid']);
+	echo var_dump($_SESSION['params']);
+	echo var_dump($_SESSION['paramnames']);
+}
 $post = new Post();
 
 if (!isset($_POST['search'], $_GET['year'], $_GET['month']))
