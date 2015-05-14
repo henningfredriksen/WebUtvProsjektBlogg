@@ -59,7 +59,8 @@ a:active {
     margin-top: 1%;
     margin-bottom: 1%;
     display: inline-block;
-    background: grey;
+    background: #3385FF;
+    color: white;
     text-align: center;
 	vertical-align: middle;
 	line-height: 30px;
