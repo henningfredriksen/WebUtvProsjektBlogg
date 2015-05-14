@@ -8,6 +8,7 @@
 </head>
 <body>
 	<div id="archive" class="archive">
+	{if isset($yearMonthArray)}
 		{foreach key=linekey from=$yearMonthArray item=line}
 			{$linekey}<br>								
 			{foreach key=itemkey from=$line item=item}				
@@ -15,5 +16,6 @@
 			{/foreach}
 			<br>
 		{/foreach}
+	{/if}
 	</div>
 </body>

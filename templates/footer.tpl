@@ -8,6 +8,6 @@
 </head>
 <body>
 	<div id="footer">
-		
+		&#169; Henning Fredriksen / Silje Thune Hauknes &#169;
 	</div>
 </body>

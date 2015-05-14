@@ -45,7 +45,9 @@
 			{/if}
 			<a href="changepassword.php?showChangePassword='true'">Change Password</a><br>
 			<a href="editprofile.php?editprofile='true'">Change User Pic</a><br>
+			{if $activeUser->getUsertype() == 1}
 			<a href="createpost.php?createpost='true'">Write New Post</a><br>
+			{/if}
 			<a href="logout.php">Log out</a><br>
 			
 		{/if}

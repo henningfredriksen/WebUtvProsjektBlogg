@@ -12,7 +12,7 @@ $data = $result->fetch();
 $hash = $data['hash'];
 
 if($id == $hash) {
-	$query = "UPDATE users SET email_confirmed = true WHERE email= '" . $email . "'";
+	$query = "UPDATE users SET email_confirmed = 1 WHERE email= '" . $email . "'";
 	$dbaccess->run_query($query);
 	header("Location: index.php");
 }else {

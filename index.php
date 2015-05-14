@@ -43,9 +43,12 @@ if (isset($_GET['year'], $_GET['month']))
 $smarty->assign('allPosts', $allPosts); // assigns array to smarty
 
 // generates the array of years/months archive.tpl uses
+if (count($allPosts))
+{
 $archive = new Archive();
 $yearMonthArray = $archive->generateYearMonthArray();
 $smarty->assign('yearMonthArray', $yearMonthArray);
+}
 
 // gets a list of all hits in database, in the form of an array of PostHit objects
 $posthit = new PostHit();

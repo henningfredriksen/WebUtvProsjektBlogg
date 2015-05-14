@@ -35,8 +35,8 @@ if (isset($_GET['editprofile']))
 if ($_FILES['profilepic']['name'])
 {	
 	$MAX_FILESIZE = 1000000;
-	$MAX_WIDTH = 100;
-	$MAX_HEIGHT = 100;
+	$MAX_WIDTH = 150;
+	$MAX_HEIGHT = 150;
 	
 	$filename = $_FILES['profilepic']['name'];
 	$filemimetype = $_FILES['profilepic']['type'];
