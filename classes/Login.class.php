@@ -1,5 +1,7 @@
 <?php
 
+//Class that contains info about the active user
+
 class Login {
 	private $username;
 	private $ipAddress;

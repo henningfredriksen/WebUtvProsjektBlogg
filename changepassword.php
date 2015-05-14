@@ -1,6 +1,7 @@
 <?php
 require_once 'config.php';
 
+//checks that the user is logged in properly before allowing access to this file
 if(isset($_SESSION['login'])) {
 	$login = $_SESSION['login'];
 	if($login->getIpAddress() != $_SERVER["REMOTE_ADDR"]) {
@@ -11,6 +12,7 @@ if(isset($_SESSION['login'])) {
 	}
 }
 
+//if this file is accessed from the change password link, the showChangePassword session variable is set to true
 if (isset($_GET['showChangePassword']))
 {
 	$_SESSION['showChangePassword'] = true;
@@ -20,6 +22,8 @@ if (isset($_GET['showChangePassword']))
 $dbaccess = new DBAccess();
 $user = new User();
 
+//if the user is reseting the password from a link, the resetingemail variable is set in validatelink.php
+//
 if(isset($_SESSION['resetingemail']))
 {
 	$query = "SELECT username FROM users WHERE email = ?";

@@ -1,6 +1,7 @@
 <?php
 require_once 'config.php';
 
+//checks that the user is logged in properly before allowing access to this file
 if(isset($_SESSION['login'])) {
 	$login = $_SESSION['login'];
 	if($login->getIpAddress() != $_SERVER["REMOTE_ADDR"]) {

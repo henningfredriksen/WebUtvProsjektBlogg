@@ -132,7 +132,8 @@ class User {
 		$this->dbaccess->prepared_insert_query($query, $params, $paramNames);
 	}
 	
-	
+	//compares input login info with login info in the database
+	//also checks if the users email adress is confirmed and if not, login is denied
 	public function checkLoginInfo($inputUsername, $inputPassword) {
 		$hashedpassword = $this->getHash($inputPassword, $inputUsername);
 		
@@ -164,6 +165,7 @@ class User {
 		} 
 	}
 	
+	//checks if the user-objects email adress excists in the database
 	public function checkIfEmailExcists() {
 		$query = "SELECT email FROM users WHERE email= ?";
 		$params[0] = $this->email;
@@ -177,6 +179,7 @@ class User {
 		}
 	}
 	
+	//uses the input password, username and salt to generate a hash that can be compared to the passwordhash in the database
 	public function getHash($password, $username) {
 		$saltquery = "SELECT salt FROM users WHERE username = '" . $username . "'";
 		$result = $this->dbaccess->run_query($saltquery);
@@ -188,6 +191,7 @@ class User {
 		return $password;
 	}
 	
+	//generates a random salt and the associated password hash when a new user is registered
 	public function generateHash() {
 		$generatedsalt = substr(md5(uniqid(rand(), true)), 0, 32);
 		$this->password = md5($generatedsalt . $this->password);

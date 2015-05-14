@@ -7,6 +7,7 @@ class ValidateUserInput {
 		
 	}
 	
+	//validates input strings
 	public function validateInputString($input) {
 		$validatedinput = strip_tags($input);
 		$validatedinput = trim($validatedinput);
