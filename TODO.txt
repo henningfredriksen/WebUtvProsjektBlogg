@@ -4,7 +4,6 @@ TO DO LISTE
 ------------alternative/valgfrie stylesheets (utseendede) + en plass å velge dem fra
 ------------multiple attachments (optional)
 
-brukernavn må være unikt i registrer bruker
 sjekk om epostadresse finnes i db før vi sender forgottenpassword mail
 egen error for hvis en bruker prøver å logge seg inn med ubekreftet email?
 

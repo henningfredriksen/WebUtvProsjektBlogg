@@ -150,6 +150,13 @@ if(isset($_SESSION['wrongusernameorpassword']))
 	unset($_SESSION['wrongusernameorpassword']);
 }
 
+if(isset($_SESSION['emailnotconfirmed']))
+{
+	$msg = "Cannot log in because your email adress has not been confirmed";
+	echo '<script type="text/javascript">alert("' . $msg . '");</script>';
+	unset($_SESSION['emailnotconfirmed']);
+}
+
 if(isset($_SESSION['useremailalreadyexists']))
 {
 	$msg = "A user with the supplied email address already exists.";

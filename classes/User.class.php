@@ -142,14 +142,40 @@ class User {
 		$params[1] = $hashedpassword;
 		
 		$result = $this->dbaccess->run_prepared_query($query, $params);
-		$username = $result->fetch();		
+		$username = $result->fetch();
+
+		$cquery = "SELECT email_confirmed FROM users WHERE username = ?";
+		
+		$cparams[0] = $inputUsername;
+		
+		$cresult = $this->dbaccess->run_prepared_query($cquery, $cparams);
+		$confirmed = $cresult->fetch();
 	
 		if(isset($username['username'])) {
-			$login = new Login($username['username'], $_SERVER["REMOTE_ADDR"], $_SERVER['HTTP_USER_AGENT']);
-			return $login;
+			if($confirmed['email_confirmed'] == 1) {
+				$login = new Login($username['username'], $_SERVER["REMOTE_ADDR"], $_SERVER['HTTP_USER_AGENT']);
+				return $login;
+			} else {
+				$_SESSION['emailnotconfirmed'] = true;
+				return false;
+			}			
 		}else {
+			$_SESSION["wrongusernameorpassword"] = true;
 			return false;
 		} 
+	}
+	
+	public function checkIfEmailExcists() {
+		$query = "SELECT email FROM users WHERE email= ?";
+		$params[0] = $this->email;
+		$result = $this->dbaccess->run_prepared_query($query, $params);
+		$result = $result->fetch();
+		
+		if(isset($result['email'])) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public function getHash($password, $username) {

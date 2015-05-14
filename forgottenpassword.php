@@ -11,8 +11,11 @@ if (isset($_POST['email']))
 {
 	$email = $_POST['email'];
 	
+	
 	$user = new User();
-	if($user->checkIfEmailExists($mail))
+	$user->setEmail($email);
+	
+	if($user->checkIfEmailExcists())
 	{
 		$emailsender = new SendEmail();
 		

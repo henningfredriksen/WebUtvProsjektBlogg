@@ -13,11 +13,10 @@ $login = $user->checkLoginInfo($inputUsername, $inputPassword);
 
 if(isset($login))
 {
-	$_SESSION['login'] = $login;	
-} 
-else
-{
-	$_SESSION["wrongusernameorpassword"] = true;	
+	if($login) {
+		$_SESSION['login'] = $login;
+	}
+		
 }
 
 header("Location: index.php");
