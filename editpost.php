@@ -12,6 +12,7 @@ if(isset($_SESSION['login'])) {
 	}
 }
 
+//if the file is accessed from the editpost link, editpostid is set, so that editpost.tpl will be loaded in index.tpl
 if (isset($_GET['postid'])) {
 	$postid = $_GET['postid'];
 	$_SESSION['editpostid'] = $postid;
@@ -31,6 +32,8 @@ if (isset($_POST["title"], $_POST["content"]))
 	$keywords = $_POST["keywords"];
 	$keywords = $inputvalidator->validateInputString($keywords);
 	$postid = $_POST["postid"];
+	
+	//if the delete attachment checkbox is checked, the excisting attachment is deleted
 	if(isset($_POST["deleteattachment"])) {
 		$attachment = new Attachment();
 		$attachments = $attachment->getAllAttachments();
@@ -46,6 +49,7 @@ if (isset($_POST["title"], $_POST["content"]))
 		
 	}
 
+	//updates the selected post
 	$post = new Post();
 	$post->setId($postid);
 	$post->setTitle($title);
@@ -58,6 +62,8 @@ if (isset($_POST["title"], $_POST["content"]))
 	// if uploaded file exists
 	if ($_FILES['userfile']['name'])
 	{
+		
+		//deletes excisting attachment, before saving the new one
 		$attachment = new Attachment();
 		$attachments = $attachment->getAllAttachments();
 		if (!empty($attachments))

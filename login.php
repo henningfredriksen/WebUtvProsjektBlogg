@@ -11,6 +11,7 @@ $inputPassword = strip_tags($inputPassword);
 
 $login = $user->checkLoginInfo($inputUsername, $inputPassword);
 
+//if checkLoginInfo did not return false, the login-object is saved in a session
 if(isset($login))
 {
 	if($login) {

@@ -13,6 +13,7 @@ if (isset($_GET['showRegisterUser']))
 	header("Location: index.php");
 }
 
+//saves the new user in the database and sends out an email to confirm
 if(isset($_POST["personname"], $_POST["username"], $_POST["email"], $_POST["password"], $_POST["rpassword"]))
 {
 	$name = $_POST["personname"];
