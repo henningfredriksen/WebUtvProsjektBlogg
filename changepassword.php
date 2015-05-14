@@ -29,7 +29,7 @@ if(isset($_SESSION['resetingemail']))
 	$query = "SELECT username FROM users WHERE email = ?";
 	$params[0] = $_SESSION['resetingemail'];	
 	$result = $dbaccess->run_prepared_query($query, $params);
-//	$result = $result->fetch();
+	$result = $result->fetch();
 	$activeusername = $result['username'];
 	
 	$newpassword = $_POST["newpassword"];
@@ -45,6 +45,7 @@ if(isset($_SESSION['resetingemail']))
 		$params[1] = $activeusername;
 			
 		$dbaccess->run_prepared_query($query, $params);
+		
 		header("Location: index.php");		
 	}
 	else
