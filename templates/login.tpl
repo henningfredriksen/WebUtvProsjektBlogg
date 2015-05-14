@@ -20,8 +20,8 @@
 		{else}		
 			<form id="login_id" name="login" action="login.php" method="post">
 			<table> 
-			<tr><td>Brukernavn:</td><td><input type="text" name="username"></td></tr> 
-			<tr><td>Passord:</td><td><input type="password" name="password"></td></tr> 
+			<tr><td>Brukernavn:</td><td><input type="text" name="username" class="inputfield"></td></tr> 
+			<tr><td>Passord:</td><td><input type="password" name="password" class="inputfield"></td></tr> 
 			<tr><td colspan="2"><input name="login_input" type="submit" value="Log in"></td></tr>
 			</table>
 			</form>
